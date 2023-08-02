@@ -17,7 +17,7 @@ function Navegador() {
       >
         <Container fluid>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand`} />
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/">
             <img
               src="/img/juegaFulboLogo.svg"
               width="250"
@@ -58,7 +58,7 @@ function Navegador() {
                   <NavDropdown.Item href="#action3">Canchas</NavDropdown.Item>
                   <NavDropdown.Item href="#action4">Quinchos</NavDropdown.Item>
                 </NavDropdown>
-                <Nav.Link className="mx-4" href="#action2">
+                <Nav.Link className="mx-4" href="/contacto">
                   Contacto
                 </Nav.Link>
               </Nav>
