@@ -1,0 +1,43 @@
+body {
+    background-color: #0f0f0f !important;
+}
+
+
+.color-letra {
+    color: #b6ff1b !important;
+}
+
+::placeholder {
+    color: #324700 !important;
+}
+
+
+.videoContacto {
+    width: 1000px;
+    height: 600px;
+    
+}
+
+.lta {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+}
+
+.formulariocss form {
+    vertical-align: middle;
+
+}
+
+.messibanner {
+    height: 40rem;
+    border: red 1px solid;
+}
+
+
+.messibanner img {
+    height: 100%;
+
+    
+}
