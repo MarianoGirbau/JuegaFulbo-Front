@@ -1,0 +1,96 @@
+:root {
+    --color-background: #0f0f0f;
+    --primary-letter: #b6ff1b;
+    --green-opacity: rgba(182, 255, 27, 0.7);
+    --secondary-letter: #324700;
+  }
+  
+  
+  
+  body {
+    background-color: var(--color-background);
+  }
+  
+  .subh3 {
+    padding: 0.5rem;
+    color: white;
+    background-color: var(--primary-letter);
+    background-color: var(--green-opacity);
+    font-family: 'Urbanist', sans-serif;
+    font-style: italic;
+    font-weight: 800;
+    font-size: 2rem;
+    position: fixed;
+    z-index: 1;
+  }
+  
+  .adaptarImg {
+    width: 100%;
+    filter: grayscale(1);
+    border-radius: 10px;
+    transition: 0.5s;
+  }
+  
+  .adaptarImg:hover {
+    width: 100%;
+    filter: grayscale(0);
+    border-radius: 10px;
+  }
+  
+  .cuadroCanchas {
+    background-image: url(/img/fuboLC.jpg);
+    background-position: center;
+    background-size: 100%;
+    background-color: var(--color-background);
+    height: 20rem;
+    width: 20rem;
+    border: 1px solid var(--primary-letter);
+    border-radius: 10px;
+    transition: 0.5s;
+  }
+  
+  .cuadroCanchas:hover {
+    background-size: 110%;
+  }
+  
+  .cuadroQuinchos {
+    background-image: url(/img/QuinchosC.jpg);
+    background-position: center;
+    background-size: 100%;
+    background-color: var(--color-background);
+    height: 20rem;
+    width: 20rem;
+    border: 1px solid var(--primary-letter);
+    border-radius: 10px;
+    transition: 0.5s;
+  }
+  
+  .cuadroQuinchos:hover {
+    background-size: 110%;
+  }
+  
+  .h3Title {
+    font-family: 'Urbanist', sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 2rem;
+    color: black;
+    background-color: var(--green-opacity);
+    padding: 0.5rem;
+  }
+  
+  .h3Title a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .h2Title {
+    color: var(--primary-letter);
+    font-family: 'Gruppo', sans-serif;
+    font-size: 4rem;
+  }
+  
+  .centrado {
+    place-items: center;
+    height: 100%;
+  }
