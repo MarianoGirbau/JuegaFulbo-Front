@@ -11,6 +11,23 @@
     background-color: var(--color-background);
   }
   
+  .webLengEfecto {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    background-image: url("/img/juegafulboSVG2.svg");
+    background-size: 2600px;
+    background-repeat: repeat-x;
+    background-position: 0; /* Iniciamos en la posición 0 */
+    animation: mover-fondo 30s linear infinite;
+  }
+  
+  @keyframes mover-fondo {
+    to {
+      background-position: -5200px; /* Movemos el fondo al 100% del ancho */
+    }
+  }
+  
   .subh3 {
     padding: 0.5rem;
     color: white;
