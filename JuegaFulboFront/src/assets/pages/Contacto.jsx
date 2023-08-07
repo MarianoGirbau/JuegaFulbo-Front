@@ -16,6 +16,7 @@ const Contacto = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -57,7 +58,7 @@ const Contacto = () => {
             loop
             autoPlay
             className="videoContacto"
-            src="src\video\VideoPateandoP.mp4"
+            src="src\imagenes\VideoPateandoP.mp4"
             type="video/mp4"
           ></video>
         </figure>
@@ -119,7 +120,7 @@ const Contacto = () => {
         </div>
 
         <figure className="messibanner d-none d-lg-block">
-          <img src="src\video\messiHumoo.gif" alt="messi" />
+          <img src="src\imagenes\messiHumoo.gif" alt="messi" />
         </figure>
       </div>
     </>

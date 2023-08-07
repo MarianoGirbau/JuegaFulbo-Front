@@ -1,13 +1,14 @@
 
 import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Contacto from './assets/pages/Contacto';
 
 function App() {
   
 
   return (
     <>
-  <h1>Contacto</h1>
+  < Contacto />
     </>
   )
 }
