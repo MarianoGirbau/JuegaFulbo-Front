@@ -1,9 +1,10 @@
 import "./Login.css";
 import { useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import juegaFulboLogo from "../imagenes/juegaFulboLogo.svg";
 
-export function Login() {
+export function Login() { 
   const [usuario, setUsuario] = useState("");
   const [contraseña, setContraseña] = useState("");
   const [error, setError] = useState(false);
@@ -72,7 +73,7 @@ export function Login() {
               cursor: "pointer",
             }}
           >
-            {showPassword ? <FaEyeSlash /> : <FaEye />}
+            {showPassword ? <FontAwesomeIcon icon={faEyeSlash} /> : <FontAwesomeIcon icon={faEye} />}
           </button>
         </div>
 
