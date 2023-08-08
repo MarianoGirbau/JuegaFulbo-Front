@@ -1,6 +1,5 @@
-
-import './App.css'
 import RegistroForm from './componentes/RegistroForm'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
  
