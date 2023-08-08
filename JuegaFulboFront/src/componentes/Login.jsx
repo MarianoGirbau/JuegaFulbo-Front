@@ -1,4 +1,4 @@
-import './Login.css';
+import "./Login.css";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import juegaFulboLogo from "../imagenes/juegaFulboLogo.svg";
@@ -57,6 +57,7 @@ export function Login() {
             title="La contraseña debe tener al menos 8 caracteres."
             required
           />
+
           <button
             type="button"
             onClick={toggleShowPassword}
@@ -91,5 +92,4 @@ export function Login() {
   );
 }
 
-export default Login
-
+export default Login;
