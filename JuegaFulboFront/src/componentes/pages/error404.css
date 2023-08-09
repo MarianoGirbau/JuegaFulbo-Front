@@ -1,4 +1,85 @@
-.bgFut {
+:root {
+    --color-background: #0f0f0f;
+    --primary-letter: #b6ff1b;
+    --green-opacity: rgba(182, 255, 27, 0.7);
+    --secondary-letter: #324700;
+  }
+
+body {
     background-image: url(/public/img/BGerror404.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
+}
+
+main {
+    margin: 0;
+    place-items: center;
+    min-height: 100vh;
+}
+
+button {
+    color: var(--primary-letter);
+    border: 2px solid var(--primary-letter);
+    border-radius: 2rem;
+    background-color: var(--color-background);
+    font-family: 'Urbanist', sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.relativo {
+    position: relative;
+}
+
+.absoluto {
+    position: absolute;
+    top: -400px;
+    right: 100px;
+    z-index: 1;
+}
+
+.h1Large {
+    color: var(--primary-letter);
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 9rem;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 3px;
+    margin-bottom: 0;
+    line-height: 1;
+}
+
+.h1Small {
+    color: var(--primary-letter);
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 6rem;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 3px;
+    margin-bottom: 0;
+    line-height: 1;
+}
+
+.contPrincipal p {
+    color: var(--primary-letter);
+    font-family: 'Gruppo', sans-serif;
+    font-size: 1.6rem;
+    position: relative;
+}
+
+.bgFut {
+    align-items: center;
+}
+
+.contPrincipal {
+    border: 1px solid var(--primary-letter);
+    border-radius: 3rem;
+    padding: 3rem;
+}
+
+.contPrincipal img {
+    height: 50rem;
 }
