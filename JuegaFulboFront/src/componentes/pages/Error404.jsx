@@ -6,8 +6,11 @@ function Error404() {
       <main className="container-fluid bgFut d-flex">
         <section className="container contPrincipal d-flex justify-content-center align-items-center">
           <section className="col d-flex d-none d-lg-block">
-            <div className="relativo">
-            <img src="/img/FDsombra.png" alt="" className="absoluto" />
+            <div className="relativo imgDorso">
+            <img src="/img/DorsoSom.png" alt="" className="absolutoDorso subeBajaDorso" />
+            </div>
+            <div className="relativo imgFrente">
+            <img src="/img/FrenteSom.png" alt="" className="absolutoFrente subeBajaFrente" />
             </div>
           </section>
           <section className="col d-flex flex-column justify-content-center text-center">

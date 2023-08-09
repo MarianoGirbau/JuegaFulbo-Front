@@ -6,9 +6,10 @@
   }
 
 body {
-    background-image: url(/public/img/BGerror404.jpg);
+    background-image: url(/img/BGerror404.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: var(--color-background);
 }
 
 main {
@@ -26,6 +27,12 @@ button {
     font-style: italic;
     font-weight: bold;
     font-size: 25px;
+    transition: 0.7s;
+}
+
+button:hover{
+    background-color: var(--primary-letter);
+    color: var(--color-background);
 }
 
 .relativo {
@@ -37,6 +44,28 @@ button {
     top: -400px;
     right: 100px;
     z-index: 1;
+}
+
+.absolutoDorso {
+    position: absolute;
+    top: -370px;
+    right: 370px;
+    z-index: 1;
+}
+
+.absolutoFrente {
+    position: absolute;
+    top: -360px;
+    right: 100px;
+    z-index: 1;
+}
+
+.imgDorso img {
+    height: 33rem;
+}
+
+.imgFrente img {
+    height: 46rem;
 }
 
 .h1Large {
@@ -80,6 +109,42 @@ button {
     padding: 3rem;
 }
 
-.contPrincipal img {
+/* .contPrincipal img {
     height: 50rem;
-}
+} */
+
+.subeBajaFrente {
+    animation: arribaAbajoFrente 5s ease-in-out infinite;
+  }
+  
+  @keyframes arribaAbajoFrente {
+    0% {
+      transform: translateY(0%);
+    }
+  
+    50% {
+      transform: translateY(3%);
+    }
+  
+    100% {
+      transform: translateY(0%);
+    }
+  }
+
+  .subeBajaDorso {
+    animation: arribaAbajoDorso 5s ease-in-out infinite;
+  }
+  
+  @keyframes arribaAbajoDorso {
+    0% {
+      transform: translateY(0%);
+    }
+  
+    50% {
+      transform: translateY(-3%);
+    }
+  
+    100% {
+      transform: translateY(0%);
+    }
+  }
