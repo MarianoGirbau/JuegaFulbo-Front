@@ -1,11 +1,13 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import PaginaInicial from "./componentes/pages/inicio";
+/* import PaginaInicial from "./componentes/pages/inicio"; */
+import Error404 from "./componentes/pages/Error404";
 
 function App() {
 
   return (
     <>
-      <PaginaInicial />
+      <Error404 />
+      {/* <PaginaInicial /> */}
     </>
   )
 }
