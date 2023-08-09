@@ -1,9 +1,10 @@
-import Login from "./componentes/Login"
+
+import ModalLogin from "./componentes/ModalLogin"
 
 function App() {
   return (
     <>
-      <Login/>
+      <ModalLogin/>
     </>
   )
 }
