@@ -4,9 +4,14 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import React, { useState } from 'react';
+import ModalLogin from "./ModalLogin";
 import "./Nav.css";
 
 function Navegador() {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
   return (
     <>
       <Navbar
@@ -64,7 +69,7 @@ function Navegador() {
               </Nav>
               <hr />
               <div className="d-flex justify-content-center">
-                <Button className="botonesNav me-4" variant="dark">
+                <Button className="botonesNav me-4" variant="dark" onClick={handleShow}>
                   Ingresar
                 </Button>
                 <Button className="botonesNav " variant="dark">
@@ -75,6 +80,8 @@ function Navegador() {
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
+
+      <ModalLogin show={show} handleClose={handleClose}/>
     </>
   );
 }

@@ -3,9 +3,9 @@ import { useState } from "react";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import juegaFulboLogo from "../imagenes/juegaFulboLogo.svg";
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
-export function ModalLogin(show, handleClose) {
+export function ModalLogin({show, handleClose}) {
   const [usuario, setUsuario] = useState("");
   const [contraseña, setContraseña] = useState("");
   const [error, setError] = useState(false);
@@ -103,9 +103,9 @@ export function ModalLogin(show, handleClose) {
           </section>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          {/* <Button variant="secondary" onClick={handleClose}>
             Close
-          </Button>
+          </Button> */}
         </Modal.Footer>
       </Modal>
     </>
