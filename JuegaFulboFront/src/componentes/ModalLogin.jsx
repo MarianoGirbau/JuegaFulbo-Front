@@ -2,7 +2,7 @@ import "./Login.css";
 import { useState } from "react";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import juegaFulboLogo from "../imagenes/juegaFulboLogo.svg";
+import juegaFulboLogo from "../../public/img/juegaFulboLogo.svg";
 import { Modal } from "react-bootstrap";
 
 export function ModalLogin({show, handleClose}) {

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./RegistroForm.css";
-import fulboRegistro from "../imagenes/fulboRegistro.jpg";
+import fulboRegistro from "../../../../public/img/fulboRegistro.jpg";
 import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";

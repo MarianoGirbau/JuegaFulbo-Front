@@ -72,7 +72,7 @@ function Navegador() {
                 <Button className="botonesNav me-4" variant="dark" onClick={handleShow}>
                   Ingresar
                 </Button>
-                <Button className="botonesNav " variant="dark">
+                <Button className="botonesNav " variant="dark" href="/registro">
                   Registrarse
                 </Button>
               </div>
