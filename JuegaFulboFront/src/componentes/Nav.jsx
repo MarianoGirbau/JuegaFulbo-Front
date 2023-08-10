@@ -32,8 +32,8 @@ function Navegador() {
             />
           </Navbar.Brand>
           <div className="textoNav d-none d-xl-block">
-            <p className="p-0 mb-0 ms-2">Descubre la Emoción de jugar </p>
-            <p className="p-0 mb-0 ms-2">en nuestras canchas</p>
+            <p className="p-0 mb-0 ms-2">Descubre la <span className="letraColor">Emoción</span>  de jugar </p>
+            <p className="p-0 mb-0 ms-2">en nuestras <span className="letraColor">canchas.</span></p>
           </div>
           <Navbar.Offcanvas
             id={`offcanvasNavbar-expand`}

@@ -26,11 +26,10 @@ export function ModalLogin({show, handleClose}) {
 
   return (
     <>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Login</Modal.Title>
+      <Modal show={show} onHide={handleClose} className="modalFondo">
+        <Modal.Body closeButton>
+        <Modal.Header closeButton >
         </Modal.Header>
-        <Modal.Body>
           <section className="container-login">
             <div className="imagen-container">
               <img src={juegaFulboLogo} alt="Mi Imagen SVG" />
@@ -102,11 +101,6 @@ export function ModalLogin({show, handleClose}) {
             {error && <p>Todos los campos son obligatorios</p>}
           </section>
         </Modal.Body>
-        <Modal.Footer>
-          {/* <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button> */}
-        </Modal.Footer>
       </Modal>
     </>
   );
