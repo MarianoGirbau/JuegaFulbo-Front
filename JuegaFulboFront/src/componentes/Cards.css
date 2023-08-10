@@ -2,10 +2,10 @@ body{
     background-color: black;
 }
 
-.svg{
+svg{
     width: 1rem !important;
     height: 1rem !important;
-    background-color: #b6ff1b !important;
+    fill: #b6ff1b !important;
 }
 
 .card{
