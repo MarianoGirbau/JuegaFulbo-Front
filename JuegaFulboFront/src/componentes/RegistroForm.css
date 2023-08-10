@@ -1,0 +1,79 @@
+body {
+  background-image: url("../imagenes/fondoRegistro.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  height: auto;
+  margin: 0;
+}
+
+#container-registro {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32em;
+  width: 51em;
+  border-radius: 4em;
+  border: 3px solid #324700;
+  margin-top: 5em;
+}
+
+.imgRegistro {
+  height: 32em;
+  width: auto;
+  border-radius: 4em;
+}
+
+#form-registro {
+  width: 20em;
+  padding: auto;
+}
+
+#nombre,
+#apellido,
+#email,
+#password,
+#confirmPassword {
+  color: #b6ff1b;
+  background-color: #0f0f0f;
+  border-radius: 3em;
+  width: 24em;
+  height: 2, 5em;
+  border: 1px solid #b6ff1b;
+  outline: none;
+  padding: 0.5em 1em;
+}
+
+#botonLog {
+  color: #324700;
+  background-color: #0f0f0f;
+  border-radius: 1em;
+  width: 24em;
+  height: 4em;
+  border: 1px solid #b6ff1b;
+  outline: none;
+  margin-top: 1em;
+}
+
+::placeholder {
+  font-family: "Urbanist", sans-serif;
+  color: #5a7f02 !important;
+}
+
+.titulo_registro {
+  font-family: "Gruppo", sans-serif;
+  color: #b6ff1b;
+  margin-top: 4%;
+}
+
+.subtitulos_registro {
+  font-family: "Urbanist", sans-serif;
+  color: #5a7f02;
+}
+
+#botonLog {
+  color: #324700;
+  font-family: "Gruppo", sans-serif;
+}
