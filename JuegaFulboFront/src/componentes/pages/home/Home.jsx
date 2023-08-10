@@ -1,4 +1,5 @@
-import Navegador from "../../Nav.jsx";
+import "./Home.css";
+
 const Home = () => {
     return (
       <>

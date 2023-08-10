@@ -2,7 +2,7 @@ import "./Login.css";
 import { useState } from "react";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import juegaFulboLogo from "../../public/img/juegaFulboLogo.svg";
+import juegaFulboLogo from "/img/juegaFulboLogo.svg";
 import { Modal } from "react-bootstrap";
 
 export function ModalLogin({show, handleClose}) {
@@ -27,7 +27,7 @@ export function ModalLogin({show, handleClose}) {
   return (
     <>
       <Modal show={show} onHide={handleClose} className="modalFondo">
-        <Modal.Body closeButton>
+        <Modal.Body>
         <Modal.Header closeButton >
         </Modal.Header>
           <section className="container-login">
