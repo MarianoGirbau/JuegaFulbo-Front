@@ -14,10 +14,11 @@ function Error404() {
             </div>
           </section>
           <section className="col d-flex flex-column justify-content-center text-center">
-            <h1 className="d-none d-xl-block h1xl">ERROR 404</h1>
-            <h1 className="d-xl-none d-lg-block h1Small">ERROR 404</h1>
+            <h1 className="d-none d-lg-block h1Large">ERROR 404</h1>
+            <h1 className="d-sm-block d-lg-none h1Small">ERROR 404</h1>
             <p className="p-4">
-            Estamos revisando el VAR para ver qué pasó con esta página. Mientras tanto, puedes volver al campo principal.
+              Lo sentimos, la página que estás buscando no se encuentra
+              disponible. Ponete la camiseta y volve a la cancha!
             </p>
             <button className="p-4">VOLVER AL INICIO</button>
           </section>
@@ -26,6 +27,5 @@ function Error404() {
     </>
   );
 }
-
 
 export default Error404;
