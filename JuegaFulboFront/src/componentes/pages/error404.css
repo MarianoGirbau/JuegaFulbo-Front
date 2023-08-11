@@ -11,7 +11,7 @@
 }
 
 body {
-  background-image: url(/img/BGerror4042.jpg);
+  background-image: url(/img/BGerror404-2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-color: black;
@@ -54,23 +54,23 @@ button:hover{
 .absolutoDorso {
   position: absolute;
   top: -300px;
-  right: 350px;
+  right: 300px;
   z-index: 1;
 }
 
 .absolutoFrente {
   position: absolute;
   top: -330px;
-  right: 100px;
+  right: 50px;
   z-index: 1;
 }
 
 .imgDorso img {
-  height: 26rem;
+  height: 24rem;
 }
 
 .imgFrente img {
-  height: 39rem;
+  height: 36rem;
 }
 
 .h1Large {
@@ -78,7 +78,7 @@ button:hover{
   font-family: 'Urbanist', sans-serif;
   font-weight: 900;
   font-style: italic;
-  font-size: 6rem;
+  font-size: 4.3rem;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 3px;
   margin-bottom: 0;
@@ -100,7 +100,7 @@ button:hover{
 .contPrincipal p {
   color: var(--primary-letter);
   font-family: 'Gruppo', sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   position: relative;
 }
 

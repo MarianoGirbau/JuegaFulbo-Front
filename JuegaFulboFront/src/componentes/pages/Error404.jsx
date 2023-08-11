@@ -20,7 +20,7 @@ function Error404() {
               Lo sentimos, la página que estás buscando no se encuentra
               disponible. Ponete la camiseta y volve a la cancha!
             </p>
-            <button className="p-4">VOLVER AL INICIO</button>
+            <button className="p-3">VOLVER AL INICIO</button>
           </section>
         </section>
       </main>
