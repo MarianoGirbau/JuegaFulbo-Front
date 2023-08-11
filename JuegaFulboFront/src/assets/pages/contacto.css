@@ -16,6 +16,7 @@ body {
 .lta {
   display: flex;
   justify-content: center;
+  margin-left: 6rem;
   margin-top: 1em;
   font-family: "Gruppo", sans-serif;
 }
