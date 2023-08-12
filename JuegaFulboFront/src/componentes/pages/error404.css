@@ -24,21 +24,26 @@ main {
 }
 
 button {
-  color: var(--primary-letter);
-  border: 2px solid var(--primary-letter);
-  border-radius: 2rem;
-  background-color: transparent;
-  font-family: 'Urbanist', sans-serif;
-  font-style: italic;
-  font-weight: bold;
-  font-size: 25px;
-  transition: 0.7s;
+  color: var(--primary-letter) !important;
+  border: 2px solid var(--primary-letter) !important;
+  border-radius: 5rem !important;
+  background-color: transparent !important;
+  font-family: 'Urbanist', sans-serif !important;
+  font-style: italic !important;
+  font-weight: bold !important;
+  font-size: 25px !important;
+  transition: 0.7s !important;
 }
 
 button:hover{
-  background-color: var(--primary-letter);
-  color: var(--color-background);
+  background-color: var(--primary-letter) !important;
+  color: var(--color-background)!important;
 }
+
+.custom-container {
+  max-width: 900px;
+}
+
 
 .relativo {
   position: relative;
@@ -54,14 +59,14 @@ button:hover{
 .absolutoDorso {
   position: absolute;
   top: -300px;
-  right: 300px;
+  right: 270px;
   z-index: 1;
 }
 
 .absolutoFrente {
   position: absolute;
   top: -330px;
-  right: 50px;
+  right: 30px;
   z-index: 1;
 }
 
@@ -78,11 +83,14 @@ button:hover{
   font-family: 'Urbanist', sans-serif;
   font-weight: 900;
   font-style: italic;
-  font-size: 4.3rem;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 3px;
   margin-bottom: 0;
   line-height: 1;
+}
+
+.tituloh1 h1 {
+  font-size: 400%;
 }
 
 .h1Small {
