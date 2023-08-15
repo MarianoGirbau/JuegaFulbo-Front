@@ -18,7 +18,7 @@ function Navegador() {
         bg="dark"
         data-bs-theme="dark"
         expand="lg"
-        className="navbar mb-3"
+        className="navbar"
       >
         <Container fluid>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand`} />

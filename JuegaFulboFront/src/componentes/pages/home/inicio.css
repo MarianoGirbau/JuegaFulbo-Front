@@ -20,7 +20,6 @@
     background-repeat: repeat-x;
     background-position: 0;
     animation: mover-fondo 30s linear infinite;
-    min-height: 62vh;
   }
   
   @keyframes mover-fondo {
@@ -112,5 +111,5 @@
   
   .centrado {
     place-items: center;
-    height: 100%;
+    flex: 1; /*Hace que ocupe el espacio restante, va con el codigo de App*/
   }
