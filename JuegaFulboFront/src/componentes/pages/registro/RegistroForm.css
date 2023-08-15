@@ -1,14 +1,51 @@
 body {
-  background-image: url("/img/fondoRegistro.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  height: auto;
-  margin: 0;
+  background-image: url("/img/fondoRegistro.jpg") !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  background-position: center !important;
+  height: auto !important;
+  margin: 0 !important;
+  color: #b6ff1b !important;
 }
 
-#container-registro {
+button {
+  color: #b6ff1b !important;
+  font-family: "Gruppo", sans-serif !important;
+  border: 1px solid #b6ff1b !important;
+  border-radius: 1rem !important;
+  font-weight: 500 !important;
+  transition: 0.7s !important;
+}
+
+button:hover {
+  background-color: #b6ff1b !important;
+  color: #0f0f0f !important;
+}
+
+h4 {
+  font-family: 'Urbanist', sans-serif;
+  font-weight: bold !important;
+}
+
+.logoFulbo img {
+  width: 15rem;
+}
+
+.volverAtras img  {
+  width: 1.2rem;
+}
+
+.borderCont {
+  border: 1.8px solid #b6ff1b;
+  border-radius: 3.5rem;
+}
+
+.custom-container {
+  max-width: 900px;
+}
+
+/* #container-registro {
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -18,20 +55,20 @@ body {
   border-radius: 4em;
   border: 3px solid #324700;
   margin-top: 5em;
-}
+} */
 
-.imgRegistro {
+/* .imgRegistro {
   height: 32em;
   width: auto;
   border-radius: 4em;
-}
+} */
 
-#form-registro {
+/* #form-registro {
   width: 20em;
   padding: auto;
-}
+} */
 
-#nombre,
+/* #nombre,
 #apellido,
 #email,
 #password,
@@ -44,28 +81,27 @@ body {
   border: 1px solid #b6ff1b;
   outline: none;
   padding: 0.5em 1em;
-}
+} */
 
-#botonLog {
+/* #botonLog {
   color: #324700;
   background-color: #0f0f0f;
   border-radius: 1em;
-  width: 24em;
-  height: 4em;
   border: 1px solid #b6ff1b;
   outline: none;
-  margin-top: 1em;
-}
+  padding: 2rem;
+} */
 
 ::placeholder {
   font-family: "Urbanist", sans-serif;
   color: #5a7f02 !important;
+  font-size: 0.9rem;
+  padding: 0 !important;
 }
 
 .titulo_registro {
   font-family: "Gruppo", sans-serif;
   color: #b6ff1b;
-  margin-top: 4%;
 }
 
 .subtitulos_registro {
@@ -73,7 +109,23 @@ body {
   color: #5a7f02;
 }
 
-#botonLog {
-  color: #324700;
+.contDer {
+  background-image: url(img/fulboRegistro.jpg);
+  background-size: cover;
+}
+
+.contIqz .custom-form-control {
+  border: 1px solid #b6ff1b;
+  border-radius: 1000px;
+  background-color: #0f0f0f;
+}
+
+.contIqz .custom-bg-dark {
+  background-color: transparent !important;
+  color: white;
+}
+
+.gruppoFont {
   font-family: "Gruppo", sans-serif;
+  padding-left: 20px;
 }
