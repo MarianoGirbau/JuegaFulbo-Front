@@ -1,14 +1,14 @@
 
 import './App.css'
 
-import Contacto from './assets/pages/Contacto';
+import Contacto from './componentes/pages/Contacto';
 
 function App() {
   
 
   return (
     <>
-  < Contacto />
+   <Contacto />
     </>
   )
 }

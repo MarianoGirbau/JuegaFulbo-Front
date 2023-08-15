@@ -1,0 +1,148 @@
+body {
+  background-color: black !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  background-position: center !important;
+  height: auto !important;
+  margin: 0 !important;
+  color: #b6ff1b !important;
+}
+
+.propForm {
+  font-family: "Urbanist", sans-serif;
+  font-weight: 700;
+}
+
+.bgContacto {
+  background-image: url("/img/bgContacto.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.custom-content {
+  max-width: 1100px;
+}
+
+.contIzq img {
+  width: 32rem;
+}
+
+button {
+  color: #b6ff1b !important;
+  background-color: #0f0f0f !important;
+  font-family: "Urbanist", sans-serif !important;
+  border: 1px solid #b6ff1b !important;
+  border-radius: 1rem !important;
+  font-weight: 500 !important;
+  transition: 0.7s !important;
+}
+
+button:hover {
+  background-color: #b6ff1b !important;
+  color: #0f0f0f !important;
+}
+
+.contDer .custom-form-control {
+  color: #b6ff1b !important;
+  border: 1px solid #b6ff1b;
+  border-radius: 1000px;
+  background-color: #0f0f0f;
+  height: 3rem;
+}
+
+.contDer .custom-form-control:focus {
+  background-color: #0f0f0f;
+  box-shadow: 0 0 5px #b6ff1b;
+  border-color: #b6ff1b;
+}
+
+.contDer .custom-form-textarea {
+  color: #b6ff1b !important;
+  border: 1px solid #b6ff1b;
+  border-radius: 0.7rem;
+  background-color: #0f0f0f;
+}
+
+.contDer .custom-form-textarea:focus {
+  background-color: #0f0f0f;
+  box-shadow: 0 0 5px #b6ff1b;
+  border-color: #b6ff1b;
+}
+
+.customButton-label {
+  font-size: 1.5rem;
+  font-family: "Gruppo", sans-serif;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* body {
+  background-color: #0f0f0f !important;
+}
+
+.color-letra {
+  font-family: "Gruppo", sans-serif;
+  color: #9cd61e !important;
+}
+
+.videoContacto {
+  margin-top: 3em;
+  width: 100%;
+  height: 100%;
+}
+
+.lta {
+  display: flex;
+  justify-content: center;
+  margin-left: 6rem;
+  margin-top: 1em;
+  font-family: "Gruppo", sans-serif;
+}
+
+.formulariocss form {
+  vertical-align: middle;
+}
+
+.messibanner {
+  width: auto;
+  height: 23rem;
+  border: #689109 1px solid;
+}
+
+.messibanner img {
+  height: 100%;
+}
+
+#input_contacto {
+  background-color: #0f0f0f !important;
+  border: 1px solid #324700;
+  color: #689109 !important;
+  width: 26em;
+}
+
+::placeholder {
+  font-family: "Urbanist", sans-serif;
+}
+
+.boton-contacto {
+  display: flex;
+  justify-content: center;
+  background-color: #0f0f0f;
+  font-family: "Gruppo", sans-serif;
+  height: 3em;
+  width: 26em;
+  border-radius: -1em;
+  border: 1px solid #324700;
+  padding: 2%;
+}
+ */
