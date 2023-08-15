@@ -9,6 +9,7 @@
   
   body {
     background-color: var(--color-background);
+    background-image: none !important;
   }
   
   .webLengEfecto {
@@ -64,6 +65,7 @@
     border: 1px solid var(--primary-letter);
     border-radius: 10px;
     transition: 0.5s;
+    text-decoration: none;
   }
   
   .cuadroCanchas:hover {
@@ -80,6 +82,7 @@
     border: 1px solid var(--primary-letter);
     border-radius: 10px;
     transition: 0.5s;
+    text-decoration: none;
   }
   
   .cuadroQuinchos:hover {
