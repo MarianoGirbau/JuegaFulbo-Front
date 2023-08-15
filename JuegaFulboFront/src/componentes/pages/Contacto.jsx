@@ -1,71 +1,9 @@
-/* import React, {  } from "react"; */
-import { Form, Button } from "react-bootstrap";
-import "./contacto.css";
-
-const Contacto = () => {
-  return (
-    <main>
-      <div className="container-fluid bgContacto">
-        <div className="container-fluid custom-content py-5">
-          <div className="row">
-            <div className="col contIzq d-none d-lg-block">
-              <img src="/img/CamCombo.png" alt="" />
-            </div>
-            <div className="col contDer">
-              <Form>
-                <Form.Group controlId="nombre">
-                  <Form.Label className="propForm">Nombre:</Form.Label>
-                  <Form.Control
-                    type="text"
-                    className="custom-form-control mb-4"
-                  />
-                </Form.Group>
-
-                <Form.Group controlId="email">
-                  <Form.Label className="propForm">Email:</Form.Label>
-                  <Form.Control
-                    type="email"
-                    className="custom-form-control mb-4"
-                  />
-                </Form.Group>
-
-                <Form.Group controlId="mensaje">
-                  <Form.Label className="propForm">Mensaje:</Form.Label>
-                  <Form.Control
-                    className="custom-form-textarea"
-                    as="textarea"
-                    rows={4}
-                  />
-                </Form.Group>
-
-                <Button
-                  variant="primary"
-                  type="submit"
-                  className="w-100 py-3 mt-4"
-                >
-                  <span className="customButton-label">ENVIAR</span>
-                </Button>
-              </Form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-  );
-};
-
-export default Contacto;
-
-
-
-
-
-/* import { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import Form from "react-bootstrap/Form";
 import Swal from "sweetalert2";
 import "./contacto.css";
-import { Container, Row, Col } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 const Contacto = () => {
   const refForm = useRef();
@@ -111,97 +49,89 @@ const Contacto = () => {
       .catch((error) => console.error(error));
   };
 
+
+
   return (
-    <>
-      <h1 className="color-letra lta">Contactanos</h1>
-      <Container className="container-fluid d-flex gap-5">
-        <Row>
-          <Col md={6} lg={6} className="d-none d-md-block">
-            <figure>
-              <video
-                muted
-                loop
-                autoPlay
-                className="videoContacto"
-                src="src\imagenes\VideoPateandoP.mp4"
-                type="video/mp4"
-              ></video>
-            </figure>
-          </Col>
-          <Col sm={12} md={6} lg={5} className="formulariocss">
-            <Form
-              className="container-fluid "
+    <main>
+      <div className="container-fluid bgContacto">
+        <div className="container-fluid custom-content py-5">
+          <div className="row">
+            <div className="col contIzq d-none d-lg-block">
+              <img src="/img/CamCombo.png" alt="" />
+            </div>
+            <div className="col contDer">
+              <Form  className="container-fluid "
               ref={refForm}
               action=""
               onSubmit={handleSubmit}
-              required
-            >
-              <Form.Group
-                className="mb-3"
-                controlId="exampleForm.ControlInput1"
-              >
-                <fieldset className="field-name">
-                  <Form.Label className="color-letra">
-                    Nombre:
-                  </Form.Label>
+              required>
+
+                <Form.Group controlid="nombre"
+                >
+                  <Form.Label className="propForm">Nombre:</Form.Label>
                   <Form.Control
+                    className="custom-form-control mb-4"
                     id="input_contacto"
                     type="text"
                     name="username"
+                    // controlid="exampleForm.ControlInput1"
                     value={formData.username}
                     onChange={handleInputChange}
                     required
                   />
-                </fieldset>
-              </Form.Group>
-              <Form.Group
-                className="mb-3"
-                controlId="exampleForm.ControlInput1"
-              >
-                <fieldset className="field-name">
-                  <Form.Label className="color-letra">Email:</Form.Label>
+                </Form.Group>
+
+                <Form.Group controlid="email"
+                >
+                  <Form.Label className="propForm">Email:</Form.Label>
                   <Form.Control
+                    className="custom-form-control mb-4"
                     id="input_contacto"
                     type="email"
                     name="email"
+                    // controlid="exampleForm.ControlInput1"
                     value={formData.email}
                     onChange={handleInputChange}
                     required
                   />
-                </fieldset>
-              </Form.Group>
-              <Form.Group
-                className="mb-3 input_contacto"
-                controlId="exampleForm.ControlTextarea1"
-              >
-                <fieldset className="field-name">
-                  <Form.Label className="color-letra">Mensaje:</Form.Label>
+                </Form.Group>
+
+                <Form.Group controlid="mensaje"
+                >
+                  <Form.Label className="propForm">Mensaje:</Form.Label>
                   <Form.Control
+                    className="custom-form-textarea"
                     id="input_contacto"
                     as="textarea"
+                    // controlid="exampleForm.ControlTextarea1"
                     rows={3}
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
                     required
+                    
                   />
-                </fieldset>
-              </Form.Group>
-              <button className="color-letra d-flex  boton-contacto">
-                Enviar
-              </button>
-            </Form>
-          </Col>
-          <Col lg={1} className="d-none d-lg-block">
-            <figure className="messibanner">
-              <img src="src\imagenes\messiHumoo.gif" alt="messi" />
-            </figure>
-          </Col>
-        </Row>
-      </Container>
-    </>
+                </Form.Group>
+
+                <Button
+                  variant="primary"
+                  type="submit"
+                  className="w-100 py-3 mt-4"
+                >
+                  <span className="customButton-label">ENVIAR</span>
+                </Button>
+              </Form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   );
 };
 
 export default Contacto;
- */
+
+
+
+
+
