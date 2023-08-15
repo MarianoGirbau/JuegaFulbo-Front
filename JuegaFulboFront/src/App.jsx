@@ -4,7 +4,6 @@ import Navegador from "./componentes/Nav";
 import Rutas from "./componentes/Rutas/Rutas";
 
 
-
 function App() {
 
   return (
@@ -12,6 +11,7 @@ function App() {
       <Navegador/>
       <Rutas/>
       {/* Aqui va el footer */}
+      
     </>
   )
 }
