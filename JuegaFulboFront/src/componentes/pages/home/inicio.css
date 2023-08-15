@@ -20,6 +20,7 @@
     background-repeat: repeat-x;
     background-position: 0;
     animation: mover-fondo 30s linear infinite;
+    min-height: 62vh;
   }
   
   @keyframes mover-fondo {

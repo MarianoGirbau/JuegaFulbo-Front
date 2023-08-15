@@ -6,19 +6,19 @@ export default function Footer() {
     <div>
         <hr className="horizontal-line" />
         <footer className="footer">
-        <div className="footer-column left-column">
+        <div className="d-flex flex-column">
             <a href="/">Inicio</a>
             <a href="/">Contacto</a>
             <a href="/">Reserva</a>
             <a href="/">Quienes Somos</a>
             </div>
-        <div className="footer-column center-column">
+        <div className="">
             <img src="../../public/img/juegaFulboLogo.svg" alt="Logo" style={{ width: '200px' }} />
         </div>
-        <div className="footer-column right-column">
-            <a href="/">@juegafulbo <img src="../../public/img/juegaFulboLogo.svg" alt="Logo" style={{ width: '40px' }} /></a>
-            <a href="/">/juegafulbo <img src="../../public/img/juegaFulboLogo.svg" alt="Logo" style={{ width: '40px' }} /></a>
-            <a href="/">juega.fulbo <img src="../../public/img/juegaFulboLogo.svg" alt="Logo" style={{ width: '40px' }} /></a>
+        <div className="d-flex flex-column justify-content-end text-end">
+            <a className="py-2" href="/">@juegafulbo <img src="../../public/img/juegaFulboLogo.svg" alt="Logo" style={{ width: '40px' }} /></a>
+            <a className="py-2" href="/">/juegafulbo <img src="../../public/img/juegaFulboLogo.svg" alt="Logo" style={{ width: '40px' }} /></a>
+            <a className="py-2" href="/">juega.fulbo <img src="../../public/img/juegaFulboLogo.svg" alt="Logo" style={{ width: '40px' }} /></a>
         </div>
         </footer>
         <hr className="horizontal-line" />
