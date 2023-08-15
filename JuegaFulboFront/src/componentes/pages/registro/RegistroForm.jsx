@@ -120,8 +120,27 @@ const RegistroForm = () => {
                 />
                 {errors.email && <span>{errors.email}</span>}
               </Form.Group>
+              
               <Form.Group className="mb-2">
                 <Form.Label className="gruppoFont">Contraseña</Form.Label>
+                <Form.Control
+                  type="password"
+                  id="password"
+                  className="custom-form-control custom-bg-dark"
+                  minLength={8}
+                  maxLength={30}
+                  placeholder="Ingrese su contraseña"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+                {errors.confirmPassword && (
+                  <span>{errors.confirmPassword}</span>
+                )}
+              </Form.Group>
+
+              <Form.Group className="mb-2">
+                <Form.Label className="gruppoFont"></Form.Label>
                 <Form.Control
                   type="password"
                   id="confirmPassword"

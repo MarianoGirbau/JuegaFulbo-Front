@@ -1,4 +1,3 @@
-import React from 'react'
 import './Footer.css';
 
 export default function Footer() {
@@ -13,12 +12,12 @@ export default function Footer() {
             <a href="/">Quienes Somos</a>
             </div>
         <div className="">
-            <img src="../../public/img/juegaFulboLogo.svg" alt="Logo" style={{ width: '200px' }} />
+            <img src="/img/juegaFulboLogo.svg" alt="Logo" style={{ width: '200px' }} />
         </div>
         <div className="d-flex flex-column justify-content-end text-end">
-            <a className="py-2" href="/">@juegafulbo <img src="../../public/img/juegaFulboLogo.svg" alt="Logo" style={{ width: '40px' }} /></a>
-            <a className="py-2" href="/">/juegafulbo <img src="../../public/img/juegaFulboLogo.svg" alt="Logo" style={{ width: '40px' }} /></a>
-            <a className="py-2" href="/">juega.fulbo <img src="../../public/img/juegaFulboLogo.svg" alt="Logo" style={{ width: '40px' }} /></a>
+            <a className="py-2" href="/">@juegafulbo <img src="/img/TwitterJF.svg" alt="Logo" style={{ width: '30px' }} /></a>
+            <a className="py-2" href="/">/juegafulbo <img src="/img/FacebookJF.svg" alt="Logo" style={{ width: '30px' }} /></a>
+            <a className="py-2" href="/">juega.fulbo <img src="/img/InstagramJF.svg" alt="Logo" style={{ width: '30px' }} /></a>
         </div>
         </footer>
         <hr className="horizontal-line" />
