@@ -58,102 +58,104 @@ const RegistroForm = () => {
 
   return (
     <>
-      <Container id="container-registro">
-        <Row>
-          <Col sm={12} md={12} lg={7}>
-            <Form id="form-registro" onSubmit={handleSubmit}>
-              <h5 className="titulo_registro">Formulario de registro</h5>
-              <Form.Group>
-                <Form.Label className="subtitulos_registro">Nombre</Form.Label>
-                <Form.Control
-                  type="text"
-                  id="nombre"
-                  value={nombre}
-                  minLength={8}
-                  maxLength={15}
-                  placeholder="Ingrese su nombre"
-                  onChange={(e) => setNombre(e.target.value)}
-                  required
-                />
-                {errors.nombre && <span>{errors.nombre}</span>}
-              </Form.Group>
+        <Container id="container-registro">
+          <Row>
+            <Col sm={12} md={12} lg={7}>
+              <Form id="form-registro" onSubmit={handleSubmit}>
+                <h5 className="titulo_registro">Formulario de registro</h5>
+                <Form.Group>
+                  <Form.Label className="subtitulos_registro">
+                    Nombre
+                  </Form.Label>
+                  <Form.Control
+                    type="text"
+                    id="nombre"
+                    value={nombre}
+                    minLength={8}
+                    maxLength={15}
+                    placeholder="Ingrese su nombre"
+                    onChange={(e) => setNombre(e.target.value)}
+                    required
+                  />
+                  {errors.nombre && <span>{errors.nombre}</span>}
+                </Form.Group>
 
-              <Form.Group className="">
-                <Form.Label className="subtitulos_registro">
-                  Apellido
-                </Form.Label>
-                <Form.Control
-                  type="text"
-                  id="apellido"
-                  minLength={8}
-                  maxLength={15}
-                  placeholder="Ingrese su apellido"
-                  value={apellido}
-                  onChange={(e) => setApellido(e.target.value)}
-                  required
-                />
-                {errors.apellido && <span>{errors.apellido}</span>}
-              </Form.Group>
-              <Form.Group>
-                <Form.Label className="subtitulos_registro">Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  id="email"
-                  value={email}
-                  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-                  minLength={10}
-                  maxLength={30}
-                  placeholder="Ingrese su email"
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-                {errors.email && <span>{errors.email}</span>}
-              </Form.Group>
-              <Form.Group>
-                <Form.Label className="subtitulos_registro">
-                  Contraseña
-                </Form.Label>
-                <Form.Control
-                  type="password"
-                  id="password"
-                  value={password}
-                  minLength={8}
-                  maxLength={30}
-                  placeholder="Ingrese su contraseña"
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-                {errors.password && <span>{errors.password}</span>}
-              </Form.Group>
-              <Form.Group>
-                <Form.Label className="subtitulos_registro">
-                  Confirmar contraseña
-                </Form.Label>
-                <Form.Control
-                  type="password"
-                  id="confirmPassword"
-                  minLength={8}
-                  maxLength={30}
-                  placeholder="Ingrese nuevamente su contraseña"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  required
-                />
-                {errors.confirmPassword && (
-                  <span>{errors.confirmPassword}</span>
-                )}
-              </Form.Group>
+                <Form.Group className="">
+                  <Form.Label className="subtitulos_registro">
+                    Apellido
+                  </Form.Label>
+                  <Form.Control
+                    type="text"
+                    id="apellido"
+                    minLength={8}
+                    maxLength={15}
+                    placeholder="Ingrese su apellido"
+                    value={apellido}
+                    onChange={(e) => setApellido(e.target.value)}
+                    required
+                  />
+                  {errors.apellido && <span>{errors.apellido}</span>}
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label className="subtitulos_registro">Email</Form.Label>
+                  <Form.Control
+                    type="email"
+                    id="email"
+                    value={email}
+                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                    minLength={10}
+                    maxLength={30}
+                    placeholder="Ingrese su email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                  {errors.email && <span>{errors.email}</span>}
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label className="subtitulos_registro">
+                    Contraseña
+                  </Form.Label>
+                  <Form.Control
+                    type="password"
+                    id="password"
+                    value={password}
+                    minLength={8}
+                    maxLength={30}
+                    placeholder="Ingrese su contraseña"
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                  {errors.password && <span>{errors.password}</span>}
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label className="subtitulos_registro">
+                    Confirmar contraseña
+                  </Form.Label>
+                  <Form.Control
+                    type="password"
+                    id="confirmPassword"
+                    minLength={8}
+                    maxLength={30}
+                    placeholder="Ingrese nuevamente su contraseña"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    required
+                  />
+                  {errors.confirmPassword && (
+                    <span>{errors.confirmPassword}</span>
+                  )}
+                </Form.Group>
 
-              <Button variant="black" id="botonLog" type="submit">
-                <h4>ENVIAR</h4>
-              </Button>
-            </Form>
-          </Col>
-          <Col lg={5}  className="d-none d-lg-block">
-            <img className="imgRegistro" src={fulboRegistro} alt="" />
-          </Col>
-        </Row>
-      </Container>
+                <Button variant="black" id="botonLog" type="submit">
+                  <h4>ENVIAR</h4>
+                </Button>
+              </Form>
+            </Col>
+            <Col lg={5} className="d-none d-lg-block">
+              <img className="imgRegistro" src={fulboRegistro} alt="" />
+            </Col>
+          </Row>
+        </Container>
     </>
   );
 };
