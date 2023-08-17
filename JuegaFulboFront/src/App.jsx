@@ -4,17 +4,22 @@ import "./App.css"
 import Navegador from "./componentes/Nav";
 import Rutas from "./componentes/Rutas/Rutas";
 import Footer from "./componentes/Footer";
+import UsuariosCont from "./context/UsuariosCont";
 
 function App() {
 
   return (
-    <>
+    
+    
     <div className="contenedorPrincipal">
+      <UsuariosCont>
       <Navegador/>
       <Rutas/>
       <Footer />
+      </UsuariosCont>
     </div>
-    </>
+    
+    
   )
 }
 
