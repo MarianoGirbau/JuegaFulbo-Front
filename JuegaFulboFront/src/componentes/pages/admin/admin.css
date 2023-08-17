@@ -1,0 +1,99 @@
+:root {
+    --color-background: #0f0f0f;
+    --primary-letter: #b6ff1b;
+    --green-opacity: rgba(182, 255, 27, 0.7);
+    --secondary-letter: #324700;
+}
+
+h3 {
+    font-family: 'Gruppo', sans-serif;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.custom-container {
+    max-width: 1200px;
+}
+
+.subtitulo h3 {
+    color: var(--primary-letter);
+}
+
+.btnAgregar {
+    color: var(--primary-letter);
+    border: 2px solid var(--primary-letter);
+    min-width: 150px;
+    max-width: 300px;
+    font-family: 'Gruppo', sans-serif; 
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 1rem;
+    transition: 1s;
+}
+
+.btnAgregar:hover {
+    background-color: var(--primary-letter);
+    color: var(--marronClaro);
+}
+
+hr {
+    border-color: var(--primary-letter);
+}
+
+table {
+    background-color: #324700 !important;
+}
+
+body {
+    background: var(--color-background);
+}
+
+.table tbody tr {
+    border-color: var(--primary-letter);
+    vertical-align: middle;
+}
+
+.table tbody td {
+    color: var(--primary-letter);
+    background-color: var(--color-background);
+    vertical-align: middle;
+}
+
+.table tbody th {
+    font-family: 'Urbanist', sans-serif;
+    color: var(--primary-letter);
+    background-color: var(--color-background);
+}
+
+.table thead tr {
+    height: 60px;
+    border-color: var(--primary-letter);
+    vertical-align: middle;
+}
+
+.table thead th {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: white;
+    background-color: var(--color-background);
+    vertical-align: middle;
+}
+
+.table thead th {
+    background-color: var(--color-background);
+}
+
+.editar {
+    background-image: url(/img/editar.svg);
+    width: 37px;
+    height: 37px;
+    border-color: var(--primary-letter);
+}
+
+.eliminar {
+    background-image: url(/img/delete.svg);
+    width: 37px;
+    height: 37px;
+    border-color: red;
+    margin-left: 10px;
+}
