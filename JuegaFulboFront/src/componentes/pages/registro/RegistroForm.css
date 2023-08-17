@@ -1,4 +1,4 @@
-body {
+.bg-pagina-principal body {
   background-image: url("/img/fondoRegistro.jpg") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
@@ -9,23 +9,28 @@ body {
   color: #b6ff1b !important;
 }
 
-button {
-  color: #b6ff1b !important;
-  font-family: "Gruppo", sans-serif !important;
-  border: 1px solid #b6ff1b !important;
-  border-radius: 1rem !important;
-  font-weight: 500 !important;
-  transition: 0.7s !important;
+.bg-pagina-principal {
+  color: #b6ff1b;
 }
 
-button:hover {
-  background-color: #b6ff1b !important;
-  color: #0f0f0f !important;
+.bordeBoton button {
+  color: #b6ff1b ;
+  font-family: "Gruppo", sans-serif;
+  border: 1px solid #b6ff1b;
+  border-radius: 1rem ;
+  font-weight: bold ;
+  transition: 0.7s ;
 }
 
-h4 {
-  font-family: 'Urbanist', sans-serif;
-  font-weight: bold !important;
+.bordeBoton button:hover {
+  background-color: #b6ff1b ;
+  color: #0f0f0f;
+}
+
+.titulo-form h4 {
+  color: #b6ff1b;
+  font-family: 'Gruppo', sans-serif;
+  font-weight: bold;
 }
 
 .logoFulbo img {
@@ -126,6 +131,7 @@ h4 {
 }
 
 .gruppoFont {
+  color: #b6ff1b;
   font-family: "Gruppo", sans-serif;
   padding-left: 20px;
 }

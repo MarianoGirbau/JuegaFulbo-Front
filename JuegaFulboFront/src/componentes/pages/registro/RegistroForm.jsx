@@ -51,6 +51,8 @@ const RegistroForm = () => {
 
   return (
     <>
+    <body className="bg-pagina-principal">
+      
       <main className="my-5 d-flex flex-column align-items-center justify-content-center mx-4">
         <div className="logoFulbo d-block d-md-none">
           <img src="/img/LogoJuegaFulbo.svg" alt="" className="pb-5" />
@@ -65,7 +67,7 @@ const RegistroForm = () => {
               <h5>Volver atrás</h5>
             </div>
             <hr />
-            <h4>Formulario de registro</h4>
+            <h4 className="titulo-form">Formulario de registro</h4>
 
             <Form id="form-registrooo" onSubmit={handleSubmit}>
               <Form.Group className="mb-2">
@@ -168,6 +170,8 @@ const RegistroForm = () => {
           ></Col>
         </Container>
       </main>
+
+      </body>
     </>
   );
 };
