@@ -1,12 +1,12 @@
-.bg-pagina-principal body {
-  background-image: url("/img/fondoRegistro.jpg") !important;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  background-attachment: fixed !important;
-  background-position: center !important;
-  height: auto !important;
-  margin: 0 !important;
-  color: #b6ff1b !important;
+.bg-pagina-principal {
+  background-image: url("/img/fondoRegistro.jpg");
+  background-size: cover ;
+  background-repeat: no-repeat ;
+  background-attachment: fixed ;
+  background-position: center ;
+  height: auto ;
+  margin: 0 ;
+  color: #b6ff1b;
 }
 
 .bg-pagina-principal {
