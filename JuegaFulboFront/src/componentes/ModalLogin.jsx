@@ -1,9 +1,11 @@
 import "./Login.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import juegaFulboLogo from "/img/juegaFulboLogo.svg";
 import { Modal } from "react-bootstrap";
+import { UsuariosContext } from "../context/UsuariosCont";
+
 
 export function ModalLogin({show, handleClose}) {
   const [usuario, setUsuario] = useState("");
@@ -11,8 +13,11 @@ export function ModalLogin({show, handleClose}) {
   const [error, setError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
+
+  const { login } = useContext(UsuariosContext);
   const handleSubmit = (e) => {
     e.preventDefault();
+    login(usuario, contraseña)
 
     if (usuario === "" || contraseña === "") {
       setError(true);

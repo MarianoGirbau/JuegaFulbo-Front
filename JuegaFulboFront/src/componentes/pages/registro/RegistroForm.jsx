@@ -140,7 +140,7 @@ const RegistroForm = () => {
               </Form.Group>
 
               <Form.Group className="mb-2">
-                <Form.Label className="gruppoFont"></Form.Label>
+                <Form.Label className="gruppoFont">Confirmar contraseña</Form.Label>
                 <Form.Control
                   type="password"
                   id="confirmPassword"
