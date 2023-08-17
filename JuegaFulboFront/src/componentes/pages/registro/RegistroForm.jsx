@@ -3,56 +3,50 @@ import "./RegistroForm.css";
 import { Col, Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const RegistroForm = () => {
-  const [nombre, setNombre] = useState("");
-  const [apellido, setApellido] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [errors, setErrors] = useState({});
+  const [, setDataUser] = useState({
+    nombre: "",
+    apellido: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    rol: "usuario",
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setDataUser((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const validationErrors = validateForm();
-    if (Object.keys(validationErrors).length === 0) {
-      console.log("Nombre:", nombre);
-      console.log("Apellido:", apellido);
-      console.log("Email:", email);
-      console.log("Contraseña:", password);
-      console.log("Confirmar Contraseña:", confirmPassword);
+    try {
+      const response = axios.post("http://localhost:8080/users", );
+      console.log(response);
+      setDataUser({
+        nombre: "",
+        apellido: "",
+        email: "",
+        password: "",
+        rol: "usuario",
+      });
+      Swal.fire({
+        icon: "success",
+        title: "Usuario registrado",
+        showConfirmButton: false,
+        timer: 5500,
+      });
 
-      setNombre("");
-      setApellido("");
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
-      setErrors({});
-    } else {
-      setErrors(validationErrors);
+      window.location.href = "/login";
+    } catch (error) {
+      console.log(error);
     }
-  };
-
-  const validateForm = () => {
-    const errors = {};
-    if (!nombre) {
-      errors.nombre = "El nombre es obligatorio";
-    }
-    if (!apellido) {
-      errors.apellido = "El apellido es obligatorio";
-    }
-    if (!email) {
-      errors.email = "El correo electrónico es obligatorio";
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      errors.email = "El correo electrónico no es válido";
-    }
-    if (!password) {
-      errors.password = "La contraseña es obligatoria";
-    }
-    if (password !== confirmPassword) {
-      errors.confirmPassword = "Las contraseñas no coinciden";
-    }
-    return errors;
   };
 
   return (
@@ -61,7 +55,10 @@ const RegistroForm = () => {
         <div className="logoFulbo d-block d-md-none">
           <img src="/img/LogoJuegaFulbo.svg" alt="" className="pb-5" />
         </div>
-        <Container fluid className="custom-container row borderCont overflow-hidden p-0">
+        <Container
+          fluid
+          className="custom-container row borderCont overflow-hidden p-0"
+        >
           <Col xs={12} md={7} className="contIqz pb-2 px-5 ">
             <div className="volverAtras d-flex gap-3 align-items-center pt-3">
               <img src="/img/flechaIzq.svg" alt="" />
@@ -77,14 +74,13 @@ const RegistroForm = () => {
                   type="text"
                   id="nombre"
                   className="custom-form-control custom-bg-dark"
-                  value={nombre}
+                  // value={dataUser.nombre}
+                  onChange={handleChange}
                   minLength={8}
                   maxLength={15}
                   placeholder="Ingrese su nombre"
-                  onChange={(e) => setNombre(e.target.value)}
                   required
                 />
-                {errors.nombre && <span>{errors.nombre}</span>}
               </Form.Group>
 
               <Form.Group className="mb-2">
@@ -96,11 +92,10 @@ const RegistroForm = () => {
                   minLength={8}
                   maxLength={15}
                   placeholder="Ingrese su apellido"
-                  value={apellido}
-                  onChange={(e) => setApellido(e.target.value)}
+                  // value={dataUser.apellido}
+                  onChange={handleChange}
                   required
                 />
-                {errors.apellido && <span>{errors.apellido}</span>}
               </Form.Group>
               <Form.Group className="mb-2">
                 <Form.Label className="gruppoFont">
@@ -110,17 +105,16 @@ const RegistroForm = () => {
                   type="email"
                   id="email"
                   className="custom-form-control custom-bg-dark"
-                  value={email}
+                  // value={dataUser.email}
                   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                   minLength={10}
                   maxLength={30}
                   placeholder="Ingrese su email"
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={handleChange}
                   required
                 />
-                {errors.email && <span>{errors.email}</span>}
               </Form.Group>
-              
+
               <Form.Group className="mb-2">
                 <Form.Label className="gruppoFont">Contraseña</Form.Label>
                 <Form.Control
@@ -130,17 +124,16 @@ const RegistroForm = () => {
                   minLength={8}
                   maxLength={30}
                   placeholder="Ingrese su contraseña"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  // value={dataUser.password}
+                  onChange={handleChange}
                   required
                 />
-                {errors.confirmPassword && (
-                  <span>{errors.confirmPassword}</span>
-                )}
               </Form.Group>
 
               <Form.Group className="mb-2">
-                <Form.Label className="gruppoFont">Confirmar contraseña</Form.Label>
+                <Form.Label className="gruppoFont">
+                  Confirmar contraseña
+                </Form.Label>
                 <Form.Control
                   type="password"
                   id="confirmPassword"
@@ -148,13 +141,10 @@ const RegistroForm = () => {
                   minLength={8}
                   maxLength={30}
                   placeholder="Ingrese nuevamente su contraseña"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  // value={dataUser.confirmPassword}
+                  onChange={handleChange}
                   required
                 />
-                {errors.confirmPassword && (
-                  <span>{errors.confirmPassword}</span>
-                )}
               </Form.Group>
 
               <div className="my-4 bordeBoton">
