@@ -36,7 +36,7 @@
 
 }
 
-::placeholder {
+.body-custom ::placeholder {
   color: #afee28;
   font-family: "Urbanist", sans-serif;
   text-align: center;

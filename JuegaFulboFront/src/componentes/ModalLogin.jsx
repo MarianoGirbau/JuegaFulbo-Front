@@ -40,7 +40,7 @@ export function ModalLogin({show, handleClose}) {
               <img src={juegaFulboLogo} alt="Mi Imagen SVG" />
             </div>
             <hr className="lineahorizontal" />
-            <form className="Formulario" onSubmit={handleSubmit}>
+            <form className="Formulario body-custom" onSubmit={handleSubmit}>
               <h1 className="titulogin1">Iniciar Sesión</h1>
               <div style={{ display: "flex" }}>
                 <input
@@ -76,7 +76,7 @@ export function ModalLogin({show, handleClose}) {
                   style={{
                     color: "#b6ff1b",
                     position: "absolute",
-                    top: "50%",
+                    top: "62%",
                     right: "10px",
                     transform: "translateY(-50%)",
                     border: "none",
