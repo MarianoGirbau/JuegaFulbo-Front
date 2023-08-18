@@ -12,7 +12,7 @@ const UsuariosCont = ({ children }) => {
   const getUsuario = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8081/api/user/usuarios"
+        "/usuarios"
       );
       console.log(response.data);
       setUsuario(response.data);
@@ -23,7 +23,7 @@ const UsuariosCont = ({ children }) => {
 
   const login = async (email, password) => {
     console.log(email, password, "login Context");
-    const response = await axios.post("http://localhost:8081/api/user/login", {
+    const response = await axios.post("/user/login", {
       email,
       password,
     });

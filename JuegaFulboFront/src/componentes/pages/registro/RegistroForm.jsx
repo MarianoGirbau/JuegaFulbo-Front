@@ -27,7 +27,7 @@ const RegistroForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      const response = axios.post("http://localhost:8080/users", );
+      const response = axios.post("/registro",);
       console.log(response);
       setDataUser({
         nombre: "",
