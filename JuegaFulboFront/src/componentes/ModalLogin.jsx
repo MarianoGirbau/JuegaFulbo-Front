@@ -6,18 +6,16 @@ import juegaFulboLogo from "/img/juegaFulboLogo.svg";
 import { Modal } from "react-bootstrap";
 import { UsuariosContext } from "../context/UsuariosCont";
 
-
-export function ModalLogin({show, handleClose}) {
+export function ModalLogin({ show, handleClose }) {
   const [usuario, setUsuario] = useState("");
   const [contraseña, setContraseña] = useState("");
   const [error, setError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-
   const { login } = useContext(UsuariosContext);
   const handleSubmit = (e) => {
     e.preventDefault();
-    login(usuario, contraseña)
+    login(usuario, contraseña);
 
     if (usuario === "" || contraseña === "") {
       setError(true);
@@ -33,8 +31,7 @@ export function ModalLogin({show, handleClose}) {
     <>
       <Modal show={show} onHide={handleClose} className="modalFondo">
         <Modal.Body>
-        <Modal.Header closeButton >
-        </Modal.Header>
+          <Modal.Header closeButton></Modal.Header>
           <section className="container-login">
             <div className="imagen-container">
               <img src={juegaFulboLogo} alt="Mi Imagen SVG" />
@@ -48,8 +45,8 @@ export function ModalLogin({show, handleClose}) {
                   type="email"
                   value={usuario}
                   onChange={(e) => setUsuario(e.target.value)}
-                  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-                  minLength={10}
+                  // pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                  // minLength={10}
                   maxLength={30}
                   placeholder="Correo electrónico"
                   title="Ingresa un correo electrónico válido."
