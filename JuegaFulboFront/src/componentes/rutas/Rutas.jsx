@@ -3,6 +3,7 @@ import Contacto from "../pages/Contacto/Contacto.jsx";
 import Inicio from "../pages/home/Inicio.jsx";
 import RegistroForm from "../pages/registro/RegistroForm.jsx";
 import Cards from "../Cards.jsx";
+import Admincomp from "../pages/administracion/Administracion.jsx";
 
 const Rutas = () => {
   return (
@@ -11,6 +12,7 @@ const Rutas = () => {
       <Route path="/contacto" element={<Contacto />} />
       <Route path="/registro" element={<RegistroForm />} />
       <Route path="/reservas" element={<Cards />} />
+      <Route path="/administracion" element={<Admincomp />} />
     </Routes>
   );
 };

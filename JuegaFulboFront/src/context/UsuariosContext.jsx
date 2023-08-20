@@ -6,7 +6,7 @@ export const UsuariosContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 const UsuariosProvider = ({ children }) => {
-  // const [usuario, setUsuario] = useState({});
+  const [usuarios, setUsuarios] = useState([]);
   const [usuarioLogueado, setUsuarioLogueado] = useState();
 
   const login = async (email, password) => {
@@ -66,14 +66,28 @@ const UsuariosProvider = ({ children }) => {
     console.log(usuarioLogueado);
   };
 
+  const getUsuarios = async () => {
+    try {
+      const { data } = await axios.get(
+        "http://localhost:4000/api/user/usuarios"
+      );
+      console.log(data);
+      setUsuarios(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     console.log("local", localStorage.getItem("usuario"));
-    setUsuarioLogueado(localStorage.getItem("usuario"));
+    setUsuarioLogueado(JSON.parse(localStorage.getItem("usuario")));
+    getUsuarios();
     console.log("usuarioLogueado (updated): ", usuarioLogueado);
-  }, [usuarioLogueado]);
+    // console.log("roll", usuarioLogueado.rol);
+  }, []);
   return (
     <UsuariosContext.Provider
-      value={{ usuarioLogueado, setUsuarioLogueado, login, logout }}
+      value={{ usuarioLogueado, setUsuarioLogueado, login, logout, usuarios }}
     >
       {children}
     </UsuariosContext.Provider>
@@ -84,16 +98,6 @@ export default UsuariosProvider;
 
 // const [users, setUsers] = useState();
 // const [userLogueado, setUserLogueado] = useState();
-
-// const getUsers = async () => {
-//   try {
-//     const response = await axios.get("http://localhost:8081/api/user/usuarios");
-//     console.log(response.data);
-//     setUsers(response.data);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
 
 // const login = async (email, password) => {
 //   console.log(email, password, "login Context");

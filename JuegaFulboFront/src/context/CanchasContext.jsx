@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export const CanchasContext = createContext();
 
@@ -18,11 +19,34 @@ const CanchasProvider = ({ children }) => {
     obtenerCanchas();
   }, []);
 
+  const eliminarCancha = async (id) => {
+    console.log(id, "deleteProducto");
+    const canchaAEliminar = canchas.find((cancha) => cancha.id === id);
+    const result = await Swal.fire({
+      icon: "question",
+      title: `¿Estás seguro de eliminar ${canchaAEliminar.numero}?`,
+      showCancelButton: true,
+      cancelButtonText: "No",
+      confirmButtonText: "Sí",
+    });
+
+    if (result.isConfirmed) {
+      try {
+        await axios.delete(`http://localhost:4000/api/canchas/${id}`);
+        const canchasFiltradas = canchas.filter((cancha) => cancha._id !== id);
+        setCanchas(canchasFiltradas);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
   return (
     <CanchasContext.Provider
       value={{
         canchas,
         setCanchas,
+        eliminarCancha,
       }}
     >
       {children}

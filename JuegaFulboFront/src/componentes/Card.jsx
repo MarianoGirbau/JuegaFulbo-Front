@@ -8,7 +8,7 @@ export default function Card({ capacidad, numero, precio }) {
         <section className="cards">
           <div className="img-bg">
             <img
-              src="/img/Cancha5.jpg"
+              src="/img/Cancha1.jpg"
               className="img-fluid cover-image"
               alt=""
             />

@@ -1,0 +1,108 @@
+import Tabla from "../../Tabla";
+import "./Administracion.css";
+import { CanchasContext } from "../../../context/CanchasContext";
+import { UsuariosContext } from "../../../context/UsuariosContext";
+
+import { useContext } from "react";
+
+const Admincomp = () => {
+  const { canchas } = useContext(CanchasContext);
+  const { usuarios } = useContext(UsuariosContext);
+
+  return (
+    <div className="container-fluid custom-container">
+      <div className="container d-flex justify-content-center">
+        <button type="button" className="btn btnAgregar btn-sm w-100 py-4 my-5">
+          Agregar{" "}
+        </button>
+      </div>
+
+      <div className="subtitulo">
+        <h3>TABLA DE CANCHAS</h3>
+        <hr className="mb-2" />
+      </div>
+      <Tabla
+        ths={[
+          "Código",
+          "Núm de Cancha",
+          "Capacidad",
+          "Precio",
+          "URL",
+
+          "Acciones",
+        ]}
+        trs={canchas.map((cancha) => [
+          cancha._id,
+          cancha.numero,
+          cancha.capacidad,
+          cancha.precio,
+          cancha.precio, // Is this correct? Shouldn't it be cancha.URL?
+        ])}
+      ></Tabla>
+
+      <div className="subtitulo">
+        <h3>TABLA DE QUINCHOS</h3>
+        <hr className="mb-2" />
+      </div>
+
+      <table className="table mb-5" id="lista-de-quinchos">
+        <thead>
+          <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">URL</th>
+            <th scope="col"></th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>334366</td>
+            <td>Quincho 1</td>
+            <td>$5000</td>
+            <td>Cancha futbol 5</td>
+            <td>https://i.pinimg.com/originals/1f/08/87/1f0887.jpg</td>
+            <td></td>
+            <td>
+              <button className="btn btn-outline-secondary editar"></button>
+              <button className="btn btn-outline-secondary eliminar"></button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>183789</td>
+            <td>Cancha futbol 7</td>
+            <td>$4500</td>
+            <td>Cancha con red rota</td>
+            <td>https://i.pinimg.com/originals/1f/08/87/1f0887.jpg</td>
+            <td></td>
+            <td>
+              <button className="btn btn-outline-secondary editar"></button>
+              <button className="btn btn-outline-secondary eliminar"></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div className="subtitulo">
+        <h3>TABLA DE USUARIOS</h3>
+        <hr className="mb-2" />
+      </div>
+
+      <Tabla
+        ths={["ID", "Nombre", "Apellido", "Email", "Rol", "Acciones"]}
+        trs={usuarios.map((usuario) => [
+          usuario._id,
+          usuario.nombre,
+          usuario.apellido,
+          usuario.email,
+          usuario.rol, // Is this correct? Shouldn't it be cancha.URL?
+        ])}
+      ></Tabla>
+    </div>
+  );
+};
+
+export default Admincomp;
