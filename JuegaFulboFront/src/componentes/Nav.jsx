@@ -4,22 +4,34 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import React, { useState } from 'react';
+import { useContext, useState } from "react";
 import ModalLogin from "./ModalLogin";
-import "./Nav.css";
+import { UsuariosContext } from "../context/UsuariosProvider";
+import Swal from "sweetalert2";
 
+import "./Nav.css";
 function Navegador() {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const { usuarioLogueado, setUsuarioLogueado } = useContext(UsuariosContext);
+
+  const logout = async () => {
+    const result = await Swal.fire({
+      icon: "question",
+      title: `¿Estás seguro de cerrar sesión ${usuarioLogueado.nombre}?`,
+      showCancelButton: true,
+      cancelButtonText: "No",
+      confirmButtonText: "Sí",
+    });
+
+    if (result.isConfirmed) setUsuarioLogueado(null);
+
+    console.log(usuarioLogueado);
+  };
   return (
     <>
-      <Navbar
-        bg="dark"
-        data-bs-theme="dark"
-        expand="lg"
-        className="navbar"
-      >
+      <Navbar bg="dark" data-bs-theme="dark" expand="lg" className="navbar">
         <Container fluid>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand`} />
           <Navbar.Brand href="/">
@@ -32,8 +44,12 @@ function Navegador() {
             />
           </Navbar.Brand>
           <div className="textoNav d-none d-xl-block">
-            <p className="p-0 mb-0 ms-2">Descubre la <span className="letraColor">Emoción</span>  de jugar </p>
-            <p className="p-0 mb-0 ms-2">en nuestras <span className="letraColor">canchas.</span></p>
+            <p className="p-0 mb-0 ms-2">
+              Descubre la <span className="letraColor">Emoción</span> de jugar{" "}
+            </p>
+            <p className="p-0 mb-0 ms-2">
+              en nuestras <span className="letraColor">canchas.</span>
+            </p>
           </div>
           <Navbar.Offcanvas
             id={`offcanvasNavbar-expand`}
@@ -69,19 +85,39 @@ function Navegador() {
               </Nav>
               <hr />
               <div className="d-flex justify-content-center">
-                <Button className="botonesNav me-4" variant="dark" onClick={handleShow}>
-                  Ingresar
-                </Button>
-                <Button className="botonesNav " variant="dark" href="/registro">
-                  Registrarse
-                </Button>
+                {!usuarioLogueado ? (
+                  <>
+                    <Button
+                      className="botonesNav me-4"
+                      variant="dark"
+                      onClick={handleShow}
+                    >
+                      Ingresar
+                    </Button>
+                    <Button
+                      className="botonesNav "
+                      variant="dark"
+                      href="/registro"
+                    >
+                      Registrarse
+                    </Button>
+                  </>
+                ) : (
+                  <Button
+                    className="botonesNav "
+                    variant="dark"
+                    onClick={logout}
+                  >
+                    Cerrar Sesión
+                  </Button>
+                )}
               </div>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
 
-      <ModalLogin show={show} handleClose={handleClose}/>
+      <ModalLogin show={show} handleClose={handleClose} />
     </>
   );
 }

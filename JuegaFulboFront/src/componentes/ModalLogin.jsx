@@ -1,22 +1,24 @@
 import "./Login.css";
-import { useState, useContext } from "react";
+import { useContext, useState } from "react";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import juegaFulboLogo from "/img/juegaFulboLogo.svg";
 import { Modal } from "react-bootstrap";
-import { UsuariosContext } from "../context/UsuariosCont";
+import PropTypes from "prop-types";
+import { login } from "../helpers/login";
+import { UsuariosContext } from "../context/UsuariosProvider";
 
 export function ModalLogin({ show, handleClose }) {
   const [usuario, setUsuario] = useState("");
   const [contraseña, setContraseña] = useState("");
   const [error, setError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-
-  const { login } = useContext(UsuariosContext);
-  const handleSubmit = (e) => {
+  const { setUsuarioLogueado } = useContext(UsuariosContext);
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    login(usuario, contraseña);
-
+    const user = await login(usuario, contraseña);
+    setUsuarioLogueado(user);
+    console.log("usuario logueadi", user);
     if (usuario === "" || contraseña === "") {
       setError(true);
       return;
@@ -107,5 +109,8 @@ export function ModalLogin({ show, handleClose }) {
     </>
   );
 }
-
+ModalLogin.propTypes = {
+  show: PropTypes.node.isRequired,
+  // handleClose: PropTypes.node.,
+};
 export default ModalLogin;

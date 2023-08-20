@@ -29,20 +29,24 @@ const RegistroForm = () => {
     console.log("antes", dataUser);
 
     try {
-      const response = await axios.post(
-        "http://localhost:4000/api/user/registro",
-        dataUser
-      );
-      console.log(response, dataUser);
+      await axios.post("http://localhost:4000/api/user/registro", dataUser);
 
-      Swal.fire({
+      await Swal.fire({
         icon: "success",
         title: "Usuario registrado",
         showConfirmButton: false,
         timer: 5500,
       });
 
-      // window.location.href = "/login";
+      setDataUser({
+        nombre: "",
+        apellido: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        rol: "usuario",
+      });
+      window.location.href = "/";
     } catch (error) {
       console.log(error);
     }

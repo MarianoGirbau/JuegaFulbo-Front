@@ -4,7 +4,7 @@ import "./App.css";
 import Navegador from "./componentes/Nav";
 import Rutas from "./componentes/Rutas/Rutas";
 import Footer from "./componentes/Footer";
-import UsuariosCont from "./context/UsuariosCont";
+import UsuariosProvider from "./context/UsuariosProvider";
 import axios from "axios";
 // axios.defaults.baseURL = "http://localhost:4000";
 axios.defaults.withCredentials = true;
@@ -12,11 +12,11 @@ axios.defaults.withCredentials = true;
 function App() {
   return (
     <div className="contenedorPrincipal">
-      <UsuariosCont>
+      <UsuariosProvider>
         <Navegador />
         <Rutas />
         <Footer />
-      </UsuariosCont>
+      </UsuariosProvider>
     </div>
   );
 }
