@@ -5,24 +5,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import juegaFulboLogo from "/img/juegaFulboLogo.svg";
 import { Modal } from "react-bootstrap";
 import PropTypes from "prop-types";
-import { login } from "../helpers/login";
-import { UsuariosContext } from "../context/UsuariosProvider";
+// import { login } from "../helpers/login";
+import { UsuariosContext } from "../context/UsuariosContext";
 
 export function ModalLogin({ show, handleClose }) {
   const [usuario, setUsuario] = useState("");
   const [contraseña, setContraseña] = useState("");
   const [error, setError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const { setUsuarioLogueado } = useContext(UsuariosContext);
-  const handleSubmit = async (e) => {
+  const { login } = useContext(UsuariosContext);
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const user = await login(usuario, contraseña);
-    setUsuarioLogueado(user);
-    console.log("usuario logueadi", user);
     if (usuario === "" || contraseña === "") {
       setError(true);
       return;
     }
+    login(usuario, contraseña);
   };
 
   const toggleShowPassword = () => {

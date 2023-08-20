@@ -1,0 +1,99 @@
+:root {
+    --color-background: #0f0f0f;
+    --primary-letter: #b6ff1b;
+    --green-opacity: rgba(182, 255, 27, 0.7);
+    --secondary-letter: #324700;
+  }
+
+.bg-canchas {
+    background-image: url(/img/bg-canchas.jpg);
+    background-color: var(--color-background);
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-canchas p {
+    color: var(--primary-letter);
+}
+
+.linea-divisora {
+    background-color: var(--primary-letter);
+    height: 2px;
+}
+
+.hr-color {
+    border-color: var(--primary-letter);
+}
+
+.seleccion-canchas button {
+    background-color: transparent;
+    font-family: 'Gruppo', sans-serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--primary-letter);
+    border: 1px solid var(--primary-letter);
+    border-radius: 0.5rem;
+    transition: 0.4s;
+}
+
+.seleccion-canchas button:hover {
+    background-color: var(--primary-letter);
+    color: var(--color-background);
+}
+
+.botones-custom button {
+    background-color: transparent;
+    text-decoration: none;
+    color: var(--primary-letter);
+    border: 1px solid var(--primary-letter);
+    border-radius: 0.5rem;
+    padding: 3px 50px;
+    transition: 0.4s;
+    font-weight: bold;
+}
+
+.botones-custom button:hover {
+    background-color: var(--primary-letter);
+    color: var(--color-background);
+}
+
+.container-custom {
+    max-width: 1200px;
+}
+
+.cards {
+    font-family: 'Urbanist', sans-serif;
+    border: 1px solid var(--primary-letter);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    margin: 12px 0 12px 0;
+}
+
+.cards button {
+    background-color: var(--color-background);
+    border: 1px solid var(--primary-letter);
+    border-radius: 1000px;
+    color: var(--primary-letter);
+    font-family: 'Gruppo', sans-serif;
+    font-size: 1.2rem;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.img-bg {
+    position: relative;
+    height: 0;
+    padding-bottom: 30%;
+    overflow: hidden; 
+}
+
+.img-bg img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+}
+  

@@ -1,16 +1,18 @@
 import { Routes, Route } from "react-router-dom";
-import Contacto from "../pages/Contacto/Contacto.jsx"
+import Contacto from "../pages/Contacto/Contacto.jsx";
 import Inicio from "../pages/home/Inicio.jsx";
 import RegistroForm from "../pages/registro/RegistroForm.jsx";
+import Cards from "../Cards.jsx";
 
 const Rutas = () => {
-    return (
-        <Routes>
-            <Route path="/" element={<Inicio/>} />
-            <Route path="/contacto" element={<Contacto/>} />
-            <Route path="/registro" element={<RegistroForm/>} />
-        </Routes>
-    );
+  return (
+    <Routes>
+      <Route path="/" element={<Inicio />} />
+      <Route path="/contacto" element={<Contacto />} />
+      <Route path="/registro" element={<RegistroForm />} />
+      <Route path="/reservas" element={<Cards />} />
+    </Routes>
+  );
 };
 
 export default Rutas;

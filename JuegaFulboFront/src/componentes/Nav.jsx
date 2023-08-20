@@ -6,7 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useContext, useState } from "react";
 import ModalLogin from "./ModalLogin";
-import { UsuariosContext } from "../context/UsuariosProvider";
+import { UsuariosContext } from "../context/UsuariosContext";
 import Swal from "sweetalert2";
 
 import "./Nav.css";
@@ -14,21 +14,9 @@ function Navegador() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const { usuarioLogueado, setUsuarioLogueado } = useContext(UsuariosContext);
+  const { usuarioLogueado, logout } = useContext(UsuariosContext);
+  console.log("modal", usuarioLogueado);
 
-  const logout = async () => {
-    const result = await Swal.fire({
-      icon: "question",
-      title: `¿Estás seguro de cerrar sesión ${usuarioLogueado.nombre}?`,
-      showCancelButton: true,
-      cancelButtonText: "No",
-      confirmButtonText: "Sí",
-    });
-
-    if (result.isConfirmed) setUsuarioLogueado(null);
-
-    console.log(usuarioLogueado);
-  };
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark" expand="lg" className="navbar">
@@ -71,14 +59,17 @@ function Navegador() {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-                <NavDropdown
+                {/* <NavDropdown
                   title="Reservas"
                   id={`offcanvasNavbarDropdown-expand`}
                   className="mx-4"
                 >
-                  <NavDropdown.Item href="#action3">Canchas</NavDropdown.Item>
+                  <NavDropdown.Item href="/reservas">Canchas</NavDropdown.Item>
                   <NavDropdown.Item href="#action4">Quinchos</NavDropdown.Item>
-                </NavDropdown>
+                </NavDropdown> */}
+                <Nav.Link className="mx-4" href="/mis-reservas">
+                  Mis reservas
+                </Nav.Link>
                 <Nav.Link className="mx-4" href="/contacto">
                   Contacto
                 </Nav.Link>
