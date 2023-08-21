@@ -11,8 +11,8 @@ const CanchasProvider = ({ children }) => {
   const obtenerCanchas = async () => {
     const { data } = await axios.get("http://localhost:4000/api/canchas");
     setCanchas([...data]);
-    console.log("data", data);
-    console.log("canchas", canchas.length);
+    // console.log("data", data);
+    // console.log("canchas", canchas.length);
   };
 
   useEffect(() => {
@@ -20,8 +20,8 @@ const CanchasProvider = ({ children }) => {
   }, []);
 
   const eliminarCancha = async (id) => {
-    console.log(id, "deleteProducto");
-    console.log(canchas, "canchas");
+    // console.log(id, "deleteProducto");
+    // console.log(canchas, "canchas");
     const canchaAEliminar = canchas.find((cancha) => cancha._id === id);
     const result = await Swal.fire({
       icon: "question",
@@ -33,9 +33,7 @@ const CanchasProvider = ({ children }) => {
 
     if (result.isConfirmed) {
       try {
-        console.log("antes axios");
         await axios.delete(`http://localhost:4000/api/canchas/${id}`);
-        console.log("desp axios");
 
         const canchasFiltradas = canchas.filter((cancha) => cancha._id !== id);
         setCanchas(canchasFiltradas);

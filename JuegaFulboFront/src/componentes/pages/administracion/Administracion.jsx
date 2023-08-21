@@ -3,17 +3,34 @@ import "./Administracion.css";
 import { CanchasContext } from "../../../context/CanchasContext";
 import { UsuariosContext } from "../../../context/UsuariosContext";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import ModalActualizar from "../../ModalActualizar";
 
 const Admincomp = () => {
   const { canchas, eliminarCancha } = useContext(CanchasContext);
   const { usuarios, eliminarUsuario } = useContext(UsuariosContext);
+  const [show, setShow] = useState(false);
+
+  // const handleClose = () => setShow(false);
+  const handleShow = (id) => {
+    setShow(true);
+  };
 
   return (
     <div className="container-fluid custom-container">
       <div className="container d-flex justify-content-center">
-        <button type="button" className="btn btnAgregar btn-sm w-100 py-4 my-5">
-          Agregar{" "}
+        <button
+          type="button"
+          className="btn btnAgregar btn-sm w-100 py-3 my-5 mx-2"
+        >
+          Agregar Cancha
+        </button>
+        <button
+          type="button"
+          className="btn btnAgregar btn-sm w-100 py-3 my-5 mx-2"
+          onClick={handleShow}
+        >
+          Agregar Usuario
         </button>
       </div>
 
@@ -103,6 +120,11 @@ const Admincomp = () => {
         ])}
         eliminar={eliminarUsuario}
       ></Tabla>
+      <ModalActualizar
+        show={show}
+        handleClose={() => setShow(false)}
+        actualizar={false}
+      />
     </div>
   );
 };

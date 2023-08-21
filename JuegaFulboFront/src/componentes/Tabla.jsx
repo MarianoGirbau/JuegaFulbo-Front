@@ -1,11 +1,20 @@
 import PropTypes from "prop-types";
-import { CanchasContext } from "../context/CanchasContext";
-import { UsuariosContext } from "../context/UsuariosContext";
+import ModalActualizar from "./ModalActualizar";
+// import { CanchasContext } from "../context/CanchasContext";
+// import { UsuariosContext } from "../context/UsuariosContext";
 
-import { useContext } from "react";
+import { useState } from "react";
 
 export default function Tabla({ ths, trs, eliminar }) {
-  useContext;
+  const [show, setShow] = useState(false);
+  const [selectedId, setSelectedId] = useState(null); // Nuevo estado para el id seleccionado
+
+  const handleClose = () => setShow(false);
+  const handleShow = (id) => {
+    setSelectedId(id);
+    setShow(true);
+  };
+  // const handleUpdate = () => {};
   return (
     <>
       <table className="table mb-5" id="lista-de-canchas">
@@ -25,7 +34,10 @@ export default function Tabla({ ths, trs, eliminar }) {
                 <td key={tdIndex}>{td}</td>
               ))}
               <td>
-                <button className="btn btn-outline-secondary editar"></button>
+                <button
+                  className="btn btn-outline-secondary editar"
+                  onClick={() => handleShow(trs[0])}
+                ></button>
                 <button
                   className="btn btn-outline-secondary eliminar"
                   onClick={() => eliminar(trs[0])}
@@ -35,6 +47,13 @@ export default function Tabla({ ths, trs, eliminar }) {
           ))}
         </tbody>
       </table>
+
+      <ModalActualizar
+        id={selectedId}
+        show={show}
+        handleClose={handleClose}
+        actualizar={true}
+      />
     </>
   );
 }

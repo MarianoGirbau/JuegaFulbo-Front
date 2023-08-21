@@ -14,7 +14,6 @@ function Navegador() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const { usuarioLogueado, logout } = useContext(UsuariosContext);
-  console.log("modal", usuarioLogueado);
 
   return (
     <>

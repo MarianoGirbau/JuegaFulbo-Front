@@ -12,7 +12,6 @@ const UsuariosProvider = ({ children }) => {
   const login = async (email, password) => {
     console.log(email, password, "login Context");
     try {
-      console.log("LOGIN");
       const response = await axios.post(
         "http://localhost:4000/api/user/login",
         {
@@ -21,7 +20,6 @@ const UsuariosProvider = ({ children }) => {
         }
       );
 
-      console.log("RESPONSE: ", response);
       const jwtToken = response.data.data.token;
       const jwtDecode = jwt_decode(jwtToken);
 
@@ -36,7 +34,7 @@ const UsuariosProvider = ({ children }) => {
 
       localStorage.setItem("usuario", JSON.stringify(user));
       setUsuarioLogueado(user);
-      console.log("usuario: ", usuarioLogueado);
+      // console.log("usuario: ", usuarioLogueado);
 
       if (user.rol === "admin") {
         window.location.href = "/admin";
@@ -63,7 +61,7 @@ const UsuariosProvider = ({ children }) => {
       localStorage.removeItem("usuario");
     }
 
-    console.log(usuarioLogueado);
+    // console.log(usuarioLogueado);
   };
 
   const getUsuarios = async () => {
@@ -71,7 +69,7 @@ const UsuariosProvider = ({ children }) => {
       const { data } = await axios.get(
         "http://localhost:4000/api/user/usuarios"
       );
-      console.log(data);
+      // console.log(data);
       setUsuarios(data);
     } catch (error) {
       console.log(error);
@@ -91,9 +89,7 @@ const UsuariosProvider = ({ children }) => {
 
     if (result.isConfirmed) {
       try {
-        console.log("antes axios");
         await axios.delete(`http://localhost:4000/api/user/usuarios/${id}`);
-        console.log("desp axios");
 
         const canchasFiltradas = usuarios.filter((cancha) => cancha._id !== id);
         setUsuarios(canchasFiltradas);
@@ -103,11 +99,45 @@ const UsuariosProvider = ({ children }) => {
     }
   };
 
+  const addUsuarios = async (dataUser) => {
+    await axios.post("http://localhost:4000/api/user/registro", dataUser);
+
+    await Swal.fire({
+      icon: "success",
+      title: "Usuario registrado",
+      showConfirmButton: false,
+      timer: 5500,
+    });
+  };
+
+  const updateUsuario = async (updatedUsuario) => {
+    console.log(updatedUsuario, "updateUsuarioo");
+    try {
+      await axios.put(
+        `http://localhost:4000/api/user/usuarios/${updatedUsuario._id}`,
+        updatedUsuario
+      );
+      await Swal.fire({
+        icon: "success",
+        title: "Usuario Actualizado",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+
+      const newUsuarios = usuarios.map((Usuario) =>
+        Usuario._id === updatedUsuario._id ? updatedUsuario : Usuario
+      );
+      setUsuarios(newUsuarios);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    console.log("local", localStorage.getItem("usuario"));
+    // console.log("local", localStorage.getItem("usuario"));
     setUsuarioLogueado(JSON.parse(localStorage.getItem("usuario")));
     getUsuarios();
-    console.log("usuarioLogueado (updated): ", usuarioLogueado);
+    // console.log("usuarioLogueado (updated): ", usuarioLogueado);
     // console.log("roll", usuarioLogueado.rol);
   }, []);
   return (
@@ -119,6 +149,8 @@ const UsuariosProvider = ({ children }) => {
         logout,
         usuarios,
         eliminarUsuario,
+        updateUsuario,
+        addUsuarios,
       }}
     >
       {children}

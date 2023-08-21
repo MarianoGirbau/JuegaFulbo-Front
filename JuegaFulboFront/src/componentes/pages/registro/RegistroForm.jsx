@@ -3,10 +3,11 @@ import "./RegistroForm.css";
 import { Col, Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import axios from "axios";
-import Swal from "sweetalert2";
+import { UsuariosContext } from "../../../context/UsuariosContext";
+import { useContext } from "react";
 
 const RegistroForm = () => {
+  const { addUsuario } = useContext(UsuariosContext);
   const [dataUser, setDataUser] = useState({
     nombre: "",
     apellido: "",
@@ -29,15 +30,7 @@ const RegistroForm = () => {
     console.log("antes", dataUser);
 
     try {
-      await axios.post("http://localhost:4000/api/user/registro", dataUser);
-
-      await Swal.fire({
-        icon: "success",
-        title: "Usuario registrado",
-        showConfirmButton: false,
-        timer: 5500,
-      });
-
+      addUsuario(dataUser);
       setDataUser({
         nombre: "",
         apellido: "",
