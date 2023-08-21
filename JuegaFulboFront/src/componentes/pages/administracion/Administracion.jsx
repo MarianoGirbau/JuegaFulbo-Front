@@ -119,11 +119,7 @@ const Admincomp = () => {
         ])}
         eliminar={eliminarUsuario}
       ></Tabla>
-      <ModalCRUD
-        show={show}
-        handleClose={() => setShow(false)}
-        actualizar={false}
-      />
+      <ModalCRUD show={show} handleClose={() => setShow(false)} />
     </div>
   );
 };

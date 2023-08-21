@@ -18,6 +18,7 @@ export default function ModalCRUD({ id, show, handleClose, actualizar }) {
     email: "",
     rol: "",
   });
+  console.log("valor de actualiaz", actualizar);
   useEffect(() => {
     if (usuario) {
       setDataUser({
@@ -160,7 +161,11 @@ export default function ModalCRUD({ id, show, handleClose, actualizar }) {
                 className="w-100"
                 onClick={handleSubmit}
               >
-                <h4 className="m-0 py-3">Actualizar</h4>
+                {actualizar ? (
+                  <h4 className="m-0 py-3">Actualizar</h4>
+                ) : (
+                  <h4 className="m-0 py-3">Agregar</h4>
+                )}
               </Button>
             </Form>
           </section>
@@ -178,5 +183,5 @@ ModalCRUD.propTypes = {
 };
 
 ModalCRUD.defaultProps = {
-  actualizar: true,
+  actualizar: false,
 };
