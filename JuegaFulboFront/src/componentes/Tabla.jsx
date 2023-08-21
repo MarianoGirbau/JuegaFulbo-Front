@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import ModalActualizar from "./ModalActualizar";
+import ModalCRUD from "./ModalCRUD";
 // import { CanchasContext } from "../context/CanchasContext";
 // import { UsuariosContext } from "../context/UsuariosContext";
 
@@ -48,7 +48,7 @@ export default function Tabla({ ths, trs, eliminar }) {
         </tbody>
       </table>
 
-      <ModalActualizar
+      <ModalCRUD
         id={selectedId}
         show={show}
         handleClose={handleClose}
@@ -62,4 +62,5 @@ Tabla.propTypes = {
   trs: PropTypes.arrayOf(
     PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
   ).isRequired,
+  eliminar: PropTypes.func.isRequired,
 };

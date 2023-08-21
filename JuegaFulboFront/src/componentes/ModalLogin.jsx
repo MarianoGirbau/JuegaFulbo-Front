@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import juegaFulboLogo from "/img/juegaFulboLogo.svg";
 import { Modal } from "react-bootstrap";
 import PropTypes from "prop-types";
-// import { login } from "../helpers/login";
 import { UsuariosContext } from "../context/UsuariosContext";
 
 export function ModalLogin({ show, handleClose }) {
@@ -109,6 +108,6 @@ export function ModalLogin({ show, handleClose }) {
 }
 ModalLogin.propTypes = {
   show: PropTypes.node.isRequired,
-  // handleClose: PropTypes.node.,
+  handleClose: PropTypes.func.isRequired,
 };
 export default ModalLogin;

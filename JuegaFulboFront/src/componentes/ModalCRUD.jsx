@@ -4,10 +4,12 @@ import { UsuariosContext } from "../context/UsuariosContext";
 import { useContext } from "react";
 import { Modal } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import PropTypes from "prop-types";
+
 import "./Login.css";
 
 // actualizar en true sino por defecto agrega
-export default function ModalActualizar({ id, show, handleClose, actualizar }) {
+export default function ModalCRUD({ id, show, handleClose, actualizar }) {
   const { usuarios, updateUsuario, addUsuarios } = useContext(UsuariosContext);
   const usuario = usuarios.find((usuario) => usuario._id === id);
   const [dataUser, setDataUser] = useState({
@@ -167,3 +169,14 @@ export default function ModalActualizar({ id, show, handleClose, actualizar }) {
     </>
   );
 }
+
+ModalCRUD.propTypes = {
+  id: PropTypes.string,
+  show: PropTypes.bool.isRequired,
+  handleClose: PropTypes.func.isRequired,
+  actualizar: PropTypes.bool,
+};
+
+ModalCRUD.defaultProps = {
+  actualizar: true,
+};

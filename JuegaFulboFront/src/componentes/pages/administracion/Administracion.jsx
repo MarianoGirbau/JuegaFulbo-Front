@@ -4,15 +4,14 @@ import { CanchasContext } from "../../../context/CanchasContext";
 import { UsuariosContext } from "../../../context/UsuariosContext";
 
 import { useContext, useState } from "react";
-import ModalActualizar from "../../ModalActualizar";
+import ModalCRUD from "../../ModalCRUD";
 
 const Admincomp = () => {
   const { canchas, eliminarCancha } = useContext(CanchasContext);
   const { usuarios, eliminarUsuario } = useContext(UsuariosContext);
   const [show, setShow] = useState(false);
 
-  // const handleClose = () => setShow(false);
-  const handleShow = (id) => {
+  const handleShow = () => {
     setShow(true);
   };
 
@@ -120,7 +119,7 @@ const Admincomp = () => {
         ])}
         eliminar={eliminarUsuario}
       ></Tabla>
-      <ModalActualizar
+      <ModalCRUD
         show={show}
         handleClose={() => setShow(false)}
         actualizar={false}

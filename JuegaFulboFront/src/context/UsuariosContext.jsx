@@ -59,6 +59,7 @@ const UsuariosProvider = ({ children }) => {
     if (result.isConfirmed) {
       setUsuarioLogueado(null);
       localStorage.removeItem("usuario");
+      window.location.href = "/";
     }
 
     // console.log(usuarioLogueado);
