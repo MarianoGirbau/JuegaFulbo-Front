@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
 import { CanchasContext } from "../context/CanchasContext";
+import { UsuariosContext } from "../context/UsuariosContext";
+
 import { useContext } from "react";
 
-export default function Tabla({ ths, trs }) {
-  const { eliminarCancha } = useContext(CanchasContext);
+export default function Tabla({ ths, trs, eliminar }) {
   useContext;
   return (
     <>
@@ -27,7 +28,7 @@ export default function Tabla({ ths, trs }) {
                 <button className="btn btn-outline-secondary editar"></button>
                 <button
                   className="btn btn-outline-secondary eliminar"
-                  onClick={eliminarCancha({})}
+                  onClick={() => eliminar(trs[0])}
                 ></button>
               </td>
             </tr>

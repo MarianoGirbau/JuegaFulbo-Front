@@ -77,6 +77,31 @@ const UsuariosProvider = ({ children }) => {
       console.log(error);
     }
   };
+  const eliminarUsuario = async (id) => {
+    // console.log(id, "deleteProducto");
+    // console.log(canchas, "canchas");
+    const usuarioAEliminar = usuarios.find((usuario) => usuario._id === id);
+    const result = await Swal.fire({
+      icon: "question",
+      title: `¿Estás seguro de eliminar el usuario ${usuarioAEliminar.nombre}?`,
+      showCancelButton: true,
+      cancelButtonText: "No",
+      confirmButtonText: "Sí",
+    });
+
+    if (result.isConfirmed) {
+      try {
+        console.log("antes axios");
+        await axios.delete(`http://localhost:4000/api/user/usuarios/${id}`);
+        console.log("desp axios");
+
+        const canchasFiltradas = usuarios.filter((cancha) => cancha._id !== id);
+        setUsuarios(canchasFiltradas);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
 
   useEffect(() => {
     console.log("local", localStorage.getItem("usuario"));
@@ -87,7 +112,14 @@ const UsuariosProvider = ({ children }) => {
   }, []);
   return (
     <UsuariosContext.Provider
-      value={{ usuarioLogueado, setUsuarioLogueado, login, logout, usuarios }}
+      value={{
+        usuarioLogueado,
+        setUsuarioLogueado,
+        login,
+        logout,
+        usuarios,
+        eliminarUsuario,
+      }}
     >
       {children}
     </UsuariosContext.Provider>

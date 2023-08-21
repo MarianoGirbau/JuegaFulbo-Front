@@ -6,8 +6,8 @@ import { UsuariosContext } from "../../../context/UsuariosContext";
 import { useContext } from "react";
 
 const Admincomp = () => {
-  const { canchas } = useContext(CanchasContext);
-  const { usuarios } = useContext(UsuariosContext);
+  const { canchas, eliminarCancha } = useContext(CanchasContext);
+  const { usuarios, eliminarUsuario } = useContext(UsuariosContext);
 
   return (
     <div className="container-fluid custom-container">
@@ -38,6 +38,7 @@ const Admincomp = () => {
           cancha.precio,
           cancha.precio, // Is this correct? Shouldn't it be cancha.URL?
         ])}
+        eliminar={eliminarCancha}
       ></Tabla>
 
       <div className="subtitulo">
@@ -100,6 +101,7 @@ const Admincomp = () => {
           usuario.email,
           usuario.rol, // Is this correct? Shouldn't it be cancha.URL?
         ])}
+        eliminar={eliminarUsuario}
       ></Tabla>
     </div>
   );

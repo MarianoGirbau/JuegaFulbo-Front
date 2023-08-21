@@ -21,10 +21,11 @@ const CanchasProvider = ({ children }) => {
 
   const eliminarCancha = async (id) => {
     console.log(id, "deleteProducto");
-    const canchaAEliminar = canchas.find((cancha) => cancha.id === id);
+    console.log(canchas, "canchas");
+    const canchaAEliminar = canchas.find((cancha) => cancha._id === id);
     const result = await Swal.fire({
       icon: "question",
-      title: `¿Estás seguro de eliminar ${canchaAEliminar.numero}?`,
+      title: `¿Estás seguro de eliminar la cancha número ${canchaAEliminar.numero}?`,
       showCancelButton: true,
       cancelButtonText: "No",
       confirmButtonText: "Sí",
@@ -32,7 +33,10 @@ const CanchasProvider = ({ children }) => {
 
     if (result.isConfirmed) {
       try {
+        console.log("antes axios");
         await axios.delete(`http://localhost:4000/api/canchas/${id}`);
+        console.log("desp axios");
+
         const canchasFiltradas = canchas.filter((cancha) => cancha._id !== id);
         setCanchas(canchasFiltradas);
       } catch (error) {
