@@ -12,9 +12,17 @@ registerLocale('es', es);
 
 
 function Cards() {
-
   const { canchas } = useContext(CanchasContext);
   const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedOption1, setSelectedOption1] = useState("");
+  const [selectedOption2, setSelectedOption2] = useState("");
+
+  const handleOptionChange1 = (event) => {
+    setSelectedOption1(event.target.value);
+  };
+  const handleOptionChange2 = (event) => {
+    setSelectedOption2(event.target.value);
+  };
 
   return (
     <>
@@ -24,8 +32,8 @@ function Cards() {
             <div className="row mb-3 pt-4 buscador">
               <div className="col-sm-12 col-md-4 col-lg-3 pb-3">
                 <label htmlFor="opciones1"></label>
-                <select id="opciones1" className="w-100 custom-select">
-                  <option disabled selected value="">
+                <select id="opciones1" className="w-100 custom-select" value={selectedOption1} onChange={handleOptionChange1}>
+                  <option disabled value="">
                     Tipo de Futbol
                   </option>
                   <option>Futbol 5</option>
@@ -36,8 +44,8 @@ function Cards() {
 
               <div className="col-sm-12 col-md-4 col-lg-3 pb-3">
                 <label htmlFor="opciones3"></label>
-                <select id="opciones3" className="w-100 custom-select">
-                  <option disabled selected value="">
+                <select id="opciones3" className="w-100 custom-select" value={selectedOption2} onChange={handleOptionChange2}>
+                  <option value="">
                     Seleccione horario
                   </option>
                   <option>10:00hs</option>
@@ -90,6 +98,7 @@ function Cards() {
               canchas.map((cancha) => (
                 <Card
                   key={cancha._id}
+                  id={cancha._id}
                   capacidad={cancha.capacidad}
                   numero={cancha.numero}
                   precio={cancha.precio}

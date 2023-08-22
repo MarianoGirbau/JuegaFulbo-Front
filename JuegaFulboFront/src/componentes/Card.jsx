@@ -1,7 +1,15 @@
 import PropTypes from "prop-types";
+import Button from "react-bootstrap/Button";
+import { useContext, useState } from "react";
+import ModalReserva from "./pages/reservas/ModalReserva";
 // import "./cards.css";
 
-export default function Card({ capacidad, numero, precio }) {
+export default function Card({ capacidad, numero, precio, id }) {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  //const { usuarioLogueado, logout } = useContext(UsuariosContext);
+
   return (
     <>
       <div className="col-sm-12 col-md-6 col-lg-4">
@@ -19,10 +27,11 @@ export default function Card({ capacidad, numero, precio }) {
             <p className="m-0">${precio}</p>
           </div>
           <section className="boton-reserva d-flex justify-content-center mb-3">
-            <button className="b-custom w-100">Reservar</button>
+            <Button className="b-custom w-100" onClick={handleShow} >Reservar</Button>
           </section>
         </section>
       </div>
+      <ModalReserva show={show} handleClose={handleClose} id={id} capacidad={capacidad} numero={numero} precio={precio}/>
     </>
   );
 }
