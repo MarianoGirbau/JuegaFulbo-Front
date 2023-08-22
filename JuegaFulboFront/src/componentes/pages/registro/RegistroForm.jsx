@@ -7,7 +7,7 @@ import { UsuariosContext } from "../../../context/UsuariosContext";
 import { useContext } from "react";
 
 const RegistroForm = () => {
-  const { addUsuario } = useContext(UsuariosContext);
+  const { addUsuario, usuarios } = useContext(UsuariosContext);
   const [dataUser, setDataUser] = useState({
     nombre: "",
     apellido: "",
@@ -16,6 +16,9 @@ const RegistroForm = () => {
     confirmPassword: "",
     rol: "usuario",
   });
+  const [passwords, setPasswords] = useState(true);
+  const [emails, setEmails] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     console.log(name, value);
@@ -29,19 +32,31 @@ const RegistroForm = () => {
     e.preventDefault();
     console.log("antes", dataUser);
 
-    try {
-      addUsuario(dataUser);
-      setDataUser({
-        nombre: "",
-        apellido: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-        rol: "usuario",
-      });
-      window.location.href = "/";
-    } catch (error) {
-      console.log(error);
+    const emails = usuarios.some((usuario) => usuario.email === dataUser.email);
+
+    if (emails) {
+      setEmails(true);
+    } else if (dataUser.password === dataUser.confirmPassword) {
+      // Contraseñas coinciden
+      setPasswords(true);
+
+      try {
+        addUsuario(dataUser);
+        setDataUser({
+          nombre: "",
+          apellido: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+          rol: "usuario",
+        });
+        window.location.href = "/";
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      // Contraseñas no coinciden
+      setPasswords(false);
     }
   };
 
@@ -74,8 +89,9 @@ const RegistroForm = () => {
                     name="nombre"
                     value={dataUser.name}
                     onChange={(e) => handleChange(e)}
-                    minLength={8}
-                    maxLength={15}
+                    pattern="^[a-zA-ZÀ-ÿ\s]{1,40}$"
+                    minLength={3}
+                    maxLength={30}
                     placeholder="Ingrese su nombre"
                     required
                   />
@@ -87,8 +103,9 @@ const RegistroForm = () => {
                     type="text"
                     id="apellido"
                     className="custom-form-control custom-bg-dark"
-                    minLength={8}
-                    maxLength={15}
+                    pattern="^[a-zA-ZÀ-ÿ\s]{1,40}$"
+                    minLength={3}
+                    maxLength={30}
                     placeholder="Ingrese su apellido"
                     name="apellido"
                     value={dataUser.apellido}
@@ -106,13 +123,19 @@ const RegistroForm = () => {
                     className="custom-form-control custom-bg-dark"
                     name="email"
                     value={dataUser.email}
-                    // pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-                    minLength={10}
+                    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+                    "
+                    minLength={4}
                     maxLength={30}
                     placeholder="Ingrese su email"
                     onChange={handleChange}
                     required
                   />
+                  {emails && (
+                    <p className="error-message">
+                      ¡El correo electrónico ya existe!
+                    </p>
+                  )}
                 </Form.Group>
 
                 <Form.Group className="mb-2">
@@ -121,8 +144,8 @@ const RegistroForm = () => {
                     type="password"
                     id="password"
                     className="custom-form-control custom-bg-dark"
-                    minLength={8}
-                    maxLength={30}
+                    minLength={6}
+                    maxLength={15}
                     name="password"
                     placeholder="Ingrese su contraseña"
                     value={dataUser.password}
@@ -138,15 +161,20 @@ const RegistroForm = () => {
                   <Form.Control
                     type="password"
                     id="confirmPassword"
-                    className="custom-form-control custom-bg-dark"
-                    minLength={8}
-                    maxLength={30}
+                    className={` custom-form-control custom-bg-dark ${
+                      passwords ? "" : "passwords-"
+                    } `}
+                    minLength={6}
+                    maxLength={15}
                     name="confirmPassword"
                     placeholder="Ingrese nuevamente su contraseña"
                     value={dataUser.confirmPassword}
                     onChange={handleChange}
                     required
                   />
+                  {!passwords && (
+                    <p className="password-">Las contraseñas no coinciden.</p>
+                  )}
                 </Form.Group>
 
                 <div className="my-4 bordeBoton">
