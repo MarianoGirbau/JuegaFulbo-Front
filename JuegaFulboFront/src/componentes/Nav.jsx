@@ -2,13 +2,12 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-// import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useContext, useState } from "react";
 import ModalLogin from "./ModalLogin";
 import { UsuariosContext } from "../context/UsuariosContext";
-
 import "./Nav.css";
+
 function Navegador() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -57,29 +56,24 @@ function Navegador() {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-                {/* <NavDropdown
-                  title="Reservas"
-                  id={`offcanvasNavbarDropdown-expand`}
-                  className="mx-4"
-                >
-                  <NavDropdown.Item href="/reservas">Canchas</NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">Quinchos</NavDropdown.Item>
-                </NavDropdown> */}
-
                 {usuarioLogueado && usuarioLogueado.rol == "admin" ? (
                   <Nav.Link className="mx-4" href="/administracion">
                     Administrar
                   </Nav.Link>
                 ) : (
+                  usuarioLogueado != null ? (
                   <>
                     <Nav.Link className="mx-4" href="/mis-reservas">
                       Mis reservas
                     </Nav.Link>
-                    <Nav.Link className="mx-4" href="/contacto">
-                      Contacto
-                    </Nav.Link>
                   </>
+                  ):(
+                    <></>
+                  )
                 )}
+                <Nav.Link className="mx-4" href="/contacto">
+                  Contacto
+                </Nav.Link>
               </Nav>
               <hr />
               <div className="d-flex justify-content-center">
