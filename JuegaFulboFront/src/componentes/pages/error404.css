@@ -1,0 +1,163 @@
+:root {
+  --color-background: #0f0f0f;
+  --primary-letter: #b6ff1b;
+  --green-opacity: rgba(182, 255, 27, 0.7);
+  --secondary-letter: #324700;
+}
+
+::selection {
+  background: var(--primary-letter);
+  color: var(--color-background);
+}
+
+body {
+  background-image: url(/img/BGerror404-2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: black;
+}
+
+main {
+  margin: 0;
+  place-items: center;
+  min-height: 100vh;
+}
+
+button {
+  color: var(--primary-letter) !important;
+  border: 2px solid var(--primary-letter) !important;
+  border-radius: 5rem !important;
+  background-color: transparent !important;
+  font-family: 'Urbanist', sans-serif !important;
+  font-style: italic !important;
+  font-weight: bold !important;
+  font-size: 25px !important;
+  transition: 0.7s !important;
+}
+
+button:hover{
+  background-color: var(--primary-letter) !important;
+  color: var(--color-background)!important;
+}
+
+.custom-container {
+  max-width: 900px;
+}
+
+
+.relativo {
+  position: relative;
+}
+
+.absoluto {
+  position: absolute;
+  top: -400px;
+  right: 100px;
+  z-index: 1;
+}
+
+.absolutoDorso {
+  position: absolute;
+  top: -300px;
+  right: 270px;
+  z-index: 1;
+}
+
+.absolutoFrente {
+  position: absolute;
+  top: -330px;
+  right: 30px;
+  z-index: 1;
+}
+
+.imgDorso img {
+  height: 24rem;
+}
+
+.imgFrente img {
+  height: 36rem;
+}
+
+.h1Large {
+  color: var(--primary-letter);
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 3px;
+  margin-bottom: 0;
+  line-height: 1;
+}
+
+.tituloh1 h1 {
+  font-size: 400%;
+}
+
+.h1Small {
+  color: var(--primary-letter);
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 6rem;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 3px;
+  margin-bottom: 0;
+  line-height: 1;
+}
+
+.contPrincipal p {
+  color: var(--primary-letter);
+  font-family: 'Gruppo', sans-serif;
+  font-size: 1.3rem;
+  position: relative;
+}
+
+.bgFut {
+  align-items: center;
+}
+
+.contPrincipal {
+  border: 1px solid var(--primary-letter);
+  border-radius: 3rem;
+  padding: 3rem;
+}
+
+/* .contPrincipal img {
+  height: 50rem;
+} */
+
+.subeBajaFrente {
+  animation: arribaAbajoFrente 5s ease-in-out infinite;
+}
+
+@keyframes arribaAbajoFrente {
+  0% {
+    transform: translateY(0%);
+  }
+
+  50% {
+    transform: translateY(3%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.subeBajaDorso {
+  animation: arribaAbajoDorso 5s ease-in-out infinite;
+}
+
+@keyframes arribaAbajoDorso {
+  0% {
+    transform: translateY(0%);
+  }
+
+  50% {
+    transform: translateY(-3%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}

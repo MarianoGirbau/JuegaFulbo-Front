@@ -2,13 +2,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import "./App.css";
 import Navegador from "./componentes/Nav";
-import Rutas from "./componentes/Rutas/Rutas";
+import Rutas from "./componentes/rutas/Rutas";
 import Footer from "./componentes/Footer";
 import UsuariosProvider from "./context/UsuariosContext";
 import axios from "axios";
 import CanchasProvider from "./context/CanchasContext";
 // axios.defaults.baseURL = "http://localhost:4000";
 axios.defaults.withCredentials = true;
+/* import PaginaInicial from "./componentes/pages/inicio"; */
+
 
 function App() {
   return (
