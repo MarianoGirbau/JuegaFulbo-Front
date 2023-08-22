@@ -4,6 +4,7 @@ import Inicio from "../pages/home/Inicio.jsx";
 import RegistroForm from "../pages/registro/RegistroForm.jsx";
 import Cards from "../Cards.jsx";
 import Admincomp from "../pages/administracion/Administracion.jsx";
+import Error404 from "../pages/error404/Error404.jsx"
 
 const usuarioLogueado = JSON.parse(localStorage.getItem("usuario"));
 console.log(usuarioLogueado);
@@ -19,6 +20,7 @@ const Rutas = () => {
       ) : (
         <>
          <Route path="/registro" element={<RegistroForm />} />
+         <Route path="/administracion" element={<Error404 />} />
         </>
         
       )}

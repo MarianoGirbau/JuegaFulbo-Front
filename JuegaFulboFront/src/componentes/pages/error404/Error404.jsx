@@ -4,7 +4,8 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 function Error404() {
   return (
     <>
-      <main className="container-fluid custom-container bgFut d-flex">
+    <div className="bg-error404">
+      <main className="container-fluid custom-container main-error d-flex">
         <Container className="contPrincipal d-flex justify-content-center align-items-center">
           <Row className="col d-flex d-none d-lg-block">
             <div className="relativo imgDorso">
@@ -22,10 +23,11 @@ function Error404() {
               Lo sentimos, la página que estás buscando no se encuentra
               disponible. Ponete la camiseta y volve a la cancha!
             </p>
-            <Button className="p-3">VOLVER AL INICIO</Button>
+            <Button className="boton-404 p-3" href="/">VOLVER AL INICIO</Button>
           </Col>
         </Container>
       </main>
+      </div>
     </>
   );
 }

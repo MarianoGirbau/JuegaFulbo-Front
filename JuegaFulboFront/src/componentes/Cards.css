@@ -10,7 +10,14 @@
     background-color: var(--color-background);
     background-size: cover;
     background-position: center;
+    flex: 1;
 }
+
+.container-cards{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
 
 .bg-canchas p {
     color: var(--primary-letter);
@@ -58,9 +65,6 @@
     color: var(--color-background);
 }
 
-.container-custom {
-    max-width: 1200px;
-}
 
 .cards {
     font-family: 'Urbanist', sans-serif;
@@ -108,7 +112,7 @@
     border-bottom: 1px solid var(--primary-letter);
 }
 
-.boton-reserva {
+.boton-busqueda {
     height: 3rem;
     font-family: 'Gruppo', sans-serif;
     font-weight: bold;
@@ -120,7 +124,7 @@
     transition: 0.5s;
 }
 
-.boton-reserva:hover {
+.boton-busqueda:hover {
     background: var(--primary-letter);
     color: var(--color-background);
 }

@@ -10,20 +10,21 @@
   color: var(--color-background);
 }
 
-body {
+.bg-error404 {
   background-image: url(/img/BGerror404-2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-color: black;
 }
 
-main {
+.main-error {
   margin: 0;
   place-items: center;
   min-height: 100vh;
+  align-items: center;
 }
 
-button {
+.boton-404 {
   color: var(--primary-letter) !important;
   border: 2px solid var(--primary-letter) !important;
   border-radius: 5rem !important;
@@ -112,19 +113,11 @@ button:hover{
   position: relative;
 }
 
-.bgFut {
-  align-items: center;
-}
-
 .contPrincipal {
   border: 1px solid var(--primary-letter);
   border-radius: 3rem;
   padding: 3rem;
 }
-
-/* .contPrincipal img {
-  height: 50rem;
-} */
 
 .subeBajaFrente {
   animation: arribaAbajoFrente 5s ease-in-out infinite;

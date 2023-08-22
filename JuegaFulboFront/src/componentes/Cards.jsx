@@ -1,5 +1,5 @@
 import Card from "./Card";
-import "./cards.css";
+import "./Cards.css";
 import { useContext, useState } from "react";
 import { CanchasContext } from "../context/CanchasContext";
 import "react-datepicker/dist/react-datepicker.css";
@@ -18,11 +18,8 @@ function Cards() {
 
   return (
     <>
-      <div className="bg-canchas">
-        <main className="container-fluid container-custom">
-
-
-
+      <div className="bg-canchas d-flex">
+        <main className="container-fluid container-cards">
           <div className="container-fluid">
             <div className="row mb-3 pt-4 buscador">
               <div className="col-sm-12 col-md-4 col-lg-3 pb-3">
@@ -68,7 +65,7 @@ function Cards() {
               </div>
 
               <div className="col-sm-12 col-md-12 col-lg-3 pb-3">
-                <button className="w-100 boton-reserva">Buscar</button>
+                <button className="w-100 boton-busqueda">Buscar</button>
               </div>
             </div>
           </div>
@@ -88,9 +85,6 @@ function Cards() {
           </div> */}
 
 
-
-
-          <div className="linea-divisora"></div>
           <div className=" row botones-custom">
             {canchas.length > 0 ? (
               canchas.map((cancha) => (
