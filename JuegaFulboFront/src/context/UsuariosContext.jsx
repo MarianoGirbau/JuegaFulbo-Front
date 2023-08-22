@@ -37,7 +37,7 @@ const UsuariosProvider = ({ children }) => {
       // console.log("usuario: ", usuarioLogueado);
 
       if (user.rol === "admin") {
-        window.location.href = "/admin";
+        window.location.href = "/administracion";
       } else {
         window.location.href = "/";
       }
@@ -101,7 +101,7 @@ const UsuariosProvider = ({ children }) => {
   };
 
   const addUsuarios = async (dataUser) => {
-    await axios.post("http://localhost:4000/api/user/registro", dataUser);
+    await axios.post(`http://localhost:4000/api/user/registro`, dataUser);
 
     await Swal.fire({
       icon: "success",

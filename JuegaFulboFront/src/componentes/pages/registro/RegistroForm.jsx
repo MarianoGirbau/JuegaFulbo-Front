@@ -7,7 +7,7 @@ import { UsuariosContext } from "../../../context/UsuariosContext";
 import { useContext } from "react";
 
 const RegistroForm = () => {
-  const { addUsuario, usuarios } = useContext(UsuariosContext);
+  const { addUsuarios } = useContext(UsuariosContext);
   const [dataUser, setDataUser] = useState({
     nombre: "",
     apellido: "",
@@ -16,8 +16,8 @@ const RegistroForm = () => {
     confirmPassword: "",
     rol: "usuario",
   });
-  const [passwords, setPasswords] = useState(true);
-  const [emails, setEmails] = useState(false);
+  // const [passwords, setPasswords] = useState(true);
+  // const [emails, setEmails] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,16 +32,16 @@ const RegistroForm = () => {
     e.preventDefault();
     console.log("antes", dataUser);
 
-    const emails = usuarios.some((usuario) => usuario.email === dataUser.email);
+    // const emails = usuarios.some((usuario) => usuario.email === dataUser.email);
 
-    if (emails) {
-      setEmails(true);
-    } else if (dataUser.password === dataUser.confirmPassword) {
-      // Contraseñas coinciden
-      setPasswords(true);
+    // if (emails) {
+    //   setEmails(true);
+    // } else if (dataUser.password === dataUser.confirmPassword) {
+    //   // Contraseñas coinciden
+    //   setPasswords(true);
 
       try {
-        addUsuario(dataUser);
+        addUsuarios(dataUser);
         setDataUser({
           nombre: "",
           apellido: "",
@@ -54,10 +54,10 @@ const RegistroForm = () => {
       } catch (error) {
         console.log(error);
       }
-    } else {
-      // Contraseñas no coinciden
-      setPasswords(false);
-    }
+    // } else {
+    //   // Contraseñas no coinciden
+    //   setPasswords(false);
+    // }
   };
 
   return (
@@ -123,19 +123,19 @@ const RegistroForm = () => {
                     className="custom-form-control custom-bg-dark"
                     name="email"
                     value={dataUser.email}
-                    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
-                    "
+                    // pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+                    // "
                     minLength={4}
                     maxLength={30}
                     placeholder="Ingrese su email"
                     onChange={handleChange}
                     required
                   />
-                  {emails && (
+                  {/* {emails && (
                     <p className="error-message">
                       ¡El correo electrónico ya existe!
-                    </p>
-                  )}
+                    </p> */}
+                  {/* )} */}
                 </Form.Group>
 
                 <Form.Group className="mb-2">
@@ -161,9 +161,7 @@ const RegistroForm = () => {
                   <Form.Control
                     type="password"
                     id="confirmPassword"
-                    className={` custom-form-control custom-bg-dark ${
-                      passwords ? "" : "passwords-"
-                    } `}
+                    className={` custom-form-control custom-bg-dark`}
                     minLength={6}
                     maxLength={15}
                     name="confirmPassword"
@@ -172,9 +170,9 @@ const RegistroForm = () => {
                     onChange={handleChange}
                     required
                   />
-                  {!passwords && (
+                  {/* {!passwords && (
                     <p className="password-">Las contraseñas no coinciden.</p>
-                  )}
+                  )} */}
                 </Form.Group>
 
                 <div className="my-4 bordeBoton">
