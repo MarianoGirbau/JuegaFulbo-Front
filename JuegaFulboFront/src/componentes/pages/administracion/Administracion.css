@@ -5,7 +5,7 @@
     --secondary-letter: #324700;
 }
 
-h3 {
+.subtitulo h3 {
     font-family: 'Gruppo', sans-serif;
     font-weight: bold;
     font-style: italic;
