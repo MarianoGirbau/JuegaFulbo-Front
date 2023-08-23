@@ -2,14 +2,15 @@ import { useContext, useState } from "react";
 import { Modal } from "react-bootstrap";
 import { CanchasContext } from "../../../context/CanchasContext";
 import { addDays, format } from 'date-fns';
+import Swal from "sweetalert2";
 import "./ModalReserva.css";
 
 export function ModalReserva({ show, handleClose, idCancha, capacidad, numero, precio }) {
   const { reservarCancha } = useContext(CanchasContext);
-
+  const idUsuario = null;
   const usuario = JSON.parse(localStorage.getItem("usuario")); 
   if (usuario) {
-    const idUsuario = usuario.id; //Obtener id de usuario del localStorage
+    idUsuario = usuario.id; //Obtener id de usuario del localStorage
     console.log(idUsuario, "usuario")
   } 
   
@@ -28,10 +29,18 @@ export function ModalReserva({ show, handleClose, idCancha, capacidad, numero, p
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    reservarCancha(idUsuario,diaSemana,horario,idCancha)
-    console.log('Día seleccionado:', diaSemana);
-    console.log('Horario seleccionado:', horario);
-    console.log('cancha seleccionada:', idCancha);
+    if (idUsuario != null) {
+      reservarCancha(idUsuario,diaSemana,horario,idCancha)
+      console.log('Día seleccionado:', diaSemana);
+      console.log('Horario seleccionado:', horario);
+      console.log('cancha seleccionada:', idCancha);      
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Debe Registrarse!',
+        html: 'Para hacer una reserva usted debe <a href="/registro">registrarse</a> primero!',
+      });
+    }
   };
   
   console.log(fecha1)
