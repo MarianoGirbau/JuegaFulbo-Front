@@ -86,8 +86,10 @@ const RegistroForm = () => {
           >
             <Col xs={12} md={7} className="contIqz pb-2 px-5 ">
               <div className="volverAtras d-flex gap-3 align-items-center pt-3">
+                <a className="d-flex gap-2 align-items-center" href="/">
                 <img src="/img/flechaIzq.svg" alt="" />
-                <h5>Volver atrás</h5>
+                <h5 className="m-0">Volver al Inicio</h5>
+                </a>
               </div>
               <hr />
               <h4 className="titulo-form">Formulario de registro</h4>

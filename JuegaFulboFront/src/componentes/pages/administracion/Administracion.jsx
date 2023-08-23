@@ -37,6 +37,8 @@ const Admincomp = () => {
         <h3>TABLA DE CANCHAS</h3>
         <hr className="mb-2" />
       </div>
+
+      <div className="table-responsive">
       <Tabla
         ths={[
           "Código",
@@ -56,12 +58,15 @@ const Admincomp = () => {
         ])}
         eliminar={eliminarCancha}
       ></Tabla>
+        </div>
+      
 
       <div className="subtitulo">
         <h3>TABLA DE QUINCHOS</h3>
         <hr className="mb-2" />
       </div>
 
+      <div className="table-responsive">
       <table className="table mb-5" id="lista-de-quinchos">
         <thead>
           <tr>
@@ -83,8 +88,10 @@ const Admincomp = () => {
             <td>https://i.pinimg.com/originals/1f/08/87/1f0887.jpg</td>
             <td></td>
             <td>
+              <div className="d-flex gap-2">
               <button className="btn btn-outline-secondary editar"></button>
               <button className="btn btn-outline-secondary eliminar"></button>
+              </div>
             </td>
           </tr>
 
@@ -96,18 +103,22 @@ const Admincomp = () => {
             <td>https://i.pinimg.com/originals/1f/08/87/1f0887.jpg</td>
             <td></td>
             <td>
+            <div className="d-flex gap-2">
               <button className="btn btn-outline-secondary editar"></button>
               <button className="btn btn-outline-secondary eliminar"></button>
+            </div>
             </td>
           </tr>
         </tbody>
       </table>
+      </div>
 
       <div className="subtitulo">
         <h3>TABLA DE USUARIOS</h3>
         <hr className="mb-2" />
       </div>
 
+      <div className="table-responsive">
       <Tabla
         ths={["ID", "Nombre", "Apellido", "Email", "Rol", "Acciones"]}
         trs={usuarios.map((usuario) => [
@@ -119,6 +130,7 @@ const Admincomp = () => {
         ])}
         eliminar={eliminarUsuario}
       ></Tabla>
+      </div>
       <ModalCRUD show={show} handleClose={() => setShow(false)} />
     </div>
   );
