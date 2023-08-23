@@ -102,7 +102,7 @@
   padding: 2rem;
 } */
 
-::placeholder {
+.placeholder-registro::placeholder {
   font-family: "Urbanist", sans-serif;
   color: #5a7f02 !important;
   font-size: 0.9rem;
