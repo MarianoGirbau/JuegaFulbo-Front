@@ -31,7 +31,7 @@ export default function Card({ capacidad, numero, precio, id }) {
           </section>
         </section>
       </div>
-      <ModalReserva show={show} handleClose={handleClose} id={id} capacidad={capacidad} numero={numero} precio={precio}/>
+      <ModalReserva show={show} handleClose={handleClose} idCancha={id} capacidad={capacidad} numero={numero} precio={precio}/>
     </>
   );
 }

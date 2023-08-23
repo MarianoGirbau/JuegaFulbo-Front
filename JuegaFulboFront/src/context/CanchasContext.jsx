@@ -43,12 +43,31 @@ const CanchasProvider = ({ children }) => {
     }
   };
 
+  const reservarCancha = async (idUsuario,dia,horario,idCancha) => {
+    const canchaReserva = canchas.find((cancha) => cancha._id === idCancha);
+    const numeroCancha = canchaReserva.numero;
+    console.log(canchaReserva.reservas[dia][horario],"reserva")
+    if (canchaReserva && canchaReserva.reservas[dia][horario] === null) {
+      try {
+        await axios.put(`http://localhost:4000/api/canchas/reserva/${idCancha}`, {idUsuario,dia,horario});
+        console.log({idUsuario,dia,horario})
+        //SWEET ALERT "SE REALIZÓ LA RESERVA"
+        //LLEVAR A LA PAGINA DE MIS RESERVAS O MANDAR MAIL Y NO USAR PAGINA RESERVAS
+      } catch (error) {
+        console.log("ERROR", error);
+      }
+    }else{
+      //SWEET ALERT DE HORARIO OCUPADO
+    }
+  }
+
   return (
     <CanchasContext.Provider
       value={{
         canchas,
         setCanchas,
         eliminarCancha,
+        reservarCancha
       }}
     >
       {children}
