@@ -3,7 +3,7 @@ import "./Footer.css";
 export default function Footer() {
   return (
     <div>
-      <footer>
+      <footer className="footer-custom">
         <div className="container-fluid container-footer py-4 borde-custom">
           <div className="row">
             <div className="col-12 col-md-4">

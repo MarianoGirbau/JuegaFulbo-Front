@@ -2,11 +2,17 @@
     background-color: #0f0f0f !important;
 }
 
-.navbar a,.offcanvas a{
+.navbar a, 
+.offcanvas a{
     color: #b6ff1b !important;
     font-family: 'Gruppo', sans-serif;
     font-size: 20px;
     font-weight: bold;
+}
+
+.navbar a:hover, 
+.offcanvas a:hover{
+    color: white !important;
 }
 
 .botonesNav{

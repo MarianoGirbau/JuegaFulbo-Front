@@ -1,3 +1,12 @@
+.footer-custom {
+  font-family: 'Urbanist', sans-serif;
+}
+
+.footer-custom a:hover {
+  transition: 0.5s;
+  color: white;
+}
+
 .footer {
     display: flex;
     justify-content: space-between;
@@ -46,3 +55,4 @@
   border-top: 1px solid #b6ff1b;
   border-bottom: 1px solid #b6ff1b;
 }
+
