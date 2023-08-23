@@ -30,6 +30,15 @@ const Contacto = () => {
       return;
     }
 
+    if (!validaTexto(formData.texto)) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "El mensaje contiene caracteres no permitidos.",
+      });
+      return;
+    }
+
     const serviceId = "service_xoa5gvn";
     const templateId = "template_am23jln";
     const apikey = "lv2I2YINRkFxOE99P";
@@ -61,6 +70,12 @@ const Contacto = () => {
   const validatEmail = (email) => {
     const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return re.test(String(email).toLowerCase());
+  };
+
+  const validaTexto = (texto) => {
+    // Expresión regular que permite solo letras, números y algunos caracteres de puntuación
+    const re = /^[a-zA-Z0-9,.!?()"\s]*$/;
+    return re.test(texto);
   };
 
   return (
