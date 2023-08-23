@@ -37,6 +37,11 @@
   width: 15rem;
 }
 
+.volverAtras a {
+  text-decoration: none;
+  color: #b6ff1b;
+}
+
 .volverAtras img  {
   width: 1.2rem;
 }
