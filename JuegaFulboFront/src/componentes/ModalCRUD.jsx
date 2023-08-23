@@ -200,7 +200,7 @@ export default function ModalCRUD({
                     value={dataCancha.img}
                     // pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                     minLength={10}
-                    maxLength={30}
+                    maxLength={50}
                     onChange={(e) => handleChangeCancha(e)}
                     placeholder="Ingrese la URL de la imagen"
                     required
