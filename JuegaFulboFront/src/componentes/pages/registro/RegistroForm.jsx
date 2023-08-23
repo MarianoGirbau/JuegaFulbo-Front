@@ -7,7 +7,7 @@ import { UsuariosContext } from "../../../context/UsuariosContext";
 import { useContext } from "react";
 
 const RegistroForm = () => {
-  const { addUsuarios } = useContext(UsuariosContext);
+  const { addUsuarios, usuarios } = useContext(UsuariosContext);
   const [dataUser, setDataUser] = useState({
     nombre: "",
     apellido: "",
@@ -16,8 +16,8 @@ const RegistroForm = () => {
     confirmPassword: "",
     rol: "usuario",
   });
-  // const [passwords, setPasswords] = useState(true);
-  // const [emails, setEmails] = useState(false);
+  const [passwords, setPasswords] = useState(true);
+  const [emails, setEmails] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,13 +32,13 @@ const RegistroForm = () => {
     e.preventDefault();
     console.log("antes", dataUser);
 
-    // const emails = usuarios.some((usuario) => usuario.email === dataUser.email);
+    const emails = usuarios.some((usuario) => usuario.email === dataUser.email);
 
-    // if (emails) {
-    //   setEmails(true);
-    // } else if (dataUser.password === dataUser.confirmPassword) {
-    //   // Contraseñas coinciden
-    //   setPasswords(true);
+    if (emails) {
+      setEmails(true);
+    } else if (dataUser.password === dataUser.confirmPassword) {
+      // Contraseñas coinciden
+      setPasswords(true);
 
       try {
         addUsuarios(dataUser);
@@ -54,10 +54,10 @@ const RegistroForm = () => {
       } catch (error) {
         console.log(error);
       }
-    // } else {
-    //   // Contraseñas no coinciden
-    //   setPasswords(false);
-    // }
+    } else {
+      // Contraseñas no coinciden
+      setPasswords(false);
+    }
   };
 
   return (
@@ -131,11 +131,11 @@ const RegistroForm = () => {
                     onChange={handleChange}
                     required
                   />
-                  {/* {emails && (
+                  {emails && (
                     <p className="error-message">
                       ¡El correo electrónico ya existe!
-                    </p> */}
-                  {/* )} */}
+                    </p>
+                  )}
                 </Form.Group>
 
                 <Form.Group className="mb-2">
@@ -170,9 +170,9 @@ const RegistroForm = () => {
                     onChange={handleChange}
                     required
                   />
-                  {/* {!passwords && (
+                  {!passwords && (
                     <p className="password-">Las contraseñas no coinciden.</p>
-                  )} */}
+                  )}
                 </Form.Group>
 
                 <div className="my-4 bordeBoton">
