@@ -85,9 +85,9 @@ export function ModalLogin({ show, handleClose }) {
                   }}
                 >
                   {showPassword ? (
-                    <FontAwesomeIcon icon={faEyeSlash} />
-                  ) : (
                     <FontAwesomeIcon icon={faEye} />
+                  ) : (
+                    <FontAwesomeIcon icon={faEyeSlash} />
                   )}
                 </button>
               </div>
@@ -95,7 +95,7 @@ export function ModalLogin({ show, handleClose }) {
               <a className="cuentalogin" href="">
                 ¿Olvidaste tu contraseña?
               </a>
-              <button className="botonlogin">Ingresar</button>
+              <button className="botonlogin">INGRESAR</button>
               <h4 className="cuentalogin">
                 ¿NO TIENES UNA CUENTA?{" "}
                 <a className="cuentalogin" href="">
