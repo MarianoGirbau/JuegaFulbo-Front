@@ -57,8 +57,6 @@ const CanchasProvider = ({ children }) => {
           title: '¡Reserva exitosa!',
           text: 'Se realizó la reserva exitosamente.',
         });
-        //SWEET ALERT "SE REALIZÓ LA RESERVA"
-        //LLEVAR A LA PAGINA DE MIS RESERVAS O MANDAR MAIL Y NO USAR PAGINA RESERVAS
       } catch (error) {
         console.log("ERROR", error);
       }
@@ -68,11 +66,10 @@ const CanchasProvider = ({ children }) => {
         title: 'Horario ocupado',
         text: 'El horario seleccionado está ocupado. Por favor, elige otro horario.',
       });
-      //SWEET ALERT DE HORARIO OCUPADO
     }
   }
 
-  
+
 
   return (
     <CanchasContext.Provider

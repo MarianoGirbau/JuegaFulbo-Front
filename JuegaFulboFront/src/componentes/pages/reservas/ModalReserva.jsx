@@ -7,10 +7,10 @@ import "./ModalReserva.css";
 
 export function ModalReserva({ show, handleClose, idCancha, capacidad, numero, precio }) {
   const { reservarCancha } = useContext(CanchasContext);
-  const idUsuario = null;
+  var idUsuario = null;
   const usuario = JSON.parse(localStorage.getItem("usuario")); 
   if (usuario) {
-    idUsuario = usuario.id; //Obtener id de usuario del localStorage
+    var idUsuario = usuario.id; //Obtener id de usuario del localStorage
     console.log(idUsuario, "usuario")
   } 
   
@@ -42,8 +42,6 @@ export function ModalReserva({ show, handleClose, idCancha, capacidad, numero, p
       });
     }
   };
-  
-  console.log(fecha1)
   
     return (
       <>
