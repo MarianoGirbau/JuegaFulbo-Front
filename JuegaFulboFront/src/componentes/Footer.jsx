@@ -9,9 +9,9 @@ export default function Footer() {
             <div className="col-12 col-md-4">
               <div className="menu-izq d-flex flex-column text-center text-md-start text-lg-start">
                 <a href="/">Inicio</a>
-                <a href="/">Contacto</a>
-                <a href="/">Reserva</a>
-                <a href="/">Quienes Somos</a>
+                <a href="/contacto">Contacto</a>
+                <a href="/reservas">Reserva</a>
+                <a href="/about">Quienes Somos</a>
               </div>
             </div>
             <div className="col-12 col-md-4 d-flex justify-content-center align-items-center py-4">

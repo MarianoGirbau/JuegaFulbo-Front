@@ -12,7 +12,7 @@ axios.defaults.withCredentials = true;
 /* import PaginaInicial from "./componentes/pages/inicio"; */
 import "./componentes/Scrollbar.css" ;
 
-import Contacto from './componentes/pages/Contacto';
+
 
 function App() {
   return (

@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Contacto from "../pages/Contacto/Contacto.jsx";
+import Contacto from "../pages/contacto/Contacto";
 import Inicio from "../pages/home/Inicio.jsx";
 import RegistroForm from "../pages/registro/RegistroForm.jsx";
 import Cards from "../Cards.jsx";
