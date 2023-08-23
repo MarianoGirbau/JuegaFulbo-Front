@@ -21,6 +21,15 @@ const Contacto = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!validatEmail(formData.email)) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Ingresa una dirección de correo electrónico válida.",
+      });
+      return;
+    }
+
     const serviceId = "service_xoa5gvn";
     const templateId = "template_am23jln";
     const apikey = "lv2I2YINRkFxOE99P";
@@ -49,7 +58,10 @@ const Contacto = () => {
       .catch((error) => console.error(error));
   };
 
-
+  const validatEmail = (email) => {
+    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return re.test(String(email).toLowerCase());
+  };
 
   return (
     <main className="main-contacto">
@@ -60,20 +72,23 @@ const Contacto = () => {
               <img src="/img/CamCombo.png" alt="" />
             </div>
             <div className="col cont-form">
-              <Form  className="container-fluid "
-              ref={refForm}
-              action=""
-              onSubmit={handleSubmit}
-              required>
-
-                <Form.Group controlid="nombre"
-                >
+              <Form
+                className="container-fluid "
+                ref={refForm}
+                action=""
+                onSubmit={handleSubmit}
+                required
+              >
+                <Form.Group controlid="nombre">
                   <Form.Label className="propForm">Nombre:</Form.Label>
                   <Form.Control
                     className="custom-form-control mb-4"
                     id="input_contacto"
                     type="text"
                     name="username"
+                    pattern="^[a-zA-ZÀ-ÿ\s]{1,40}$"
+                    minLength={3}
+                    maxLength={30}
                     // controlid="exampleForm.ControlInput1"
                     value={formData.username}
                     onChange={handleInputChange}
@@ -81,14 +96,14 @@ const Contacto = () => {
                   />
                 </Form.Group>
 
-                <Form.Group controlid="email"
-                >
+                <Form.Group controlid="email">
                   <Form.Label className="propForm">Email:</Form.Label>
                   <Form.Control
                     className="custom-form-control mb-4"
                     id="input_contacto"
                     type="email"
                     name="email"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                     // controlid="exampleForm.ControlInput1"
                     value={formData.email}
                     onChange={handleInputChange}
@@ -96,8 +111,7 @@ const Contacto = () => {
                   />
                 </Form.Group>
 
-                <Form.Group controlid="mensaje"
-                >
+                <Form.Group controlid="mensaje">
                   <Form.Label className="propForm">Mensaje:</Form.Label>
                   <Form.Control
                     className="custom-form-textarea"
@@ -108,8 +122,9 @@ const Contacto = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
+                    minLength={10}
+                    maxLength={300}
                     required
-                    
                   />
                 </Form.Group>
 
@@ -130,8 +145,3 @@ const Contacto = () => {
 };
 
 export default Contacto;
-
-
-
-
-
