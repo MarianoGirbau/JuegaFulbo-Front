@@ -10,7 +10,7 @@ import CanchasProvider from "./context/CanchasContext";
 // axios.defaults.baseURL = "http://localhost:4000";
 axios.defaults.withCredentials = true;
 /* import PaginaInicial from "./componentes/pages/inicio"; */
-
+import "./componentes/Scrollbar.css" ;
 
 function App() {
   return (

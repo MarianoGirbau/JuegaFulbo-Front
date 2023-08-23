@@ -1,0 +1,22 @@
+:root {
+    --color-background: #0f0f0f;
+    --primary-letter: #b6ff1b;
+    --green-opacity: rgba(182, 255, 27, 0.7);
+    --secondary-letter: #324700;
+    --scrollbar-bg: #292929;
+  }
+
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: var(--scrollbar-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-letter);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-letter);
+    border-radius: 10px;
+}
