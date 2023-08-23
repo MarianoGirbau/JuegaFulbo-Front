@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import ModalReserva from "./pages/reservas/ModalReserva";
 // import "./cards.css";
 
-export default function Card({ capacidad, numero, precio, id }) {
+export default function Card({ capacidad, numero, precio, id, img }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -16,7 +16,7 @@ export default function Card({ capacidad, numero, precio, id }) {
         <section className="cards">
           <div className="img-bg">
             <img
-              src="/img/Cancha1.jpg"
+              src={img}
               className="img-fluid cover-image"
               alt=""
             />
