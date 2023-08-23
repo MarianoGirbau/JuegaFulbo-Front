@@ -6,6 +6,7 @@
     color:#b6ff1b;
     padding: 20px;
 }
+
 .footer a {
     text-decoration: none; 
     color: #b6ff1b; 
@@ -28,3 +29,20 @@
     border-top: 2px solid #b6ff1b; 
     margin: 10px 0; 
   }
+
+.menu-izq a {
+    color: #b6ff1b;
+    text-decoration: none;
+    line-height: 2rem;
+}
+
+.menu-der a {
+  color: #b6ff1b;
+  text-decoration: none;
+  line-height: 2.7rem;
+}
+
+.borde-custom {
+  border-top: 1px solid #b6ff1b;
+  border-bottom: 1px solid #b6ff1b;
+}
