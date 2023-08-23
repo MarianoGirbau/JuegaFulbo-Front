@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import { registerLocale } from 'react-datepicker';
 import es from 'date-fns/locale/es';
+import { addDays } from 'date-fns'
 
 
 registerLocale('es', es);
@@ -23,6 +24,12 @@ function Cards() {
   const handleOptionChange2 = (event) => {
     setSelectedOption2(event.target.value);
   };
+
+  var fechaActual = new Date();
+  var fechaSemana = addDays(fechaActual,7);
+  console.log(fechaSemana)
+  
+
 
   return (
     <>
@@ -66,7 +73,8 @@ function Cards() {
                   onChange={(date) => setSelectedDate(date)}
                   className="custom-select"
                   dateFormat={"dd MMM yyyy"}
-                  minDate={new Date()}
+                  minDate={fechaActual}
+                  maxDate={fechaSemana}
                   locale="es"
                   placeholderText="Ingrese la fecha"
                 />

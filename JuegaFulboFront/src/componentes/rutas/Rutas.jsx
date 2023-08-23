@@ -28,7 +28,7 @@ const Rutas = () => {
           <Route path="/" element={<Inicio />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/reservas" element={<Cards />} />
-         
+          <Route path="/error404" element={<Error404 />} />
         </>
 
     </Routes>
