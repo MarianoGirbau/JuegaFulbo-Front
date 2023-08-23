@@ -60,10 +60,8 @@ export function ModalLogin({ show, handleClose }) {
                   type={showPassword ? "text" : "password"}
                   value={contraseña}
                   onChange={(e) => setContraseña(e.target.value)}
-                  minLength={8}
                   maxLength={30}
                   placeholder="Contraseña"
-                  title="La contraseña debe tener al menos 8 caracteres."
                   required
                 />
 

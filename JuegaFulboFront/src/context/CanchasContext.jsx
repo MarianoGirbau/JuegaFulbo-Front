@@ -21,6 +21,7 @@ const CanchasProvider = ({ children }) => {
               horario: indiceHorario,
             };
             reservasEncontradas.push(infoReserva);
+            console.log(infoReserva, "reservas")
           } else {
             console.log("no tiene reservas");
           }

@@ -19,7 +19,8 @@ const UsuariosProvider = ({ children }) => {
           password,
         }
       );
-
+      console.log(response, "response");
+       
       const jwtToken = response.data.data.token;
       const jwtDecode = jwt_decode(jwtToken);
 
@@ -33,17 +34,29 @@ const UsuariosProvider = ({ children }) => {
       };
 
       localStorage.setItem("usuario", JSON.stringify(user));
+      Swal.fire({
+        icon: "success",
+        title: `Bienvenido ${user.nombre}!`,
+      }); 
       setUsuarioLogueado(user);
       // console.log("usuario: ", usuarioLogueado);
-
+      
+      setTimeout(() => {
       if (user.rol === "admin") {
         window.location.href = "/administracion";
       } else {
         window.location.href = "/";
-      }
+      }},1000)
+
       return user;
+
     } catch (error) {
-      // console.error(error);
+      console.log(error,"login");
+      Swal.fire({
+        icon: "error",
+        title: "Los datos ingresados no son correctos",
+        text: "Reingrese los datos e intente nuevamente",
+      });
     }
   };
 
