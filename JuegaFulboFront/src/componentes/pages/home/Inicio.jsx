@@ -13,7 +13,7 @@ function PaginaInicial() {
             <h3 className="h3Title">CANCHAS</h3>
           </a>
           <a
-            href="/quincho"
+            href="/error404"
             className="cuadroQuinchos d-flex justify-content-center align-items-center"
           >
             <h3 className="h3Title">QUINCHOS</h3>
