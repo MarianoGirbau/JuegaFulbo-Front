@@ -205,7 +205,8 @@ const RegistroForm = () => {
               sm={0}
               md={5}
               className="contDer overflow-hidden d-none d-sm-block placeholder-registro"
-            ></Col>
+            >
+            </Col>
           </Container>
         </main>
       </div>

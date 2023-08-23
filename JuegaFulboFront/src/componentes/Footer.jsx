@@ -14,8 +14,8 @@ export default function Footer() {
                 <a href="/">Quienes Somos</a>
               </div>
             </div>
-            <div className="col-12 col-md-4 d-flex justify-content-center py-4">
-              <img src="/img/juegaFulboLogo.svg" alt="" width={"250px"} />
+            <div className="col-12 col-md-4 d-flex justify-content-center align-items-center py-4">
+              <img src="/img/LogoJF3602.gif" alt="" width={"130px"} />
             </div>
             <div className="col-12 col-md-4 d-flex justify-content-center justify-content-md-end">
               <div className="menu-der d-flex flex-column text-center text-lg-end">
