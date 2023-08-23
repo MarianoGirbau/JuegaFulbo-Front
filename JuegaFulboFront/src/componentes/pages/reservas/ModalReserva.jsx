@@ -6,8 +6,13 @@ import { addDays, format } from 'date-fns';
 
 export function ModalReserva({ show, handleClose, idCancha, capacidad, numero, precio }) {
   const { reservarCancha } = useContext(CanchasContext);
-  const idUsuario = JSON.parse(localStorage.getItem("usuario")).id; //Obtener id de usuario del localStorage
-  console.log(idUsuario)
+
+  const usuario = JSON.parse(localStorage.getItem("usuario")); 
+  if (usuario) {
+    const idUsuario = usuario.id; //Obtener id de usuario del localStorage
+    console.log(idUsuario, "usuario")
+  } 
+  
   var fechaHoy = new Date();
   var fecha0 = format(fechaHoy, 'dd/MM').toString();
   var fecha1 = format(addDays(fechaHoy,1), 'dd/MM').toString();

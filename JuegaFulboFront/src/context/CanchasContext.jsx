@@ -63,7 +63,6 @@ const CanchasProvider = ({ children }) => {
         console.log("ERROR", error);
       }
     }else{
-
       Swal.fire({
         icon: 'error',
         title: 'Horario ocupado',
@@ -72,6 +71,8 @@ const CanchasProvider = ({ children }) => {
       //SWEET ALERT DE HORARIO OCUPADO
     }
   }
+
+  
 
   return (
     <CanchasContext.Provider
