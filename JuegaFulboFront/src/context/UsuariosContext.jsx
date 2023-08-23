@@ -35,18 +35,19 @@ const UsuariosProvider = ({ children }) => {
 
       localStorage.setItem("usuario", JSON.stringify(user));
       Swal.fire({
-        icon: "success",
-        title: `Bienvenido ${user.nombre}!`,
-      }); 
+        icon: 'success',
+        title: `Bienvenido ${user.nombre}`,
+        showConfirmButton: false,
+        timer: 1500
+      })
       setUsuarioLogueado(user);
       // console.log("usuario: ", usuarioLogueado);
       
-      setTimeout(() => {
       if (user.rol === "admin") {
         window.location.href = "/administracion";
       } else {
         window.location.href = "/";
-      }},1000)
+      }
 
       return user;
 
