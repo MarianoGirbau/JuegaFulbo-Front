@@ -1,7 +1,8 @@
-.contenedorPrincipal{
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh !important;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 .swal2-popup {
     color: #ffffff;
@@ -18,6 +19,10 @@
     color: #000000 !important;
 }
 
-.swal2-content a {
-    color: #b6ff1b !important;
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
 }
