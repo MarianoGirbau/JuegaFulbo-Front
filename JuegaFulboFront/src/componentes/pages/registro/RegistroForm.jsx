@@ -87,7 +87,7 @@ const RegistroForm = () => {
                   <Form.Control
                     type="text"
                     id="nombre"
-                    className="custom-form-control custom-bg-dark"
+                    className="custom-form-control custom-bg-dark placeholder-registro"
                     name="nombre"
                     value={dataUser.name}
                     onChange={(e) => handleChange(e)}
@@ -104,7 +104,7 @@ const RegistroForm = () => {
                   <Form.Control
                     type="text"
                     id="apellido"
-                    className="custom-form-control custom-bg-dark"
+                    className="custom-form-control custom-bg-dark placeholder-registro"
                     pattern="^[a-zA-ZÀ-ÿ\s]{1,40}$"
                     minLength={3}
                     maxLength={30}
@@ -122,7 +122,7 @@ const RegistroForm = () => {
                   <Form.Control
                     type="email"
                     id="email"
-                    className="custom-form-control custom-bg-dark"
+                    className="custom-form-control custom-bg-dark placeholder-registro"
                     name="email"
                     value={dataUser.email}
                     // pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
@@ -145,7 +145,7 @@ const RegistroForm = () => {
                   <Form.Control
                     type="password"
                     id="password"
-                    className="custom-form-control custom-bg-dark"
+                    className="custom-form-control custom-bg-dark placeholder-registro"
                     minLength={6}
                     maxLength={15}
                     name="password"
@@ -163,7 +163,7 @@ const RegistroForm = () => {
                   <Form.Control
                     type="password"
                     id="confirmPassword"
-                    className={` custom-form-control custom-bg-dark`}
+                    className={` custom-form-control custom-bg-dark placeholder-registro`}
                     minLength={6}
                     maxLength={15}
                     name="confirmPassword"
@@ -194,7 +194,7 @@ const RegistroForm = () => {
               xs={12}
               sm={0}
               md={5}
-              className="contDer overflow-hidden d-none d-sm-block"
+              className="contDer overflow-hidden d-none d-sm-block placeholder-registro"
             ></Col>
           </Container>
         </main>

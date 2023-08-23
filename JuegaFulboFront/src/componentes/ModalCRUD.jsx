@@ -6,7 +6,7 @@ import { Modal } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
 
-import "./Login.css";
+import "./ModalCRUD.css";
 
 // actualizar en true sino por defecto agrega
 export default function ModalCRUD({ id, show, handleClose, actualizar }) {
@@ -52,14 +52,14 @@ export default function ModalCRUD({ id, show, handleClose, actualizar }) {
       <Modal show={show} onHide={handleClose} className="modalFondo">
         <Modal.Body>
           <Modal.Header closeButton></Modal.Header>
-          <section className="container-login">
+          <section className="cont-usuario">
             <Form id="form-registrooo" onSubmit={handleSubmit}>
               <Form.Group className="mb-2">
-                <Form.Label className="gruppoFont">Nombre</Form.Label>
+                <Form.Label className="gruppo-font">Nombre</Form.Label>
                 <Form.Control
                   type="text"
                   id="nombre"
-                  className="custom-form-control custom-bg-dark"
+                  className="custom-form-control custom-bg-dark placeholder-usuarios"
                   name="nombre"
                   value={dataUser.nombre}
                   onChange={(e) => handleChange(e)}
@@ -70,11 +70,11 @@ export default function ModalCRUD({ id, show, handleClose, actualizar }) {
                 />
               </Form.Group>
               <Form.Group className="mb-2">
-                <Form.Label className="gruppoFont">Apellido</Form.Label>
+                <Form.Label className="gruppo-font">Apellido</Form.Label>
                 <Form.Control
                   type="text"
                   id="apellido"
-                  className="custom-form-control custom-bg-dark"
+                  className="custom-form-control custom-bg-dark placeholder-usuarios"
                   minLength={8}
                   maxLength={15}
                   placeholder="Ingrese su apellido"
@@ -85,13 +85,13 @@ export default function ModalCRUD({ id, show, handleClose, actualizar }) {
                 />
               </Form.Group>
               <Form.Group className="mb-2">
-                <Form.Label className="gruppoFont">
+                <Form.Label className="gruppo-font">
                   Correo Electrónico
                 </Form.Label>
                 <Form.Control
                   type="email"
                   id="email"
-                  className="custom-form-control custom-bg-dark"
+                  className="custom-form-control custom-bg-dark placeholder-usuarios"
                   name="email"
                   value={dataUser.email}
                   // pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
@@ -105,11 +105,11 @@ export default function ModalCRUD({ id, show, handleClose, actualizar }) {
               {!actualizar && (
                 <>
                   <Form.Group className="mb-2">
-                    <Form.Label className="gruppoFont">Contraseña</Form.Label>
+                    <Form.Label className="gruppo-font">Contraseña</Form.Label>
                     <Form.Control
                       type="password"
                       id="password"
-                      className="custom-form-control custom-bg-dark"
+                      className="custom-form-control custom-bg-dark placeholder-usuarios"
                       minLength={8}
                       maxLength={30}
                       name="password"
@@ -120,13 +120,13 @@ export default function ModalCRUD({ id, show, handleClose, actualizar }) {
                     />
                   </Form.Group>
                   <Form.Group className="mb-2">
-                    <Form.Label className="gruppoFont">
+                    <Form.Label className="gruppo-font">
                       Confirmar contraseña
                     </Form.Label>
                     <Form.Control
                       type="password"
                       id="confirmPassword"
-                      className="custom-form-control custom-bg-dark"
+                      className="custom-form-control custom-bg-dark placeholder-usuarios"
                       minLength={8}
                       maxLength={30}
                       name="confirmPassword"
@@ -139,7 +139,7 @@ export default function ModalCRUD({ id, show, handleClose, actualizar }) {
                 </>
               )}
               <Form.Group className="mb-2">
-                <Form.Label className="gruppoFont">Rol</Form.Label>
+                <Form.Label className="gruppo-font">Rol</Form.Label>
                 <Form.Control
                   as="select" // Utilizamos el componente select
                   id="rol"
@@ -158,7 +158,7 @@ export default function ModalCRUD({ id, show, handleClose, actualizar }) {
                 variant="black"
                 id="botonLog"
                 type="submit"
-                className="w-100"
+                className="w-100 mt-3 boton-agregar"
                 onClick={handleSubmit}
               >
                 {actualizar ? (
