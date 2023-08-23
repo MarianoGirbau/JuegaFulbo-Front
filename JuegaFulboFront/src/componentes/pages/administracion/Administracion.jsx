@@ -17,7 +17,7 @@ const Admincomp = () => {
   };
 
   return (
-    <div className="container-fluid custom-container">
+    <div className="container-fluid custom-container-admin">
       <div className="container d-flex justify-content-center">
         <button
           type="button"

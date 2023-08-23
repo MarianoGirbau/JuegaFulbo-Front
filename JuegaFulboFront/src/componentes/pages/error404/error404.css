@@ -44,7 +44,7 @@
   color: var(--color-background)!important;
 }
 
-.custom-container {
+.custom-container-error {
   max-width: 900px;
 }
 

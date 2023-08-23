@@ -5,7 +5,7 @@ function Error404() {
   return (
     <>
     <div className="bg-error404 d-flex justify-content-center align-items-center">
-      <main className="container-fluid custom-container main-error d-flex">
+      <main className="container-fluid custom-container-error main-error d-flex">
         <Container className="contPrincipal d-flex justify-content-center align-items-center">
           <Row className="col d-flex d-none d-lg-block">
             <div className="relativo imgDorso">

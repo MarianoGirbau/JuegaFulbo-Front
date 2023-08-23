@@ -52,7 +52,7 @@
 }
 
 .custom-container {
-  max-width: 900px;
+  max-width: 1000px;
 }
 
 /* #container-registro {
@@ -120,7 +120,7 @@
 }
 
 .contDer {
-  background-image: url(/img/fulboRegistro.jpg);
+  background-image: url(/img/ImagenRegistro.jpg);
   background-size: cover;
 }
 
