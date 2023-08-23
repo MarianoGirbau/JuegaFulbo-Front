@@ -33,7 +33,8 @@
   height: 3em;
   border: 1px solid #b6ff1b;
   margin-top: 1em;
-
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .body-custom ::placeholder {
