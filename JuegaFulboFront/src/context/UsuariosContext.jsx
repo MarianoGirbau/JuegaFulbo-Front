@@ -43,11 +43,12 @@ const UsuariosProvider = ({ children }) => {
       setUsuarioLogueado(user);
       // console.log("usuario: ", usuarioLogueado);
       
+      setTimeout(() => {
       if (user.rol === "admin") {
         window.location.href = "/administracion";
       } else {
         window.location.href = "/";
-      }
+      }},1000)
 
       return user;
 
