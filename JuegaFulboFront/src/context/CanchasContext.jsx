@@ -7,6 +7,30 @@ export const CanchasContext = createContext();
 // eslint-disable-next-line react/prop-types
 const CanchasProvider = ({ children }) => {
   const [canchas, setCanchas] = useState([]);
+  const [MisReservas, setMisReservas] = useState([]);
+
+  const obtenerReserva = async (idUsuario) => {
+    const reservasEncontradas = [];
+    canchas.forEach((cancha) => {
+      cancha.reservas.forEach((reserva, indiceDia) => {
+        reserva.forEach((idReserva, indiceHorario) => {
+          if (idReserva === idUsuario) {
+            const infoReserva = {
+              numero: cancha.numero,
+              dia: indiceDia,
+              horario: indiceHorario,
+            };
+            reservasEncontradas.push(infoReserva);
+          } else {
+            console.log("no tiene reservas");
+          }
+        });
+      });
+    });
+
+    await setMisReservas(reservasEncontradas);
+    localStorage.setItem("reservasUsuario", JSON.stringify(MisReservas));
+  };
 
   const obtenerCanchas = async () => {
     const { data } = await axios.get("http://localhost:4000/api/canchas");
@@ -17,6 +41,7 @@ const CanchasProvider = ({ children }) => {
 
   useEffect(() => {
     obtenerCanchas();
+    // obtenerReserva();
   }, []);
 
   const eliminarCancha = async (id) => {
@@ -43,33 +68,69 @@ const CanchasProvider = ({ children }) => {
     }
   };
 
-  const reservarCancha = async (idUsuario,dia,horario,idCancha) => {
+  const reservarCancha = async (idUsuario, dia, horario, idCancha) => {
     const canchaReserva = canchas.find((cancha) => cancha._id === idCancha);
-    const numeroCancha = canchaReserva.numero;
-    console.log(canchaReserva.reservas[dia][horario],"reserva")
+    // const numeroCancha = canchaReserva.numero;
+    console.log(canchaReserva.reservas[dia][horario], "reserva");
     if (canchaReserva && canchaReserva.reservas[dia][horario] === null) {
       try {
-        await axios.put(`http://localhost:4000/api/canchas/reserva/${idCancha}`, {idUsuario,dia,horario});
-        console.log({idUsuario,dia,horario})
+        await axios.put(
+          `http://localhost:4000/api/canchas/reserva/${idCancha}`,
+          { idUsuario, dia, horario }
+        );
+        console.log({ idUsuario, dia, horario });
 
         Swal.fire({
-          icon: 'success',
-          title: '¡Reserva exitosa!',
-          text: 'Se realizó la reserva exitosamente.',
+          icon: "success",
+          title: "¡Reserva exitosa!",
+          text: "Se realizó la reserva exitosamente.",
         });
       } catch (error) {
         console.log("ERROR", error);
       }
-    }else{
+    } else {
       Swal.fire({
-        icon: 'error',
-        title: 'Horario ocupado',
-        text: 'El horario seleccionado está ocupado. Por favor, elige otro horario.',
+        icon: "error",
+        title: "Horario ocupado",
+        text: "El horario seleccionado está ocupado. Por favor, elige otro horario.",
       });
     }
-  }
+  };
 
+  const addCancha = async (dataCancha) => {
+    await axios.post(`http://localhost:4000/api/canchas`, dataCancha);
 
+    await Swal.fire({
+      icon: "success",
+      title: "Cancha agregada",
+      showConfirmButton: false,
+      timer: 3000,
+    });
+
+    window.location.href = "/administracion";
+  };
+  const updateCancha = async (updatedCancha) => {
+    console.log(updatedCancha);
+    try {
+      await axios.put(
+        `http://localhost:4000/api/canchas/${updatedCancha._id}`,
+        updatedCancha
+      );
+      await Swal.fire({
+        icon: "success",
+        title: "Cancha Actualizada",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+
+      const newCanchas = canchas.map((cancha) =>
+        cancha._id === updatedCancha._id ? updatedCancha : cancha
+      );
+      setCanchas(newCanchas);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <CanchasContext.Provider
@@ -77,7 +138,11 @@ const CanchasProvider = ({ children }) => {
         canchas,
         setCanchas,
         eliminarCancha,
-        reservarCancha
+        reservarCancha,
+        updateCancha,
+        addCancha,
+        obtenerReserva,
+        MisReservas,
       }}
     >
       {children}

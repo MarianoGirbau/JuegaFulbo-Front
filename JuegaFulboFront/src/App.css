@@ -3,3 +3,21 @@
     flex-direction: column;
     min-height: 100vh !important;
 }
+.swal2-popup {
+    color: #ffffff;
+    background-color: #0f0f0f;
+}
+
+.swal2-confirm {
+    background-color: #b6ff1b !important;
+    color: #000000 !important;
+}
+
+.swal2-cancel {
+    background-color: #ff0000 !important;
+    color: #000000 !important;
+}
+
+.swal2-content a {
+    color: #b6ff1b !important;
+}

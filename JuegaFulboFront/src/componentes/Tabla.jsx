@@ -5,14 +5,15 @@ import ModalCRUD from "./ModalCRUD";
 
 import { useState } from "react";
 
-export default function Tabla({ ths, trs, eliminar }) {
+export default function Tabla({ ths, trs, eliminar, cancha }) {
   const [show, setShow] = useState(false);
   const [selectedId, setSelectedId] = useState(null); // Nuevo estado para el id seleccionado
-
+  const [actualizarCancha, setActualizarCancha] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = (id) => {
+  const handleShow = (id, cancha) => {
     setSelectedId(id);
     setShow(true);
+    setActualizarCancha(cancha);
   };
   // const handleUpdate = () => {};
   return (
@@ -36,7 +37,7 @@ export default function Tabla({ ths, trs, eliminar }) {
               <td>
                 <button
                   className="btn btn-outline-secondary editar"
-                  onClick={() => handleShow(trs[0])}
+                  onClick={() => handleShow(trs[0], cancha)}
                 ></button>
                 <button
                   className="btn btn-outline-secondary eliminar"
@@ -53,6 +54,7 @@ export default function Tabla({ ths, trs, eliminar }) {
         show={show}
         handleClose={handleClose}
         actualizar={true}
+        cancha={actualizarCancha}
       />
     </>
   );
@@ -63,4 +65,9 @@ Tabla.propTypes = {
     PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
   ).isRequired,
   eliminar: PropTypes.func.isRequired,
+  cancha: PropTypes.bool,
+};
+
+Tabla.defaultProps = {
+  cancha: false,
 };

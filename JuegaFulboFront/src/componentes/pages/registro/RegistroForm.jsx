@@ -5,9 +5,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { UsuariosContext } from "../../../context/UsuariosContext";
 import { useContext } from "react";
-import Swal from 'sweetalert2';
-
-
+// import Swal from "sweetalert2";
 
 const RegistroForm = () => {
   const { addUsuarios, usuarios } = useContext(UsuariosContext);
@@ -54,13 +52,13 @@ const RegistroForm = () => {
           rol: "usuario",
         });
 
-        await Swal.fire({
-          position: 'top-center',
-          icon: 'success',
-          title: '¡Registro exitoso!',
-          showConfirmButton: false,
-          timer: 3500
-        });
+        // await Swal.fire({
+        //   position: 'top-center',
+        //   icon: 'success',
+        //   title: '¡Registro exitoso!',
+        //   showConfirmButton: false,
+        //   timer: 3500
+        // });
 
         window.location.href = "/";
       } catch (error) {
@@ -70,7 +68,6 @@ const RegistroForm = () => {
       // Contraseñas no coinciden
       setPasswords(false);
     }
-
   };
 
   return (
@@ -87,8 +84,8 @@ const RegistroForm = () => {
             <Col xs={12} md={7} className="contIqz pb-2 px-5 ">
               <div className="volverAtras d-flex gap-3 align-items-center pt-3">
                 <a className="d-flex gap-2 align-items-center" href="/">
-                <img src="/img/flechaIzq.svg" alt="" />
-                <h5 className="m-0">Volver al Inicio</h5>
+                  <img src="/img/flechaIzq.svg" alt="" />
+                  <h5 className="m-0">Volver al Inicio</h5>
                 </a>
               </div>
               <hr />
