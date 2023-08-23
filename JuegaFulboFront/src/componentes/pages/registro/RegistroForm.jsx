@@ -5,6 +5,9 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { UsuariosContext } from "../../../context/UsuariosContext";
 import { useContext } from "react";
+import Swal from 'sweetalert2';
+
+
 
 const RegistroForm = () => {
   const { addUsuarios, usuarios } = useContext(UsuariosContext);
@@ -50,6 +53,15 @@ const RegistroForm = () => {
           confirmPassword: "",
           rol: "usuario",
         });
+
+        await Swal.fire({
+          position: 'top-center',
+          icon: 'success',
+          title: '¡Registro exitoso!',
+          showConfirmButton: false,
+          timer: 3500
+        });
+
         window.location.href = "/";
       } catch (error) {
         console.log(error);
@@ -58,6 +70,7 @@ const RegistroForm = () => {
       // Contraseñas no coinciden
       setPasswords(false);
     }
+
   };
 
   return (
