@@ -34,7 +34,18 @@ export default function ModalCRUD({
     capacidad: "",
     precio: "",
     img: "",
+    reservas:
+    [
+        [null,null,null,null,null], //Domingo: 19:00, 20:00, 21:00, 22:00, 23:00
+        [null,null,null,null,null], 
+        [null,null,null,null,null], 
+        [null,null,null,null,null], 
+        [null,null,null,null,null], 
+        [null,null,null,null,null], 
+        [null,null,null,null,null]
+    ]
   });
+
   useEffect(() => {
     if (usuario) {
       setDataUser({
