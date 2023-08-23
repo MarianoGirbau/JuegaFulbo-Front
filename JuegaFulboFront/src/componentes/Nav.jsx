@@ -5,7 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useContext, useState } from "react";
 import ModalLogin from "./ModalLogin";
-import PropTypes from "prop-types";
+/* import PropTypes from "prop-types"; */
 import { UsuariosContext } from "../context/UsuariosContext";
 import "./Nav.css";
 
@@ -75,6 +75,9 @@ function Navegador() {
                 <Nav.Link className="mx-4" href="/contacto">
                   Contacto
                 </Nav.Link>
+                {usuarioLogueado && usuarioLogueado.nombre && (
+                  <div className="d-flex align-items-center mx-4 gap-3"><img src="/img/user-solid.svg" width={"20px"} alt="" /> <span className="usuario-logueado">{usuarioLogueado.nombre}</span></div>
+                )}
               </Nav>
               <hr />
               <div className="d-flex justify-content-center">
