@@ -54,16 +54,16 @@ export function ModalReserva({
       <Modal show={show} onHide={handleClose} className="modalFondo">
         <Modal.Body>
           <Modal.Header closeButton></Modal.Header>
-          <section className="cont-modal">
+          <section className="cont-modal text-center">
             <div className="d-flex justify-content-center">
               <h1>Reservas</h1>
             </div>
             <hr />
             <div className="row">
               {/* <p>{id={idCancha},}</p> */}
-              <p className="col m-0 text-start">Capacidad={capacidad}</p>
-              <p className="col m-0 text-center">Numero={numero}</p>
-              <p className="col m-0 text-end">Precio={precio}</p>
+              <p className="col m-0 text-start d-flex flex-column align-items-center gap-2 letra-bold"><img src="/img/Jugadores.svg" width={"50px"} alt="" /> Capacidad {capacidad}</p>
+              <p className="col m-0 text-center d-flex flex-column align-items-center gap-2 letra-bold"><img src="/img/CanchaNumero.svg" width={"50px"} alt="" />Numero {numero}</p>
+              <p className="col m-0 text-end d-flex flex-column align-items-center gap-2 letra-bold"><img src="/img/PrecioIcono.svg" width={"50px"} alt="" />Precio ${precio}</p>
             </div>
             <hr />
 
