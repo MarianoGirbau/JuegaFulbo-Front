@@ -74,6 +74,7 @@ const UsuariosProvider = ({ children }) => {
     if (result.isConfirmed) {
       setUsuarioLogueado(null);
       localStorage.removeItem("usuario");
+      localStorage.removeItem("reservasUsuario");
       window.location.href = "/";
     }
 

@@ -23,11 +23,17 @@ const Rutas = () => {
           <Route path="/administracion" element={<Error404 />} />
         </>
       )}
+      {usuarioLogueado != null ? (
+        <>
+          <Route path="/mis-reservas" element={<MisReservas />} />
+        </>
+      ):(
+        <Route path="/mis-reservas" element={<Error404/>} />
+      )}
       <>
         <Route path="/" element={<Inicio />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/reservas" element={<Cards />} />
-        <Route path="/mis-reservas" element={<MisReservas />} />
         <Route path="/error404" element={<Error404 />} />
       </>
     </Routes>
