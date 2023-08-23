@@ -51,12 +51,24 @@ const CanchasProvider = ({ children }) => {
       try {
         await axios.put(`http://localhost:4000/api/canchas/reserva/${idCancha}`, {idUsuario,dia,horario});
         console.log({idUsuario,dia,horario})
+
+        Swal.fire({
+          icon: 'success',
+          title: '¡Reserva exitosa!',
+          text: 'Se realizó la reserva exitosamente.',
+        });
         //SWEET ALERT "SE REALIZÓ LA RESERVA"
         //LLEVAR A LA PAGINA DE MIS RESERVAS O MANDAR MAIL Y NO USAR PAGINA RESERVAS
       } catch (error) {
         console.log("ERROR", error);
       }
     }else{
+
+      Swal.fire({
+        icon: 'error',
+        title: 'Horario ocupado',
+        text: 'El horario seleccionado está ocupado. Por favor, elige otro horario.',
+      });
       //SWEET ALERT DE HORARIO OCUPADO
     }
   }
