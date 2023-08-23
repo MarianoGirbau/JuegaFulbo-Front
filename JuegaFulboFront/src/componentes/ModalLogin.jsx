@@ -13,6 +13,11 @@ export function ModalLogin({ show, handleClose }) {
   const [error, setError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const { login } = useContext(UsuariosContext);
+
+  ModalLogin.propTypes = {
+    show: PropTypes.bool.isRequired,
+    handleClose: PropTypes.func.isRequired,
+  };
   
   const handleSubmit = (e) => {
     e.preventDefault();
