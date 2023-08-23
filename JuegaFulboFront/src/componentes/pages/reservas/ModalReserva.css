@@ -1,0 +1,55 @@
+:root {
+    --color-background: #0f0f0f;
+    --primary-letter: #b6ff1b;
+    --green-opacity: rgba(182, 255, 27, 0.7);
+    --secondary-letter: #324700;
+  }
+
+.cont-usuario {
+    background-color: var(--color-background);
+    border: 1px solid var(--primary-letter);
+    border-radius: 2rem;
+    padding: 2rem;
+}
+
+.cont-modal {
+    color: var(--primary-letter);
+    background: var(--color-background);
+    border: 1px solid var(--primary-letter);
+    border-radius: 2rem;
+    padding: 30px;
+}
+
+.boton-enviar {
+    font-family: 'Gruppo', sans-serif;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--primary-letter);
+    border: 1px solid var(--primary-letter);
+    border-radius: 1rem;
+    background-color: transparent;
+    transition: 0.6s;
+}
+
+.boton-enviar:hover {
+    color: var(--color-background);
+    background-color: var(--primary-letter);
+}
+
+.cont-usuario button:hover {
+    background-color: var(--primary-letter);
+}
+
+.gruppo-font {
+    font-family: 'Gruppo', sans-serif;
+    font-size: 1.2rem;
+    color: #b6ff1b;
+    padding-left: 20px;
+}
+
+.placeholder-usuarios::placeholder {
+    font-family: "Urbanist", sans-serif;
+    color: #5a7f02 !important;
+    font-size: 0.9rem;
+    padding: 0 !important;
+}

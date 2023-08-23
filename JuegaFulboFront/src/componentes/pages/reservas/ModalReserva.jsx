@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import juegaFulboLogo from "/img/juegaFulboLogo.svg";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import { CanchasContext } from "../../../context/CanchasContext";
 import { addDays, format } from 'date-fns';
+import "./ModalReserva.css";
 
 export function ModalReserva({ show, handleClose, idCancha, capacidad, numero, precio }) {
   const { reservarCancha } = useContext(CanchasContext);
@@ -41,14 +41,20 @@ export function ModalReserva({ show, handleClose, idCancha, capacidad, numero, p
         <Modal show={show} onHide={handleClose} className="modalFondo">
           <Modal.Body>
             <Modal.Header closeButton></Modal.Header>
-            <section className="container-login">
-              <div className="imagen-container">
-                <img src={juegaFulboLogo} alt="Mi Imagen SVG" />
+            <section className="cont-modal">
+              <div className="d-flex justify-content-center">
+                <h1>Reservas</h1>
               </div>
-              <hr className="lineahorizontal" />
-              <p>id={idCancha} , capacidad={capacidad}, numero={numero}, precio={precio}</p>
+              <hr />
+              <div className="row">
+              {/* <p>{id={idCancha},}</p> */}
+              <p className="col m-0 text-start">Capacidad={capacidad}</p>
+              <p className="col m-0 text-center">Numero={numero}</p>
+              <p className="col m-0 text-end">Precio={precio}</p>
+              </div>
+              <hr />
               
-              <form id="formulario" onSubmit={handleSubmit}>
+              <form id="formulario" onSubmit={handleSubmit} className="d-flex flex-column">
                 <label htmlFor="diaSemana">Selecciona un día de la semana:</label>
                 <select id="diaSemana" name="diaSemana" value={diaSemana} onChange={(e) => setDiaSemana(e.target.value)}>
                   <option value="0">{fecha0}</option>
@@ -69,7 +75,7 @@ export function ModalReserva({ show, handleClose, idCancha, capacidad, numero, p
                   <option value="4">23:00</option>
                 </select>
                 <input type="hidden" name="usuarioId" value={idCancha} />
-                <input type="submit" value="Enviar"/>
+                <input type="submit" value="Enviar" className="boton-enviar mt-3"/>
               </form>
               </section>
 
