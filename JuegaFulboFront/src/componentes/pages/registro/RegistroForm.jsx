@@ -66,9 +66,6 @@ const RegistroForm = () => {
     <>
       <div className="bg-pagina-principal">
         <main className="my-5 d-flex flex-column align-items-center justify-content-center mx-4">
-          <div className="logoFulbo d-block d-md-none">
-            <img src="/img/LogoJuegaFulbo.svg" alt="" className="pb-5" />
-          </div>
           <Container
             fluid
             className="custom-container row borderCont overflow-hidden p-0"

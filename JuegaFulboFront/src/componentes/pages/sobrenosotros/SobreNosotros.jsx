@@ -15,7 +15,7 @@ export default function SobreNosotros() {
         foto="https://i.ibb.co/G9FNJK2/imagen-2023-08-23-231104951.png"
         descripcion="descripcion  descripcion descripcion"
         github="https://github.com/Aron9377"
-        linkedin="www.linkedin.com/in/gabriel-aron-arias"
+        linkedin="https://www.linkedin.com/in/gabriel-aron-arias"
       ></CardComponent>
       <CardComponent
         nombre="María Agustina González Gauna"
@@ -43,7 +43,7 @@ export default function SobreNosotros() {
         foto="https://i.ibb.co/Y3FmwPy/imagen-2023-08-23-230805047.png"
         descripcion="descripcion  descripcion descripcion"
         github="https://github.com/AntoBanchero"
-        linkedin="www.linkedin.com/in/antonella-banchero"
+        linkedin="https://www.linkedin.com/in/antonella-banchero"
       ></CardComponent>
     </div>
   );
