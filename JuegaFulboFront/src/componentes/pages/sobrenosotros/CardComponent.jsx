@@ -58,9 +58,9 @@ const CardComponent = ({ nombre, foto, descripcion, github, linkedin }) => {
         <h2 className="card__nombre">{nombre}</h2>
         <p className="card__descripcion">{descripcion}</p>
         <div className="card__redes d-flex justify-content-between px-4">
-          {github && (
+          {linkedin && (
             <a
-              href={github}
+              href={linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="px-3"
@@ -76,8 +76,8 @@ const CardComponent = ({ nombre, foto, descripcion, github, linkedin }) => {
               </svg>
             </a>
           )}
-          {linkedin && (
-            <a href={linkedin} target="_blank" rel="noopener noreferrer">
+          {github && (
+            <a href={github} target="_blank" rel="noopener noreferrer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
