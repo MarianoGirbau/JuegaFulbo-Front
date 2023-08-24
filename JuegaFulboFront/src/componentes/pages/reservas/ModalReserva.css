@@ -24,16 +24,16 @@
     font-family: 'Gruppo', sans-serif;
     font-size: 1.6rem;
     font-weight: bold;
-    color: var(--primary-letter);
+    color: var(--color-background);
     border: 1px solid var(--primary-letter);
     border-radius: 1rem;
-    background-color: transparent;
+    background-color: var(--primary-letter);
     transition: 0.6s;
 }
 
 .boton-enviar:hover {
-    color: var(--color-background);
-    background-color: var(--primary-letter);
+    color: var(--primary-letter);
+    background-color: var(--color-background);
 }
 
 .cont-usuario button:hover {
@@ -52,4 +52,13 @@
     color: #5a7f02 !important;
     font-size: 0.9rem;
     padding: 0 !important;
+}
+
+.select-custom-reserva {
+    color: white;
+    height: 3rem;
+    background-color: #0f0f0f;
+    text-align: center;
+    border: 1px solid #b6ff1b;
+    border-radius: 0.5rem;
 }

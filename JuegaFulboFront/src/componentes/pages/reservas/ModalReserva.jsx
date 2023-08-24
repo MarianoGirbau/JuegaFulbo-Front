@@ -61,9 +61,15 @@ export function ModalReserva({
             <hr />
             <div className="row">
               {/* <p>{id={idCancha},}</p> */}
-              <p className="col m-0 text-start d-flex flex-column align-items-center gap-2 letra-bold"><img src="/img/Jugadores.svg" width={"50px"} alt="" /> Capacidad {capacidad}</p>
-              <p className="col m-0 text-center d-flex flex-column align-items-center gap-2 letra-bold"><img src="/img/CanchaNumero.svg" width={"50px"} alt="" />Numero {numero}</p>
-              <p className="col m-0 text-end d-flex flex-column align-items-center gap-2 letra-bold"><img src="/img/PrecioIcono.svg" width={"50px"} alt="" />Precio ${precio}</p>
+              <div className="col">
+              <p className=" m-0 text-start d-flex flex-column align-items-center gap-2 letra-bold"><img src="/img/Jugadores.svg" width={"50px"} alt="" /> Capacidad {capacidad}</p>
+              </div>
+              <div className="col">
+              <p className=" m-0 text-center d-flex flex-column align-items-center gap-2 letra-bold"><img src="/img/CanchaNumero.svg" width={"50px"} alt="" />Numero {numero}</p>
+              </div>
+              <div className="col-md row ">
+              <p className=" m-0 text-end d-flex flex-column align-items-center gap-2 letra-bold"><img src="/img/PrecioIcono.svg" width={"50px"} alt="" />Precio ${precio}</p>
+              </div>
             </div>
             <hr />
 
@@ -78,6 +84,7 @@ export function ModalReserva({
                 name="diaSemana"
                 value={diaSemana}
                 onChange={(e) => setDiaSemana(e.target.value)}
+                className="select-custom-reserva"
               >
                 <option value="0">{fecha0}</option>
                 <option value="1">{fecha1}</option>
@@ -88,12 +95,13 @@ export function ModalReserva({
                 <option value="6">{fecha6}</option>
               </select>
 
-              <label htmlFor="horario">Selecciona un horario:</label>
+              <label className="mt-3" htmlFor="horario">Selecciona un horario:</label>
               <select
                 id="horario"
                 name="horario"
                 value={horario}
                 onChange={(e) => setHorario(e.target.value)}
+                className="select-custom-reserva"
               >
                 <option value="0">19:00</option>
                 <option value="1">20:00</option>
