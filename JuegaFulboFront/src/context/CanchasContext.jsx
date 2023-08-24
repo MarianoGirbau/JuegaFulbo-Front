@@ -9,29 +9,31 @@ const CanchasProvider = ({ children }) => {
   const [canchas, setCanchas] = useState([]);
   const [MisReservas, setMisReservas] = useState([]);
 
-  const obtenerReserva = async (idUsuario) => {
-    const reservasEncontradas = [];
-    canchas.forEach((cancha) => {
-      cancha.reservas.forEach((reserva, indiceDia) => {
-        reserva.forEach((idReserva, indiceHorario) => {
-          if (idReserva === idUsuario) {
-            const infoReserva = {
-              numero: cancha.numero,
-              dia: indiceDia,
-              horario: indiceHorario,
-            };
-            reservasEncontradas.push(infoReserva);
-            console.log(infoReserva, "reservas")
-          } else {
-            console.log("no tiene reservas");
-          }
-        });
+// Dentro de la función obtenerReserva
+const obtenerReserva = async (idUsuario) => {
+  const reservasEncontradas = [];
+  let tieneReservas = false; // Inicializamos la bandera en falso
+
+  canchas.forEach((cancha) => {
+    cancha.reservas.forEach((reserva, indiceDia) => {
+      reserva.forEach((idReserva, indiceHorario) => {
+        if (idReserva === idUsuario) {
+          const infoReserva = {
+            numero: cancha.numero,
+            dia: indiceDia,
+            horario: indiceHorario,
+          };
+          reservasEncontradas.push(infoReserva);
+          tieneReservas = true; // Actualizamos la bandera cuando se encuentra una reserva
+        }
       });
     });
+  });
 
-    await setMisReservas(reservasEncontradas);
-    localStorage.setItem("reservasUsuario", JSON.stringify(MisReservas));
-  };
+
+  return reservasEncontradas;
+};
+
 
   const obtenerCanchas = async () => {
     const { data } = await axios.get("http://localhost:4000/api/canchas");
