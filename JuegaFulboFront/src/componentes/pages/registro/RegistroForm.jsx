@@ -187,14 +187,14 @@ const RegistroForm = () => {
                   )}
                 </Form.Group>
 
-                <div className="my-4 bordeBoton">
+                <div className="my-4 pruebaboton">
                   <Button
                     variant="black"
                     id="botonLog"
                     type="submit"
-                    className="w-100"
+                    className="w-100 boton-enviar-registro"
                   >
-                    <h4 className="m-0 py-3">ENVIAR</h4>
+                    <h4 className="m-0 py-3 enviar-text">ENVIAR</h4>
                   </Button>
                 </div>
               </Form>

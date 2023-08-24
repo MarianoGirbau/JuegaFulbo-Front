@@ -13,21 +13,21 @@
   color: #b6ff1b;
 }
 
-.bordeBoton button {
+/* .bordeBoton button {
   color: #b6ff1b ;
   font-family: "Gruppo", sans-serif;
   border: 1px solid #b6ff1b;
   border-radius: 1rem ;
   font-weight: bold ;
   transition: 0.7s ;
-}
+} */
 
-.bordeBoton button:hover {
+/* .bordeBoton button:hover {
   background-color: #b6ff1b ;
   color: #0f0f0f;
-}
+} */
 
-.titulo-form h4 {
+.titulo-form {
   color: #b6ff1b;
   font-family: 'Gruppo', sans-serif;
   font-weight: bold;
@@ -48,59 +48,12 @@
 
 .borderCont {
   border: 1.8px solid #b6ff1b;
-  border-radius: 3.5rem;
+  border-radius: 2.5rem;
 }
 
 .custom-container {
   max-width: 1000px;
 }
-
-/* #container-registro {
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 32em;
-  width: 51em;
-  border-radius: 4em;
-  border: 3px solid #324700;
-  margin-top: 5em;
-} */
-
-/* .imgRegistro {
-  height: 32em;
-  width: auto;
-  border-radius: 4em;
-} */
-
-/* #form-registro {
-  width: 20em;
-  padding: auto;
-} */
-
-/* #nombre,
-#apellido,
-#email,
-#password,
-#confirmPassword {
-  color: #b6ff1b;
-  background-color: #0f0f0f;
-  border-radius: 3em;
-  width: 24em;
-  height: 2, 5em;
-  border: 1px solid #b6ff1b;
-  outline: none;
-  padding: 0.5em 1em;
-} */
-
-/* #botonLog {
-  color: #324700;
-  background-color: #0f0f0f;
-  border-radius: 1em;
-  border: 1px solid #b6ff1b;
-  outline: none;
-  padding: 2rem;
-} */
 
 .placeholder-registro::placeholder {
   font-family: "Urbanist", sans-serif;
@@ -139,4 +92,25 @@
   color: #b6ff1b;
   font-family: "Gruppo", sans-serif;
   padding-left: 20px;
+}
+
+.boton-enviar-registro {
+  color: #0f0f0f ;
+  background: #b6ff1b;
+  font-family: "Gruppo", sans-serif;
+  font-weight: bolder;
+  border: 1px solid #b6ff1b;
+  border-radius: 1rem ;
+  font-weight: bold ;
+  transition: 0.7s ;
+}
+
+.boton-enviar-registro:hover {
+  color: #b6ff1b ;
+  background: #0f0f0f;
+  border: 1px solid #b6ff1b;
+}
+
+.enviar-text {
+  font-weight: bold;
 }
