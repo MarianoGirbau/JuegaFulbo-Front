@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { CanchasContext } from "../../../context/CanchasContext";
 import "../reservas/MisReservas.css";
+import SinReserva from "../../Sinreserva";
 
 export default function MisReservas() {
   const { obtenerReserva, MisReservas } = useContext(CanchasContext);
@@ -55,7 +56,7 @@ export default function MisReservas() {
               </div>
             ))
           ) : (
-            <li>No tienes reservas guardadas.</li>
+            <SinReserva/>
           )}
         </section>
       </div>
