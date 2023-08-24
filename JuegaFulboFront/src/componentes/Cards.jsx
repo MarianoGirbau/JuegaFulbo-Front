@@ -28,6 +28,15 @@ function Cards() {
   var fechaActual = new Date();
   var fechaSemana = addDays(fechaActual,7);
   
+  const filteredCanchas = canchas.filter((cancha) => {
+    if (selectedOption1 === "") {
+      return true; // Mostrar todas las canchas si no se selecciona ninguna opción
+    } else {
+      const selectedCapacidad = parseInt(selectedOption1.split(" ")[1]);
+      return cancha.capacidad === selectedCapacidad;
+    }
+  });
+  
 
 
   return (
@@ -87,8 +96,8 @@ function Cards() {
 
 
           <div className=" row botones-custom">
-            {canchas.length > 0 ? (
-              canchas.map((cancha) => (
+            {filteredCanchas.length > 0 ? (
+              filteredCanchas.map((cancha) => (
                 <Card
                   key={cancha._id}
                   id={cancha._id}
@@ -99,9 +108,10 @@ function Cards() {
                 />
               ))
             ) : (
-              <p>no hay canchas</p>
+              <p>No hay canchas disponibles con la capacidad seleccionada.</p>
             )}
-          </div>
+        </div>
+
         </main>
       </div>
     </>
