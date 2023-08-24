@@ -1,8 +1,18 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { addDays, format } from "date-fns";
 
 export const CanchasContext = createContext();
+
+var fechaHoy = new Date();
+  var fecha0 = format(fechaHoy, "dd/MM").toString();
+  var fecha1 = format(addDays(fechaHoy, 1), "dd/MM").toString();
+  var fecha2 = format(addDays(fechaHoy, 2), "dd/MM").toString();
+  var fecha3 = format(addDays(fechaHoy, 3), "dd/MM").toString();
+  var fecha4 = format(addDays(fechaHoy, 4), "dd/MM").toString();
+  var fecha5 = format(addDays(fechaHoy, 5), "dd/MM").toString();
+  var fecha6 = format(addDays(fechaHoy, 6), "dd/MM").toString();
 
 // eslint-disable-next-line react/prop-types
 const CanchasProvider = ({ children }) => {
@@ -18,6 +28,51 @@ const obtenerReserva = async (idUsuario) => {
     cancha.reservas.forEach((reserva, indiceDia) => {
       reserva.forEach((idReserva, indiceHorario) => {
         if (idReserva === idUsuario) {
+          switch (indiceDia) {
+            case 0:
+              indiceDia = fecha0;
+              break;
+            case 1:
+              indiceDia = fecha1
+              break;
+            case 2:
+              indiceDia = fecha2
+              break;
+            case 3:
+              indiceDia = fecha3
+              break;
+            case 4:
+              indiceDia = fecha4
+              break;
+            case 5:
+              indiceDia = fecha5
+              break;  
+            case 6:
+              indiceDia = fecha6
+              break;  
+          
+            default:
+              break;
+          }
+          switch (indiceHorario) {
+            case 0:
+              indiceHorario = "19:00";
+              break;
+            case 1:
+              indiceHorario = "20:00";
+              break;
+            case 2:
+              indiceHorario = "21:00";
+              break;
+            case 3:
+              indiceHorario = "22:00";
+              break;
+            case 4:
+              indiceHorario = "23:00";
+              break;          
+            default:
+              break;
+          }
           const infoReserva = {
             numero: cancha.numero,
             dia: indiceDia,
