@@ -27,7 +27,6 @@ function Cards() {
 
   var fechaActual = new Date();
   var fechaSemana = addDays(fechaActual,7);
-  console.log(fechaSemana)
   
 
 
