@@ -22,6 +22,7 @@ const obtenerReserva = async (idUsuario) => {
             numero: cancha.numero,
             dia: indiceDia,
             horario: indiceHorario,
+            precio: cancha.precio
           };
           reservasEncontradas.push(infoReserva);
           tieneReservas = true; // Actualizamos la bandera cuando se encuentra una reserva
