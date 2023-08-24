@@ -90,6 +90,71 @@ const obtenerReserva = async (idUsuario) => {
   return reservasEncontradas;
 };
 
+const obtenerTodasLasReservas = () => {
+  const todasLasReservas = [];
+
+  canchas.forEach((cancha) => {
+    cancha.reservas.forEach((reservasDia, indiceDia) => {
+      const fechaReserva = [fecha0, fecha1, fecha2, fecha3, fecha4, fecha5, fecha6][indiceDia];
+
+      reservasDia.forEach((idReserva, indiceHorario) => {
+        if (idReserva) {
+          const horarioReserva = ["19:00", "20:00", "21:00", "22:00", "23:00"][indiceHorario];
+
+          const infoReserva = {
+            numero: cancha.numero,
+            dia: fechaReserva,
+            horario: horarioReserva,
+            precio: cancha.precio,
+            idUsuario: idReserva,
+            indiceDia, 
+            indiceHorario,
+          };
+
+          console.log("infoReserva: ", infoReserva);
+          todasLasReservas.push(infoReserva);
+          console.log("todasLasReservas: ",todasLasReservas);
+        }
+      });
+    });
+  });
+
+  return todasLasReservas;
+};
+
+const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
+  try {
+    const nuevasCanchas = [...canchas];
+
+    const canchaIndex = nuevasCanchas.findIndex((cancha) =>
+      cancha.reservas[indiceDia][indiceHorario] === idUsuario
+    );
+
+    if (canchaIndex !== -1) {
+      nuevasCanchas[canchaIndex].reservas[indiceDia][indiceHorario] = null;
+
+      setCanchas(nuevasCanchas);
+
+      const response = await axios.delete(
+        `http://localhost:4000/api/canchas/reserva/${nuevasCanchas[canchaIndex]._id}`,
+        { data: { idUsuario, dia: indiceDia, horario: indiceHorario } }
+      );
+
+      if (response.status === 200) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      console.log("Reserva no encontrada en la cancha.");
+      return false;
+    }
+  } catch (error) {
+    console.error("Error al eliminar reserva:", error);
+    return false;
+  }
+};
+
 
   const obtenerCanchas = async () => {
     const { data } = await axios.get("http://localhost:4000/api/canchas");
@@ -201,6 +266,8 @@ const obtenerReserva = async (idUsuario) => {
         updateCancha,
         addCancha,
         obtenerReserva,
+        obtenerTodasLasReservas,
+        eliminarReserva,
         MisReservas,
       }}
     >
