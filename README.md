@@ -10,11 +10,13 @@ Desde la perspectiva de un administrador, **JuegaFulbo** ofrece herramientas par
 
 En resumen, JuegaFulbo no es solo una plataforma de alquiler de canchas y quinchos, sino una solución integral que mejora la experiencia tanto para los apasionados del fútbol como para aquellos que buscan un espacio para relajarse. Ya sea desde la perspectiva del usuario que reserva sus actividades deportivas y de ocio, o desde la del administrador que gestiona y optimiza el sistema, **JuegaFulbo** ofrece una experiencia completa y satisfactoria para todos los involucrados.
 
-# Marca COCO (CoffeeCode):
+# MARCA JuegaFulbo:
 
 ![](https://i.ibb.co/KLPRJ4Z/LaMarca.png)
 
-En **JuegaFulbo**, nos inspiramos en la famosa frase de Messi: **"No puelo, tengo fulbo"**. Comprendemos profundamente la intensidad de esa emoción. El fútbol es más que un deporte, es una forma de vida, una pasión que nos une a todos. Esta conexión es lo que impulsó la creación de Juega Fulbo.
+En **JuegaFulbo**, nos inspiramos en la famosa frase de Messi: **"No puedo, tengo fulbo"**. Comprendemos profundamente la intensidad de esa emoción. El fútbol es más que un deporte, es una forma de vida, una pasión que nos une a todos. Esta conexión es lo que impulsó la creación de Juega Fulbo.
+
+LINK A LA PÁGINA: https://i.ibb.co/sPDxC5P/Minititulo.jpg
 
 # Admin:
 *Para acceder como administrador*:
