@@ -2,15 +2,26 @@ import Tabla from "../../Tabla";
 import "./Administracion.css";
 import { CanchasContext } from "../../../context/CanchasContext";
 import { UsuariosContext } from "../../../context/UsuariosContext";
-
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ModalCRUD from "../../ModalCRUD";
 
 const Admincomp = () => {
-  const { canchas, eliminarCancha } = useContext(CanchasContext);
+  const { canchas, eliminarCancha, obtenerTodasLasReservas, eliminarReserva } = useContext(CanchasContext);
   const { usuarios, eliminarUsuario } = useContext(UsuariosContext);
   const [show, setShow] = useState(false);
   const [modalCancha, setModalCancha] = useState(false);
+  const [todasLasReservas, setTodasLasReservas] = useState([]);
+
+  const obtenerDatosUsuario = (idUsuario) => {
+    const usuario = usuarios.find((usuario) => usuario._id === idUsuario);
+    return usuario ? `${usuario.nombre} ${usuario.apellido}` : "Usuario Desconocido";
+  };
+
+  useEffect(() => {
+    const reservas = obtenerTodasLasReservas();
+    setTodasLasReservas(reservas);
+  }, [obtenerTodasLasReservas]);
+
   const handleShow = (cancha) => {
     setShow(true);
     setModalCancha(cancha);
@@ -63,6 +74,50 @@ const Admincomp = () => {
         ></Tabla>
       </div>
 
+      <div className="subtitulo">
+        <h3>TABLA DE RESERVAS</h3>
+        <hr className="mb-2" />
+      </div>
+      <div className="table-responsive">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Cancha</th>
+              <th>Día</th>
+              <th>Horario</th>
+              <th>Precio</th>
+              <th>Usuario</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            {todasLasReservas.map((reserva, index) => (
+              <tr key={index}>
+                <td>{reserva.numero}</td>
+                <td>{reserva.dia}</td>
+                <td>{reserva.horario}</td>
+                <td>{reserva.precio}</td>
+                <td>{obtenerDatosUsuario(reserva.idUsuario)}</td>
+                <td>
+                  <button
+                    className="btn btn-outline-secondary eliminar"
+                    onClick={() => {
+                      const confirmDelete = window.confirm("¿Estás seguro de eliminar esta reserva?");
+                      if (confirmDelete) {
+                        const exito = eliminarReserva(reserva.idUsuario, reserva.indiceDia, reserva.indiceHorario);
+                        if (exito) {
+                          console.log("Reserva borrada con éxito.");
+                        }
+                      }
+                    }}
+                  ></button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      
       <div className="subtitulo">
         <h3>TABLA DE QUINCHOS</h3>
         <hr className="mb-2" />
