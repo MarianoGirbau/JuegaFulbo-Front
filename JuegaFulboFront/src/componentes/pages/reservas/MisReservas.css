@@ -1,0 +1,32 @@
+:root {
+    --color-background: #0f0f0f;
+    --primary-letter: #b6ff1b;
+    --green-opacity: rgba(182, 255, 27, 0.7);
+    --secondary-letter: #324700;
+  }
+
+.custom-cont-reservas {
+    max-width: 1000px;
+    border: 1px solid var(--primary-letter);
+    border-radius: 1.5rem;
+    flex: 1;
+}
+
+.boxes-reservas {
+    color: var(--primary-letter);
+    font-family: 'Urbanist', sans-serif;
+    width: 300px;
+    border: 1px solid var(--primary-letter);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.sub-h2 {
+    color: var(--primary-letter);
+    font-family: 'Urbanist', sans-serif;
+}
+
+.sub-h1 {
+    color: var(--primary-letter);
+    font-family: 'Gruppo', sans-serif;
+}
