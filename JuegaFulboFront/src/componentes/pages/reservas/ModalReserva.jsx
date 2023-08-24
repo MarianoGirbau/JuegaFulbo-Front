@@ -60,7 +60,6 @@ export function ModalReserva({
             </div>
             <hr />
             <div className="row">
-              {/* <p>{id={idCancha},}</p> */}
               <div className="col">
               <p className=" m-0 text-start d-flex flex-column align-items-center gap-2 letra-bold"><img src="/img/Jugadores.svg" width={"50px"} alt="" /> Capacidad {capacidad}</p>
               </div>

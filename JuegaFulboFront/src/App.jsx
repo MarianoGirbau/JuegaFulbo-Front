@@ -7,9 +7,7 @@ import Footer from "./componentes/Footer";
 import UsuariosProvider from "./context/UsuariosContext";
 import axios from "axios";
 import CanchasProvider from "./context/CanchasContext";
-// axios.defaults.baseURL = "http://localhost:4000";
 axios.defaults.withCredentials = true;
-/* import PaginaInicial from "./componentes/pages/inicio"; */
 import "./componentes/Scrollbar.css" ;
 
 

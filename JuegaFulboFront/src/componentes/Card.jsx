@@ -2,13 +2,13 @@ import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import { useContext, useState } from "react";
 import ModalReserva from "./pages/reservas/ModalReserva";
-// import "./cards.css";
+
 
 export default function Card({ capacidad, numero, precio, id, img }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  //const { usuarioLogueado, logout } = useContext(UsuariosContext);
+
 
   return (
     <>

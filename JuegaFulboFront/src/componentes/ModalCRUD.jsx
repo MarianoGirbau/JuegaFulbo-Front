@@ -193,7 +193,6 @@ export default function ModalCRUD({
                     className="custom-form-control custom-bg-dark placeholder-usuarios"
                     name="precio"
                     value={dataCancha.precio}
-                    // pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                     minLength={10}
                     maxLength={30}
                     onChange={(e) => handleChangeCancha(e)}
@@ -209,7 +208,6 @@ export default function ModalCRUD({
                     className="custom-form-control custom-bg-dark placeholder-usuarios"
                     name="img"
                     value={dataCancha.img}
-                    // pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                     minLength={10}
                     maxLength={50}
                     onChange={(e) => handleChangeCancha(e)}
@@ -273,7 +271,6 @@ export default function ModalCRUD({
                     className="custom-form-control custom-bg-dark placeholder-usuarios"
                     name="email"
                     value={dataUser.email}
-                    // pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                     placeholder="user@gmail.com"
                     minLength={10}
                     maxLength={30}

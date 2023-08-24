@@ -17,8 +17,6 @@ function Error404() {
           </Row>
           <Col className="col d-flex flex-column justify-content-center text-center tituloh1">
             <h1 className="h1Large">ERROR 404</h1>
-            {/* <h1 className="d-none d-lg-block h1Large">ERROR 404</h1>
-            <h1 className="d-sm-block d-lg-none h1Small">ERROR 404</h1> */}
             <p className="p-4">
               Lo sentimos, la página que estás buscando no se encuentra
               disponible. Ponete la camiseta y volve a la cancha!

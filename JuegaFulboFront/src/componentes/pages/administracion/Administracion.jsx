@@ -68,7 +68,7 @@ const Admincomp = () => {
             cancha.numero,
             cancha.capacidad,
             cancha.precio,
-            cancha.img, // Is this correct? Shouldn't it be cancha.URL?
+            cancha.img,
           ])}
           eliminar={eliminarCancha}
         ></Tabla>
@@ -183,7 +183,7 @@ const Admincomp = () => {
             usuario.nombre,
             usuario.apellido,
             usuario.email,
-            usuario.rol, // Is this correct? Shouldn't it be cancha.URL?
+            usuario.rol,
           ])}
           eliminar={eliminarUsuario}
         ></Tabla>

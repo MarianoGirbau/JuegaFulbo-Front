@@ -136,7 +136,7 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
       setCanchas(nuevasCanchas);
 
       const response = await axios.delete(
-        `http://localhost:4000/api/canchas/reserva/${nuevasCanchas[canchaIndex]._id}`,
+        `https://juegafulbo-back.onrender.com/api/canchas/reserva/${nuevasCanchas[canchaIndex]._id}`,
         { data: { idUsuario, dia: indiceDia, horario: indiceHorario } }
       );
 
@@ -157,7 +157,7 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
 
 
   const obtenerCanchas = async () => {
-    const { data } = await axios.get("http://localhost:4000/api/canchas");
+    const { data } = await axios.get("https://juegafulbo-back.onrender.com/api/canchas");
     setCanchas([...data]);
     // console.log("data", data);
     // console.log("canchas", canchas.length);
@@ -182,7 +182,7 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
 
     if (result.isConfirmed) {
       try {
-        await axios.delete(`http://localhost:4000/api/canchas/${id}`);
+        await axios.delete(`https://juegafulbo-back.onrender.com/api/canchas/${id}`);
 
         const canchasFiltradas = canchas.filter((cancha) => cancha._id !== id);
         setCanchas(canchasFiltradas);
@@ -199,7 +199,7 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
     if (canchaReserva && canchaReserva.reservas[dia][horario] === null) {
       try {
         await axios.put(
-          `http://localhost:4000/api/canchas/reserva/${idCancha}`,
+          `https://juegafulbo-back.onrender.com/api/canchas/reserva/${idCancha}`,
           { idUsuario, dia, horario }
         );
         Swal.fire({
@@ -221,7 +221,7 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
   };
 
   const addCancha = async (dataCancha) => {
-    await axios.post(`http://localhost:4000/api/canchas`, dataCancha);
+    await axios.post(`https://juegafulbo-back.onrender.com/api/canchas`, dataCancha);
 
     await Swal.fire({
       icon: "success",
@@ -236,7 +236,7 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
     console.log(updatedCancha);
     try {
       await axios.put(
-        `http://localhost:4000/api/canchas/${updatedCancha._id}`,
+        `https://juegafulbo-back.onrender.com/api/canchas/${updatedCancha._id}`,
         updatedCancha
       );
       await Swal.fire({
@@ -277,41 +277,4 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
 
 export default CanchasProvider;
 
-//   const addProducto = async (producto) => {
-//     try {
-//       const response = await axios.post(
-//         "http://localhost:8001/api/canchas",
-//         producto
-//       );
-//       setProductos([...productos, response.data]);
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
 
-//   const deleteProducto = async (id) => {
-//     console.log(id, "deleteProducto");
-//     try {
-//       await axios.delete(`http://localhost:8001/api/canchas/${id}`);
-//       const newProductos = productos.filter((producto) => producto._id !== id);
-//       setProductos(newProductos);
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-
-//   const updateProducto = async (updatedProduct) => {
-//     console.log(updatedProduct, "updateProducto");
-//     try {
-//       await axios.put(
-//         `http://localhost:8001/api/canchas/${updatedProduct._id}`,
-//         updatedProduct
-//       );
-//       const newProductos = productos.map((producto) =>
-//         producto._id === updatedProduct._id ? updatedProduct : producto
-//       );
-//       setProductos(newProductos);
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };

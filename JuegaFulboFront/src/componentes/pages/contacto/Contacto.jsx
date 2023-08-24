@@ -119,7 +119,6 @@ const Contacto = () => {
                     type="email"
                     name="email"
                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                    // controlid="exampleForm.ControlInput1"
                     value={formData.email}
                     onChange={handleInputChange}
                     required
@@ -132,7 +131,6 @@ const Contacto = () => {
                     className="custom-form-textarea"
                     id="input_contacto"
                     as="textarea"
-                    // controlid="exampleForm.ControlTextarea1"
                     rows={3}
                     name="message"
                     value={formData.message}

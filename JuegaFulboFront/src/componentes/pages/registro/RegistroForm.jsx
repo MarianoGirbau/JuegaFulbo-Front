@@ -52,14 +52,6 @@ const RegistroForm = () => {
           rol: "usuario",
         });
 
-        // await Swal.fire({
-        //   position: 'top-center',
-        //   icon: 'success',
-        //   title: '¡Registro exitoso!',
-        //   showConfirmButton: false,
-        //   timer: 3500
-        // });
-
         window.location.href = "/";
       } catch (error) {
         console.log(error);

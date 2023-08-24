@@ -13,7 +13,7 @@ const UsuariosProvider = ({ children }) => {
     console.log(email, password, "login Context");
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/user/login",
+        "https://juegafulbo-back.onrender.com/api/user/login",
         {
           email,
           password,
@@ -84,7 +84,7 @@ const UsuariosProvider = ({ children }) => {
   const getUsuarios = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:4000/api/user/usuarios"
+        "https://juegafulbo-back.onrender.com/api/user/usuarios"
       );
       // console.log(data);
       setUsuarios(data);
@@ -106,7 +106,7 @@ const UsuariosProvider = ({ children }) => {
 
     if (result.isConfirmed) {
       try {
-        await axios.delete(`http://localhost:4000/api/user/usuarios/${id}`);
+        await axios.delete(`https://juegafulbo-back.onrender.com/api/user/usuarios/${id}`);
 
         const canchasFiltradas = usuarios.filter((cancha) => cancha._id !== id);
         setUsuarios(canchasFiltradas);
@@ -117,7 +117,7 @@ const UsuariosProvider = ({ children }) => {
   };
 
   const addUsuarios = async (dataUser) => {
-    await axios.post(`http://localhost:4000/api/user/registro`, dataUser);
+    await axios.post(`https://juegafulbo-back.onrender.com/api/user/registro`, dataUser);
 
     await Swal.fire({
       icon: "success",
@@ -131,7 +131,7 @@ const UsuariosProvider = ({ children }) => {
     console.log(updatedUsuario, "updateUsuarioo");
     try {
       await axios.put(
-        `http://localhost:4000/api/user/usuarios/${updatedUsuario._id}`,
+        `https://juegafulbo-back.onrender.com/api/user/usuarios/${updatedUsuario._id}`,
         updatedUsuario
       );
       await Swal.fire({
@@ -177,43 +177,3 @@ const UsuariosProvider = ({ children }) => {
 
 export default UsuariosProvider;
 
-// const [users, setUsers] = useState();
-// const [userLogueado, setUserLogueado] = useState();
-
-// const login = async (email, password) => {
-//   console.log(email, password, "login Context");
-//   const response = await axios.post("http://localhost:8081/api/user/login", {
-//     email,
-//     password,
-//   });
-
-//   const jwtToken = response.data.data.token;
-//   const jwtDecode = jwt_decode(jwtToken);
-
-//   const user = {
-//     id: jwtDecode.id,
-//     nombre: jwtDecode.nombre,
-//     apellido: jwtDecode.apellido,
-//     email: jwtDecode.email,
-//     rol: jwtDecode.rol,
-//   };
-
-//   localStorage.setItem("user", JSON.stringify(user));
-//   setUserLogueado(user);
-//   console.log(user);
-
-//   if (user.rol === "admin") {
-//     window.location.href = "/admin";
-//   } else {
-//     window.location.href = "/";
-//   }
-// };
-
-// const logout = () => {
-//   localStorage.removeItem("user");
-//   window.location.href = "/login";
-// };
-
-// useEffect(() => {
-//   getUsers();
-// }, []);
