@@ -202,13 +202,12 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
           `http://localhost:4000/api/canchas/reserva/${idCancha}`,
           { idUsuario, dia, horario }
         );
-        console.log({ idUsuario, dia, horario });
-
         Swal.fire({
           icon: "success",
           title: "¡Reserva exitosa!",
-          text: "Se realizó la reserva exitosamente.",
+          html: 'Para ver sus reservas haz click <a href="/mis-reservas">aqui</a>!',
         });
+        
       } catch (error) {
         console.log("ERROR", error);
       }
