@@ -7,6 +7,7 @@
   height: auto !important;
   margin: 0 !important;
   color: #b6ff1b !important;
+  flex: 1;
 }
 
 .propForm {
