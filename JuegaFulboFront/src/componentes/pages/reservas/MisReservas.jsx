@@ -8,7 +8,6 @@ export default function MisReservas() {
     var idUsuario = usuario.id; //Obtener id de usuario del localStorage
     console.log(idUsuario, "usuario");
   }
-
   useEffect(() => {
     obtenerReserva(idUsuario);
   }, []);
