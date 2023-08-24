@@ -1,5 +1,5 @@
 # PROYECTO N°3 JUEGAFULBO
-![](https://i.ibb.co/Y7DyHcx/Minititulo.jpg)
+![](https://i.ibb.co/sPDxC5P/Minititulo.jpg)
 # Sobre nuestra web:
 
 **JuegaFulbo** representa una plataforma web que ofrece a sus usuarios la oportunidad de alquilar canchas de fútbol, adaptadas para partidos de fútbol 5, fútbol 7 o fútbol 11. Pero eso no es todo; también brindamos la opción de alquilar quinchos, perfectos para disfrutar de un día con amigos y familiares.
@@ -12,7 +12,7 @@ En resumen, JuegaFulbo no es solo una plataforma de alquiler de canchas y quinch
 
 # Marca COCO (CoffeeCode):
 
-![](https://i.ibb.co/rxTPkdw/LaMarca.png)
+![](https://i.ibb.co/KLPRJ4Z/LaMarca.png)
 
 En **JuegaFulbo**, nos inspiramos en la famosa frase de Messi: **"No puelo, tengo fulbo"**. Comprendemos profundamente la intensidad de esa emoción. El fútbol es más que un deporte, es una forma de vida, una pasión que nos une a todos. Esta conexión es lo que impulsó la creación de Juega Fulbo.
 
