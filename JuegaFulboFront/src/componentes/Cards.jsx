@@ -56,41 +56,6 @@ function Cards() {
                   <option>Futbol 11</option>
                 </select>
               </div>
-
-              <div className="col-sm-12 col-md-4 col-lg-3 pb-3">
-                <label htmlFor="opciones3"></label>
-                <select id="opciones3" className="w-100 custom-select" value={selectedOption2} onChange={handleOptionChange2}>
-                  <option value="">
-                    Seleccione horario
-                  </option>
-                  <option>10:00hs</option>
-                  <option>12:00hs</option>
-                  <option>14:00hs</option>
-                  <option>14:00hs</option>
-                  <option>16:00hs</option>
-                  <option>18:00hs</option>
-                  <option>20:00hs</option>
-                </select>
-              </div>
-
-              <div className="col-sm-12 col-md-4 col-lg-3 pb-3">
-                <label htmlFor="opciones2"></label>
-                <DatePicker
-                  id="opciones2"
-                  selected={selectedDate}
-                  onChange={(date) => setSelectedDate(date)}
-                  className="custom-select"
-                  dateFormat={"dd MMM yyyy"}
-                  minDate={fechaActual}
-                  maxDate={fechaSemana}
-                  locale="es"
-                  placeholderText="Ingrese la fecha"
-                />
-              </div>
-
-              <div className="col-sm-12 col-md-12 col-lg-3 pb-3">
-                <button className="w-100 boton-busqueda">Buscar</button>
-              </div>
             </div>
           </div>
 
