@@ -110,10 +110,7 @@ const obtenerTodasLasReservas = () => {
             indiceDia, 
             indiceHorario,
           };
-
-          console.log("infoReserva: ", infoReserva);
           todasLasReservas.push(infoReserva);
-          console.log("todasLasReservas: ",todasLasReservas);
         }
       });
     });
@@ -159,18 +156,13 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
   const obtenerCanchas = async () => {
     const { data } = await axios.get("https://juegafulbo-back.onrender.com/api/canchas");
     setCanchas([...data]);
-    // console.log("data", data);
-    // console.log("canchas", canchas.length);
   };
 
   useEffect(() => {
     obtenerCanchas();
-    // obtenerReserva();
   }, []);
 
   const eliminarCancha = async (id) => {
-    // console.log(id, "deleteProducto");
-    // console.log(canchas, "canchas");
     const canchaAEliminar = canchas.find((cancha) => cancha._id === id);
     const result = await Swal.fire({
       icon: "question",
@@ -194,8 +186,6 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
 
   const reservarCancha = async (idUsuario, dia, horario, idCancha) => {
     const canchaReserva = canchas.find((cancha) => cancha._id === idCancha);
-    // const numeroCancha = canchaReserva.numero;
-    console.log(canchaReserva.reservas[dia][horario], "reserva");
     if (canchaReserva && canchaReserva.reservas[dia][horario] === null) {
       try {
         await axios.put(
@@ -233,7 +223,6 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
     window.location.href = "/administracion";
   };
   const updateCancha = async (updatedCancha) => {
-    console.log(updatedCancha);
     try {
       await axios.put(
         `https://juegafulbo-back.onrender.com/api/canchas/${updatedCancha._id}`,
