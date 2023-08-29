@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { UsuariosContext } from "../../../context/UsuariosContext";
 import { useContext } from "react";
-// import Swal from "sweetalert2";
+import Swal from "sweetalert2";
 
 const RegistroForm = () => {
   const { addUsuarios, usuarios } = useContext(UsuariosContext);
@@ -52,13 +52,13 @@ const RegistroForm = () => {
           rol: "usuario",
         });
 
-        // await Swal.fire({
-        //   position: 'top-center',
-        //   icon: 'success',
-        //   title: '¡Registro exitoso!',
-        //   showConfirmButton: false,
-        //   timer: 3500
-        // });
+        await Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: '¡Registro exitoso!',
+          showConfirmButton: false,
+          timer: 3500
+        });
 
         window.location.href = "/";
       } catch (error) {
@@ -135,8 +135,6 @@ const RegistroForm = () => {
                     className="custom-form-control custom-bg-dark placeholder-registro"
                     name="email"
                     value={dataUser.email}
-                    // pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
-                    // "
                     minLength={4}
                     maxLength={30}
                     placeholder="Ingrese su email"
@@ -156,8 +154,10 @@ const RegistroForm = () => {
                     type="password"
                     id="password"
                     className="custom-form-control custom-bg-dark placeholder-registro"
-                    minLength={6}
+                    minLength={8}
                     maxLength={15}
+                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+                    title="Una mayuscula, una minuscula y números. Tamaño mínimo: 8. Tamaño máximo: 20"
                     name="password"
                     placeholder="Ingrese su contraseña"
                     value={dataUser.password}

@@ -32,9 +32,6 @@ const CardComponent = ({ nombre, foto, descripcion, github, linkedin }) => {
       margin-bottom: 8px;
     }
 
-    .card__descripcion {
-            height: 100px;
-
       font-size: 16px;
       margin-bottom: 16px;
     }
@@ -56,7 +53,6 @@ const CardComponent = ({ nombre, foto, descripcion, github, linkedin }) => {
       <div className="card">
         <img src={foto} alt={nombre} className="card__foto" />
         <h2 className="card__nombre">{nombre}</h2>
-        <p className="card__descripcion">{descripcion}</p>
         <div className="card__redes d-flex justify-content-between px-4">
           {linkedin && (
             <a

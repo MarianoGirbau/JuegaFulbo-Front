@@ -119,12 +119,6 @@ const UsuariosProvider = ({ children }) => {
   const addUsuarios = async (dataUser) => {
     await axios.post(`http://localhost:4000/api/user/registro`, dataUser);
 
-    await Swal.fire({
-      icon: "success",
-      title: "Usuario registrado",
-      showConfirmButton: false,
-      timer: 5500,
-    });
   };
 
   const updateUsuario = async (updatedUsuario) => {
