@@ -24,7 +24,8 @@ const UsuariosProvider = ({ children }) => {
       const jwtToken = response.data.data.token;
       const jwtDecode = jwt_decode(jwtToken);
 
-      console.log(jwtDecode);
+      console.log(jwtDecode, "token");
+
       const user = {
         id: jwtDecode.id,
         nombre: jwtDecode.nombre,
@@ -32,7 +33,8 @@ const UsuariosProvider = ({ children }) => {
         email: jwtDecode.email,
         rol: jwtDecode.rol,
       };
-
+      
+      localStorage.setItem("token", JSON.stringify(jwtToken));
       localStorage.setItem("usuario", JSON.stringify(user));
       Swal.fire({
         icon: 'success',
@@ -41,7 +43,6 @@ const UsuariosProvider = ({ children }) => {
         timer: 1500
       })
       setUsuarioLogueado(user);
-      // console.log("usuario: ", usuarioLogueado);
       
       setTimeout(() => {
       if (user.rol === "admin") {
@@ -75,10 +76,10 @@ const UsuariosProvider = ({ children }) => {
       setUsuarioLogueado(null);
       localStorage.removeItem("usuario");
       localStorage.removeItem("reservasUsuario");
+      localStorage.removeItem("token");
       window.location.href = "/";
     }
 
-    // console.log(usuarioLogueado);
   };
 
   const getUsuarios = async () => {
@@ -86,15 +87,12 @@ const UsuariosProvider = ({ children }) => {
       const { data } = await axios.get(
         "http://localhost:4000/api/user/usuarios"
       );
-      // console.log(data);
       setUsuarios(data);
     } catch (error) {
       console.log(error);
     }
   };
   const eliminarUsuario = async (id) => {
-    // console.log(id, "deleteProducto");
-    // console.log(canchas, "canchas");
     const usuarioAEliminar = usuarios.find((usuario) => usuario._id === id);
     const result = await Swal.fire({
       icon: "question",
@@ -117,9 +115,15 @@ const UsuariosProvider = ({ children }) => {
   };
 
   const addUsuarios = async (dataUser) => {
-    await axios.post(`http://localhost:4000/api/user/registro`, dataUser);
-
+    try {
+      await axios.post(`http://localhost:4000/api/user/registro`, dataUser);
+      return true
+    } catch (error) {
+      console.log(error.response.status, "usu context");
+      return false
+    }
   };
+
 
   const updateUsuario = async (updatedUsuario) => {
     console.log(updatedUsuario, "updateUsuarioo");
@@ -145,11 +149,8 @@ const UsuariosProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // console.log("local", localStorage.getItem("usuario"));
     setUsuarioLogueado(JSON.parse(localStorage.getItem("usuario")));
     getUsuarios();
-    // console.log("usuarioLogueado (updated): ", usuarioLogueado);
-    // console.log("roll", usuarioLogueado.rol);
   }, []);
   return (
     <UsuariosContext.Provider
@@ -170,44 +171,3 @@ const UsuariosProvider = ({ children }) => {
 };
 
 export default UsuariosProvider;
-
-// const [users, setUsers] = useState();
-// const [userLogueado, setUserLogueado] = useState();
-
-// const login = async (email, password) => {
-//   console.log(email, password, "login Context");
-//   const response = await axios.post("http://localhost:8081/api/user/login", {
-//     email,
-//     password,
-//   });
-
-//   const jwtToken = response.data.data.token;
-//   const jwtDecode = jwt_decode(jwtToken);
-
-//   const user = {
-//     id: jwtDecode.id,
-//     nombre: jwtDecode.nombre,
-//     apellido: jwtDecode.apellido,
-//     email: jwtDecode.email,
-//     rol: jwtDecode.rol,
-//   };
-
-//   localStorage.setItem("user", JSON.stringify(user));
-//   setUserLogueado(user);
-//   console.log(user);
-
-//   if (user.rol === "admin") {
-//     window.location.href = "/admin";
-//   } else {
-//     window.location.href = "/";
-//   }
-// };
-
-// const logout = () => {
-//   localStorage.removeItem("user");
-//   window.location.href = "/login";
-// };
-
-// useEffect(() => {
-//   getUsers();
-// }, []);

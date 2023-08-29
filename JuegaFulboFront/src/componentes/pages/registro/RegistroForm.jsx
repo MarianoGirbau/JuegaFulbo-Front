@@ -8,7 +8,7 @@ import { useContext } from "react";
 import Swal from "sweetalert2";
 
 const RegistroForm = () => {
-  const { addUsuarios, usuarios } = useContext(UsuariosContext);
+  const {addUsuarios} = useContext(UsuariosContext);
   const [dataUser, setDataUser] = useState({
     nombre: "",
     apellido: "",
@@ -32,41 +32,34 @@ const RegistroForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("antes", dataUser);
-
-    const emails = usuarios.some((usuario) => usuario.email === dataUser.email);
-
-    if (emails) {
-      setEmails(true);
-    } else if (dataUser.password === dataUser.confirmPassword) {
+    
+    if (dataUser.password === dataUser.confirmPassword) {
       // Contraseñas coinciden
       setPasswords(true);
-
-      try {
-        addUsuarios(dataUser);
-        setDataUser({
-          nombre: "",
-          apellido: "",
-          email: "",
-          password: "",
-          confirmPassword: "",
-          rol: "usuario",
-        });
-
-        await Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: '¡Registro exitoso!',
-          showConfirmButton: false,
-          timer: 3500
-        });
-
-        window.location.href = "/";
-      } catch (error) {
-        console.log(error);
-      }
     } else {
       // Contraseñas no coinciden
       setPasswords(false);
+    }
+    if (passwords) {
+        setEmails(addUsuarios(dataUser));
+        if (emails) {
+          setDataUser({
+            nombre: "",
+            apellido: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+            rol: "usuario",
+          });
+          await Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: '¡Registro exitoso!',
+            showConfirmButton: false,
+            timer: 3500
+          });
+          window.location.href = "/";
+        }
     }
   };
 
