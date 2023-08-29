@@ -19,6 +19,7 @@
     border: 1px solid var(--primary-letter);
     border-radius: 1rem;
     padding: 1rem;
+    margin-bottom: 1rem;
 }
 
 .sub-h2 {
