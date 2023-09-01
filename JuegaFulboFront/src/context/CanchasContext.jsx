@@ -152,7 +152,7 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
 
   const obtenerCanchas = async () => {
     try {
-      const { data } = await axios.get("http://localhost:4000/api/canchas");
+      const { data } = await axios.get("https://juegafulbo-back.onrender.com/api/canchas");
       setCanchas([...data]);
     } catch (error) {
       console.error("Error al obtener las canchas",error)
