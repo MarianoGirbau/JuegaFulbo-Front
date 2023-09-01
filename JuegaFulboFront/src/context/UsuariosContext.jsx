@@ -10,7 +10,6 @@ const UsuariosProvider = ({ children }) => {
   const [usuarioLogueado, setUsuarioLogueado] = useState();
 
   const login = async (email, password) => {
-    console.log(email, password, "login Context");
     try {
       const response = await axios.post(
         "http://localhost:4000/api/user/login",
@@ -19,12 +18,9 @@ const UsuariosProvider = ({ children }) => {
           password,
         }
       );
-      console.log(response, "response");
        
       const jwtToken = response.data.data.token;
       const jwtDecode = jwt_decode(jwtToken);
-
-      console.log(jwtDecode, "token");
 
       const user = {
         id: jwtDecode.id,
@@ -54,7 +50,6 @@ const UsuariosProvider = ({ children }) => {
       return user;
 
     } catch (error) {
-      console.log(error,"login");
       Swal.fire({
         icon: "error",
         title: "Los datos ingresados no son correctos",
@@ -89,7 +84,7 @@ const UsuariosProvider = ({ children }) => {
       );
       setUsuarios(data);
     } catch (error) {
-      console.log(error);
+      console.error("Error al obtener los usuarios",error);
     }
   };
   const eliminarUsuario = async (id) => {
@@ -109,7 +104,7 @@ const UsuariosProvider = ({ children }) => {
         const canchasFiltradas = usuarios.filter((cancha) => cancha._id !== id);
         setUsuarios(canchasFiltradas);
       } catch (error) {
-        console.log(error);
+        console.error("Error al eliminar el usuario",error);
       }
     }
   };
@@ -119,14 +114,13 @@ const UsuariosProvider = ({ children }) => {
       await axios.post(`http://localhost:4000/api/user/registro`, dataUser);
       return true
     } catch (error) {
-      console.log(error.response.status, "usu context");
+      console.error("Error al agregar el usuario", error);
       return false
     }
   };
 
 
   const updateUsuario = async (updatedUsuario) => {
-    console.log(updatedUsuario, "updateUsuarioo");
     try {
       await axios.put(
         `http://localhost:4000/api/user/usuarios/${updatedUsuario._id}`,
@@ -144,7 +138,7 @@ const UsuariosProvider = ({ children }) => {
       );
       setUsuarios(newUsuarios);
     } catch (error) {
-      console.log(error);
+      console.error("Error al actualizar el usuario",error);
     }
   };
 

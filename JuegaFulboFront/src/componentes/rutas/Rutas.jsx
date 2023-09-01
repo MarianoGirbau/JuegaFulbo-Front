@@ -9,7 +9,6 @@ import MisReservas from "../pages/reservas/MisReservas.jsx";
 import SobreNosotros from "../pages/sobrenosotros/SobreNosotros";
 
 const usuarioLogueado = JSON.parse(localStorage.getItem("usuario"));
-console.log(usuarioLogueado);
 
 const Rutas = () => {
   return (

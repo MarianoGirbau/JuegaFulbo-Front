@@ -107,10 +107,7 @@ const obtenerTodasLasReservas = () => {
             indiceDia, 
             indiceHorario,
           };
-
-          console.log("infoReserva: ", infoReserva);
           todasLasReservas.push(infoReserva);
-          console.log("todasLasReservas: ",todasLasReservas);
         }
       });
     });
@@ -143,7 +140,7 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
         return false;
       }
     } else {
-      console.log("Reserva no encontrada en la cancha.");
+      //Reserva no encontrada en la cancha
       return false;
     }
   } catch (error) {
@@ -158,7 +155,7 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
       const { data } = await axios.get("http://localhost:4000/api/canchas");
       setCanchas([...data]);
     } catch (error) {
-      console.log(error)
+      console.error("Error al obtener las canchas",error)
     }
   };
 
@@ -184,7 +181,7 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
         const canchasFiltradas = canchas.filter((cancha) => cancha._id !== id);
         setCanchas(canchasFiltradas);
       } catch (error) {
-        console.log(error);
+        console.error("Error al eliminar la cancha",error);
       }
     }
   };
@@ -204,7 +201,7 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
         });
         
       } catch (error) {
-        console.log("ERROR", error);
+        console.error("Error al reservar la cancha", error);
       }
     } else {
       Swal.fire({
@@ -241,7 +238,7 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
       });
 
     } catch (error) {
-      console.log(error);
+      console.error("Error al actualizar la cancha",error);
     }
   };
 

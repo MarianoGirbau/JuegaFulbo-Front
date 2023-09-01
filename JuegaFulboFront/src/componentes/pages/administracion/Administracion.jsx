@@ -120,7 +120,12 @@ const Admincomp = () => {
                           reserva.indiceHorario
                         );
                         if (exito) {
-                          console.log("Reserva borrada con éxito.");
+                          await Swal.fire({
+                            icon: "success",
+                            title: "Reserva borrada con exito",
+                            showConfirmButton: false,
+                            timer: 2000,
+                          });
                         }
                       }
                     }}

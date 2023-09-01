@@ -22,7 +22,6 @@ const RegistroForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     setDataUser((prevData) => ({
       ...prevData,
       [name]: value,
@@ -31,7 +30,6 @@ const RegistroForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("antes", dataUser);
     
     if (dataUser.password === dataUser.confirmPassword) {
       // Contraseñas coinciden
