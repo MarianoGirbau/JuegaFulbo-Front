@@ -39,8 +39,10 @@ const RegistroForm = () => {
       setPasswords(false);
     }
     if (passwords) {
-        setEmails(addUsuarios(dataUser));
-        if (emails) {
+      try {
+        var response = await addUsuarios(dataUser);
+        
+        if (!response) {
           setDataUser({
             nombre: "",
             apellido: "",
@@ -49,15 +51,17 @@ const RegistroForm = () => {
             confirmPassword: "",
             rol: "usuario",
           });
-          await Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: '¡Registro exitoso!',
-            showConfirmButton: false,
-            timer: 3500
-          });
           window.location.href = "/";
         }
+      } catch (error) {
+        if (error.response.status == 409) {
+          setEmails(true)
+        }
+        else{
+          console.error(error)
+        }
+      }
+        
     }
   };
 
@@ -90,7 +94,7 @@ const RegistroForm = () => {
                     id="nombre"
                     className="custom-form-control custom-bg-dark placeholder-registro"
                     name="nombre"
-                    value={dataUser.name}
+                    value={dataUser.nombre}
                     onChange={(e) => handleChange(e)}
                     pattern="^[a-zA-ZÀ-ÿ\s]{1,40}$"
                     minLength={3}

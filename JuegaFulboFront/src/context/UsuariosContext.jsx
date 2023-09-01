@@ -112,10 +112,17 @@ const UsuariosProvider = ({ children }) => {
   const addUsuarios = async (dataUser) => {
     try {
       await axios.post(`http://localhost:4000/api/user/registro`, dataUser);
-      return true
+      await Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: '¡Registro exitoso!',
+        showConfirmButton: false,
+        timer: 3500
+      });
+      return false
     } catch (error) {
       console.error("Error al agregar el usuario", error);
-      return false
+      throw error
     }
   };
 
