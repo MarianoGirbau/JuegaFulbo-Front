@@ -19,7 +19,6 @@ const CanchasProvider = ({ children }) => {
   const [canchas, setCanchas] = useState([]);
   const [MisReservas, setMisReservas] = useState([]);
 
-// Dentro de la función obtenerReserva
 const obtenerReserva = async (idUsuario) => {
   const reservasEncontradas = [];
   canchas.forEach((cancha) => {

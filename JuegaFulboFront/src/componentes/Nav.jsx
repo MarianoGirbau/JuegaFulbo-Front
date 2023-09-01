@@ -5,7 +5,6 @@ import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useContext, useState } from "react";
 import ModalLogin from "./ModalLogin";
-/* import PropTypes from "prop-types"; */
 import { UsuariosContext } from "../context/UsuariosContext";
 import "./Nav.css";
 

@@ -45,7 +45,7 @@ const Contacto = () => {
 
     emailjs
       .sendForm(serviceId, templateId, refForm.current, apikey)
-      .then((result) => {
+      .then( () => {
 
         setFormData({
           username: "",

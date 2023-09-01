@@ -5,7 +5,6 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { UsuariosContext } from "../../../context/UsuariosContext";
 import { useContext } from "react";
-import Swal from "sweetalert2";
 
 const RegistroForm = () => {
   const {addUsuarios} = useContext(UsuariosContext);

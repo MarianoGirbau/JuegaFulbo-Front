@@ -1,7 +1,5 @@
 import PropTypes from "prop-types";
 import ModalCRUD from "./ModalCRUD";
-// import { CanchasContext } from "../context/CanchasContext";
-// import { UsuariosContext } from "../context/UsuariosContext";
 
 import { useState } from "react";
 
@@ -15,7 +13,7 @@ export default function Tabla({ ths, trs, eliminar, cancha }) {
     setShow(true);
     setActualizarCancha(cancha);
   };
-  // const handleUpdate = () => {};
+
   return (
     <>
       <table className="table mb-5" id="lista-de-canchas">

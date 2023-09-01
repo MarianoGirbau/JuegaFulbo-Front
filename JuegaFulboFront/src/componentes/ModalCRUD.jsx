@@ -107,7 +107,6 @@ export default function ModalCRUD({
       !isNumberNonNegative(dataCancha.capacidad) ||
       !isNumberNonNegative(dataCancha.precio)
     ) {
-      // Mostrar un mensaje de error o tomar la acción apropiada para manejar la validación fallida
       return;
     }
     if (actualizar) {
@@ -129,7 +128,6 @@ export default function ModalCRUD({
     const { name, value } = e.target;
     if (name === "numero" || name === "capacidad" || name === "precio") {
       if (parseFloat(value) < 0) {
-        // Ignorar valores negativos, no actualices el estado
         return;
       }
     }
@@ -177,7 +175,6 @@ export default function ModalCRUD({
                     className="custom-form-control custom-bg-dark placeholder-usuarios"
                     name="capacidad"
                     value={dataCancha.capacidad}
-                    // pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                     minLength={10}
                     maxLength={30}
                     onChange={(e) => handleChangeCancha(e)}

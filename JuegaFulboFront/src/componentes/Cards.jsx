@@ -3,10 +3,8 @@ import "./Cards.css";
 import { useContext, useState } from "react";
 import { CanchasContext } from "../context/CanchasContext";
 import "react-datepicker/dist/react-datepicker.css";
-import DatePicker from "react-datepicker";
 import { registerLocale } from 'react-datepicker';
 import es from 'date-fns/locale/es';
-import { addDays } from 'date-fns'
 
 
 registerLocale('es', es);
@@ -14,19 +12,13 @@ registerLocale('es', es);
 
 function Cards() {
   const { canchas } = useContext(CanchasContext);
-  const [selectedDate, setSelectedDate] = useState(null);
   const [selectedOption1, setSelectedOption1] = useState("");
-  const [selectedOption2, setSelectedOption2] = useState("");
 
   const handleOptionChange1 = (event) => {
     setSelectedOption1(event.target.value);
   };
-  const handleOptionChange2 = (event) => {
-    setSelectedOption2(event.target.value);
-  };
 
-  var fechaActual = new Date();
-  var fechaSemana = addDays(fechaActual,7);
+
   
   const filteredCanchas = canchas.filter((cancha) => {
     if (selectedOption1 === "") {
@@ -48,7 +40,7 @@ function Cards() {
               <div className="col-sm-12 col-md-4 col-lg-3 pb-3">
                 <label htmlFor="opciones1"></label>
                 <select id="opciones1" className="w-100 custom-select" value={selectedOption1} onChange={handleOptionChange1}>
-                  <option disabled value="">
+                  <option value="">
                     Tipo de Futbol
                   </option>
                   <option>Futbol 5</option>
