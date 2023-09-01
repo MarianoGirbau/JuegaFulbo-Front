@@ -22,8 +22,6 @@ const UsuariosProvider = ({ children }) => {
       const jwtToken = response.data.data.token;
       const jwtDecode = jwt_decode(jwtToken);
 
-      console.log(jwtDecode);
-      
       const user = {
         id: jwtDecode.id,
         nombre: jwtDecode.nombre,
@@ -31,7 +29,8 @@ const UsuariosProvider = ({ children }) => {
         email: jwtDecode.email,
         rol: jwtDecode.rol,
       };
-
+      
+      localStorage.setItem("token", JSON.stringify(jwtToken));
       localStorage.setItem("usuario", JSON.stringify(user));
       Swal.fire({
         icon: 'success',
@@ -52,7 +51,6 @@ const UsuariosProvider = ({ children }) => {
       return user;
 
     } catch (error) {
-      console.log(error,"login");
       Swal.fire({
         icon: "error",
         title: "Los datos ingresados no son correctos",
@@ -74,10 +72,10 @@ const UsuariosProvider = ({ children }) => {
       setUsuarioLogueado(null);
       localStorage.removeItem("usuario");
       localStorage.removeItem("reservasUsuario");
+      localStorage.removeItem("token");
       window.location.href = "/";
     }
 
-    // console.log(usuarioLogueado);
   };
 
   const getUsuarios = async () => {
@@ -85,15 +83,12 @@ const UsuariosProvider = ({ children }) => {
       const { data } = await axios.get(
         "https://juegafulbo-back.onrender.com/api/user/usuarios"
       );
-      // console.log(data);
       setUsuarios(data);
     } catch (error) {
-      console.log(error);
+      console.error("Error al obtener los usuarios",error);
     }
   };
   const eliminarUsuario = async (id) => {
-    // console.log(id, "deleteProducto");
-    // console.log(canchas, "canchas");
     const usuarioAEliminar = usuarios.find((usuario) => usuario._id === id);
     const result = await Swal.fire({
       icon: "question",
@@ -110,24 +105,30 @@ const UsuariosProvider = ({ children }) => {
         const canchasFiltradas = usuarios.filter((cancha) => cancha._id !== id);
         setUsuarios(canchasFiltradas);
       } catch (error) {
-        console.log(error);
+        console.error("Error al eliminar el usuario",error);
       }
     }
   };
 
   const addUsuarios = async (dataUser) => {
-    await axios.post(`https://juegafulbo-back.onrender.com/api/user/registro`, dataUser);
-
-    await Swal.fire({
-      icon: "success",
-      title: "Usuario registrado",
-      showConfirmButton: false,
-      timer: 5500,
-    });
+    try {
+      await axios.post(`http://localhost:4000/api/user/registro`, dataUser);
+      await Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: '¡Registro exitoso!',
+        showConfirmButton: false,
+        timer: 3500
+      });
+      return false
+    } catch (error) {
+      console.error("Error al agregar el usuario", error);
+      throw error
+    }
   };
 
+
   const updateUsuario = async (updatedUsuario) => {
-    console.log(updatedUsuario, "updateUsuarioo");
     try {
       await axios.put(
         `https://juegafulbo-back.onrender.com/api/user/usuarios/${updatedUsuario._id}`,
@@ -145,16 +146,13 @@ const UsuariosProvider = ({ children }) => {
       );
       setUsuarios(newUsuarios);
     } catch (error) {
-      console.log(error);
+      console.error("Error al actualizar el usuario",error);
     }
   };
 
   useEffect(() => {
-    // console.log("local", localStorage.getItem("usuario"));
     setUsuarioLogueado(JSON.parse(localStorage.getItem("usuario")));
     getUsuarios();
-    // console.log("usuarioLogueado (updated): ", usuarioLogueado);
-    // console.log("roll", usuarioLogueado.rol);
   }, []);
   return (
     <UsuariosContext.Provider
@@ -175,4 +173,3 @@ const UsuariosProvider = ({ children }) => {
 };
 
 export default UsuariosProvider;
-

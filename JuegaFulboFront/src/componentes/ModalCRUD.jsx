@@ -119,7 +119,6 @@ export default function ModalCRUD({
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     setDataUser((prevData) => ({
       ...prevData,
       [name]: value,
@@ -128,7 +127,6 @@ export default function ModalCRUD({
 
   const handleChangeCancha = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     if (name === "numero" || name === "capacidad" || name === "precio") {
       if (parseFloat(value) < 0) {
         // Ignorar valores negativos, no actualices el estado

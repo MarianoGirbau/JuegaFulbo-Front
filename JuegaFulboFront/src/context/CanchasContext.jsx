@@ -22,8 +22,6 @@ const CanchasProvider = ({ children }) => {
 // Dentro de la función obtenerReserva
 const obtenerReserva = async (idUsuario) => {
   const reservasEncontradas = [];
-  let tieneReservas = false; // Inicializamos la bandera en falso
-
   canchas.forEach((cancha) => {
     cancha.reservas.forEach((reserva, indiceDia) => {
       reserva.forEach((idReserva, indiceHorario) => {
@@ -80,7 +78,6 @@ const obtenerReserva = async (idUsuario) => {
             precio: cancha.precio
           };
           reservasEncontradas.push(infoReserva);
-          tieneReservas = true; // Actualizamos la bandera cuando se encuentra una reserva
         }
       });
     });
@@ -143,7 +140,7 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
         return false;
       }
     } else {
-      console.log("Reserva no encontrada en la cancha.");
+      //Reserva no encontrada en la cancha
       return false;
     }
   } catch (error) {
@@ -154,8 +151,12 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
 
 
   const obtenerCanchas = async () => {
-    const { data } = await axios.get("https://juegafulbo-back.onrender.com/api/canchas");
-    setCanchas([...data]);
+    try {
+      const { data } = await axios.get("http://localhost:4000/api/canchas");
+      setCanchas([...data]);
+    } catch (error) {
+      console.error("Error al obtener las canchas",error)
+    }
   };
 
   useEffect(() => {
@@ -179,7 +180,7 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
         const canchasFiltradas = canchas.filter((cancha) => cancha._id !== id);
         setCanchas(canchasFiltradas);
       } catch (error) {
-        console.log(error);
+        console.error("Error al eliminar la cancha",error);
       }
     }
   };
@@ -199,7 +200,7 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
         });
         
       } catch (error) {
-        console.log("ERROR", error);
+        console.error("Error al reservar la cancha", error);
       }
     } else {
       Swal.fire({
@@ -235,12 +236,8 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
         timer: 2000,
       });
 
-      const newCanchas = canchas.map((cancha) =>
-        cancha._id === updatedCancha._id ? updatedCancha : cancha
-      );
-      setCanchas(newCanchas);
     } catch (error) {
-      console.log(error);
+      console.error("Error al actualizar la cancha",error);
     }
   };
 
@@ -265,5 +262,3 @@ const eliminarReserva = async (idUsuario, indiceDia, indiceHorario) => {
 };
 
 export default CanchasProvider;
-
-

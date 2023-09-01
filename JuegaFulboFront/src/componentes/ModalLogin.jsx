@@ -92,13 +92,13 @@ export function ModalLogin({ show, handleClose }) {
                 </button>
               </div>
 
-              <a className="cuentalogin" href="">
+              <a className="cuentalogin" href="/error404">
                 ¿Olvidaste tu contraseña?
               </a>
               <button className="botonlogin">INGRESAR</button>
               <h4 className="cuentalogin">
                 ¿NO TIENES UNA CUENTA?{" "}
-                <a className="cuentalogin" href="">
+                <a className="cuentalogin" href="/registro">
                   Regístrate
                 </a>
               </h4>

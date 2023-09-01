@@ -5,10 +5,10 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { UsuariosContext } from "../../../context/UsuariosContext";
 import { useContext } from "react";
-// import Swal from "sweetalert2";
+import Swal from "sweetalert2";
 
 const RegistroForm = () => {
-  const { addUsuarios, usuarios } = useContext(UsuariosContext);
+  const {addUsuarios} = useContext(UsuariosContext);
   const [dataUser, setDataUser] = useState({
     nombre: "",
     apellido: "",
@@ -22,7 +22,6 @@ const RegistroForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     setDataUser((prevData) => ({
       ...prevData,
       [name]: value,
@@ -31,34 +30,38 @@ const RegistroForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("antes", dataUser);
-
-    const emails = usuarios.some((usuario) => usuario.email === dataUser.email);
-
-    if (emails) {
-      setEmails(true);
-    } else if (dataUser.password === dataUser.confirmPassword) {
+    
+    if (dataUser.password === dataUser.confirmPassword) {
       // Contraseñas coinciden
       setPasswords(true);
-
-      try {
-        addUsuarios(dataUser);
-        setDataUser({
-          nombre: "",
-          apellido: "",
-          email: "",
-          password: "",
-          confirmPassword: "",
-          rol: "usuario",
-        });
-
-        window.location.href = "/";
-      } catch (error) {
-        console.log(error);
-      }
     } else {
       // Contraseñas no coinciden
       setPasswords(false);
+    }
+    if (passwords) {
+      try {
+        var response = await addUsuarios(dataUser);
+        
+        if (!response) {
+          setDataUser({
+            nombre: "",
+            apellido: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+            rol: "usuario",
+          });
+          window.location.href = "/";
+        }
+      } catch (error) {
+        if (error.response.status == 409) {
+          setEmails(true)
+        }
+        else{
+          console.error(error)
+        }
+      }
+        
     }
   };
 
@@ -88,7 +91,7 @@ const RegistroForm = () => {
                     id="nombre"
                     className="custom-form-control custom-bg-dark placeholder-registro"
                     name="nombre"
-                    value={dataUser.name}
+                    value={dataUser.nombre}
                     onChange={(e) => handleChange(e)}
                     pattern="^[a-zA-ZÀ-ÿ\s]{1,40}$"
                     minLength={3}
@@ -124,8 +127,6 @@ const RegistroForm = () => {
                     className="custom-form-control custom-bg-dark placeholder-registro"
                     name="email"
                     value={dataUser.email}
-                    // pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
-                    // "
                     minLength={4}
                     maxLength={30}
                     placeholder="Ingrese su email"
@@ -145,8 +146,10 @@ const RegistroForm = () => {
                     type="password"
                     id="password"
                     className="custom-form-control custom-bg-dark placeholder-registro"
-                    minLength={6}
+                    minLength={8}
                     maxLength={15}
+                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+                    title="Una mayuscula, una minuscula y números. Tamaño mínimo: 8. Tamaño máximo: 20"
                     name="password"
                     placeholder="Ingrese su contraseña"
                     value={dataUser.password}

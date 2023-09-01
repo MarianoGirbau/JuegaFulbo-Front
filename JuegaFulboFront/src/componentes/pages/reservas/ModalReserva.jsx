@@ -18,7 +18,6 @@ export function ModalReserva({
   const usuario = JSON.parse(localStorage.getItem("usuario"));
   if (usuario) {
     var idUsuario = usuario.id; //Obtener id de usuario del localStorage
-    console.log(idUsuario, "usuario");
   }
 
   var fechaHoy = new Date();
@@ -37,9 +36,6 @@ export function ModalReserva({
     event.preventDefault();
     if (idUsuario != null) {
       reservarCancha(idUsuario, diaSemana, horario, idCancha);
-      console.log("Día seleccionado:", diaSemana);
-      console.log("Horario seleccionado:", horario);
-      console.log("cancha seleccionada:", idCancha);
     } else {
       Swal.fire({
         icon: "error",

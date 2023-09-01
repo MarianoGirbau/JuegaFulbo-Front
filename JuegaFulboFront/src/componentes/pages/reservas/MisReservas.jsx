@@ -12,8 +12,6 @@ export default function MisReservas() {
   useEffect(() => {
     async function fetchReservas() {
       if (usuario) {
-        console.log(idUsuario, "usuario");
-
         try {
           const reservas = await obtenerReserva(idUsuario);
           setReservasGuardadas(reservas);

@@ -3,10 +3,12 @@ import "./Administracion.css";
 import { CanchasContext } from "../../../context/CanchasContext";
 import { UsuariosContext } from "../../../context/UsuariosContext";
 import { useContext, useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import ModalCRUD from "../../ModalCRUD";
 
 const Admincomp = () => {
-  const { canchas, eliminarCancha, obtenerTodasLasReservas, eliminarReserva } = useContext(CanchasContext);
+  const { canchas, eliminarCancha, obtenerTodasLasReservas, eliminarReserva } =
+    useContext(CanchasContext);
   const { usuarios, eliminarUsuario } = useContext(UsuariosContext);
   const [show, setShow] = useState(false);
   const [modalCancha, setModalCancha] = useState(false);
@@ -14,7 +16,9 @@ const Admincomp = () => {
 
   const obtenerDatosUsuario = (idUsuario) => {
     const usuario = usuarios.find((usuario) => usuario._id === idUsuario);
-    return usuario ? `${usuario.nombre} ${usuario.apellido}` : "Usuario Desconocido";
+    return usuario
+      ? `${usuario.nombre} ${usuario.apellido}`
+      : "Usuario Desconocido";
   };
 
   useEffect(() => {
@@ -101,12 +105,27 @@ const Admincomp = () => {
                 <td>
                   <button
                     className="btn btn-outline-secondary eliminar"
-                    onClick={() => {
-                      const confirmDelete = window.confirm("¿Estás seguro de eliminar esta reserva?");
-                      if (confirmDelete) {
-                        const exito = eliminarReserva(reserva.idUsuario, reserva.indiceDia, reserva.indiceHorario);
+                    onClick={async () => {
+                      const result = await Swal.fire({
+                        icon: "question",
+                        title: `¿Estás seguro de que desea eliminar la reserva?`,
+                        showCancelButton: true,
+                        cancelButtonText: "No",
+                        confirmButtonText: "Sí",
+                      });
+                      if (result.isConfirmed) {
+                        const exito = eliminarReserva(
+                          reserva.idUsuario,
+                          reserva.indiceDia,
+                          reserva.indiceHorario
+                        );
                         if (exito) {
-                          console.log("Reserva borrada con éxito.");
+                          await Swal.fire({
+                            icon: "success",
+                            title: "Reserva borrada con exito",
+                            showConfirmButton: false,
+                            timer: 2000,
+                          });
                         }
                       }
                     }}
@@ -117,7 +136,7 @@ const Admincomp = () => {
           </tbody>
         </table>
       </div>
-      
+
       <div className="subtitulo">
         <h3>TABLA DE QUINCHOS</h3>
         <hr className="mb-2" />
