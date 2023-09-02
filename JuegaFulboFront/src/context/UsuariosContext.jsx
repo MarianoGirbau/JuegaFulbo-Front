@@ -112,7 +112,7 @@ const UsuariosProvider = ({ children }) => {
 
   const addUsuarios = async (dataUser) => {
     try {
-      await axios.post(`http://localhost:4000/api/user/registro`, dataUser);
+      await axios.post(`https://juegafulbo-back.onrender.com/api/user/registro`, dataUser);
       await Swal.fire({
         position: 'center',
         icon: 'success',
