@@ -21,7 +21,7 @@ LINK A LA PÁGINA: https://i.ibb.co/sPDxC5P/Minititulo.jpg
 # Admin:
 *Para acceder como administrador*:
 > **Usuario:** admin@admin.com
-**Contraseña:** administrador12
+**Contraseña:** Administrador12
 
 # Integrantes:
 - Arias Gabriel Aron
