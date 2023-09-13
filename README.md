@@ -16,7 +16,7 @@ En resumen, JuegaFulbo no es solo una plataforma de alquiler de canchas y quinch
 
 En **JuegaFulbo**, nos inspiramos en la famosa frase de Messi: **"No puedo, tengo fulbo"**. Comprendemos profundamente la intensidad de esa emoción. El fútbol es más que un deporte, es una forma de vida, una pasión que nos une a todos. Esta conexión es lo que impulsó la creación de Juega Fulbo.
 
-LINK A LA PÁGINA: https://i.ibb.co/sPDxC5P/Minititulo.jpg
+LINK A LA PÁGINA: https://juegafulbo.netlify.app/
 
 # Admin:
 *Para acceder como administrador*:
