@@ -236,8 +236,7 @@ export default function ModalCRUD({
                     value={dataUser.nombre}
                     onChange={(e) => handleChange(e)}
                     pattern="^[a-zA-ZÀ-ÿ\s]{1,40}$"
-                    minLength={8}
-                    maxLength={15}
+                    maxLength={35}
                     placeholder="Ingrese su nombre"
                     required
                   />
@@ -249,8 +248,7 @@ export default function ModalCRUD({
                     id="apellido"
                     className="custom-form-control custom-bg-dark placeholder-usuarios"
                     pattern="^[a-zA-ZÀ-ÿ\s]{1,40}$"
-                    minLength={8}
-                    maxLength={15}
+                    maxLength={35}
                     placeholder="Ingrese su apellido"
                     name="apellido"
                     value={dataUser.apellido}
