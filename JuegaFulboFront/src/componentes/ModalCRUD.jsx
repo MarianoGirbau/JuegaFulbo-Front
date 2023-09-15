@@ -314,7 +314,7 @@ export default function ModalCRUD({
                 <Form.Group className="mb-2">
                   <Form.Label className="gruppo-font">Rol</Form.Label>
                   <Form.Control
-                    as="select" // Utilizamos el componente select
+                    as="select"
                     id="rol"
                     className="custom-form-control custom-bg-dark placeholder-usuarios"
                     name="rol"
@@ -332,7 +332,6 @@ export default function ModalCRUD({
                   id="botonLog"
                   type="submit"
                   className="w-100 boton-agregar"
-                  onClick={handleSubmit}
                 >
                   {actualizar ? (
                     <h4 className="m-0 py-3">Actualizar</h4>
